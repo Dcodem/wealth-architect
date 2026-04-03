@@ -170,10 +170,10 @@ export default function AddBankPage() {
                           }`}
                         >
                           <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
-                            acc.type === "Checking" ? "bg-blue-50" : acc.type === "Savings" ? "bg-emerald-50" : "bg-amber-50"
+                            acc.type === "Checking" ? "bg-blue-50" : acc.type === "Savings" ? "bg-success-container" : "bg-amber-50"
                           }`}>
                             <span aria-hidden="true" className={`material-symbols-outlined text-[20px] ${
-                              acc.type === "Checking" ? "text-blue-600" : acc.type === "Savings" ? "text-emerald-600" : "text-amber-600"
+                              acc.type === "Checking" ? "text-blue-600" : acc.type === "Savings" ? "text-on-success-container" : "text-amber-600"
                             }`}>
                               {acc.type === "Credit Card" ? "credit_card" : "account_balance"}
                             </span>
@@ -212,8 +212,8 @@ export default function AddBankPage() {
               {/* Step: Connected */}
               {step === "connected" && (
                 <div className="text-center py-6 space-y-6">
-                  <div className="w-20 h-20 rounded-full bg-emerald-50 flex items-center justify-center mx-auto">
-                    <span aria-hidden="true" className="material-symbols-outlined text-emerald-600 text-[40px]">check_circle</span>
+                  <div className="w-20 h-20 rounded-full bg-success-container flex items-center justify-center mx-auto">
+                    <span aria-hidden="true" className="material-symbols-outlined text-on-success-container text-[40px]">check_circle</span>
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-on-surface mb-1">Successfully Connected!</h3>
@@ -224,7 +224,7 @@ export default function AddBankPage() {
                   <div className="bg-surface-container-low rounded-xl p-4 text-left space-y-3">
                     {mockAccounts.filter((a) => selectedAccounts.includes(a.id)).map((acc) => (
                       <div key={acc.id} className="flex items-center gap-3">
-                        <span aria-hidden="true" className="material-symbols-outlined text-emerald-600 text-[18px]">check</span>
+                        <span aria-hidden="true" className="material-symbols-outlined text-on-success-container text-[18px]">check</span>
                         <span className="text-sm font-medium text-on-surface">{acc.name} ····{acc.last4}</span>
                       </div>
                     ))}

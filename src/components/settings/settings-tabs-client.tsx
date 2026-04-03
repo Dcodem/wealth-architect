@@ -24,7 +24,7 @@ const LABELS = [
   { name: "Plumbing", color: "bg-blue-500", count: 24 },
   { name: "Electrical", color: "bg-amber-500", count: 18 },
   { name: "HVAC", color: "bg-red-500", count: 12 },
-  { name: "Appliance", color: "bg-emerald-500", count: 9 },
+  { name: "Appliance", color: "bg-success-container0", count: 9 },
   { name: "Structural", color: "bg-orange-500", count: 6 },
   { name: "Pest Control", color: "bg-purple-500", count: 3 },
   { name: "General", color: "bg-slate-500", count: 15 },
@@ -104,7 +104,7 @@ export function SettingsTabsClient({
     { value: "bg-blue-500", label: "Blue" },
     { value: "bg-amber-500", label: "Amber" },
     { value: "bg-red-500", label: "Red" },
-    { value: "bg-emerald-500", label: "Green" },
+    { value: "bg-success-container0", label: "Green" },
     { value: "bg-purple-500", label: "Purple" },
     { value: "bg-orange-500", label: "Orange" },
     { value: "bg-slate-500", label: "Slate" },
@@ -265,7 +265,7 @@ export function SettingsTabsClient({
                   setAiLabelSuggestions([
                     { name: "Water Damage", color: "bg-blue-500", reason: "3 recent cases mention water/flooding but aren't categorized" },
                     { name: "Parking", color: "bg-slate-500", reason: "Detected 2 cases about parking disputes with no matching label" },
-                    { name: "Landscaping", color: "bg-emerald-500", reason: "Vendor ClearView Landscaping assigned but no label exists" },
+                    { name: "Landscaping", color: "bg-success-container0", reason: "Vendor ClearView Landscaping assigned but no label exists" },
                     { name: "Security", color: "bg-red-500", reason: "Lockout and access cases could benefit from a dedicated label" },
                   ]);
                   setShowAiLabels(true);
@@ -397,9 +397,9 @@ export function SettingsTabsClient({
                 Can manage cases and dispatch vendors. Can view properties and tenants. Cannot modify billing, team members, or AI settings.
               </p>
             </div>
-            <div className="bg-surface-container-lowest p-5 rounded-xl border-l-4 border-emerald-500">
+            <div className="bg-surface-container-lowest p-5 rounded-xl border-l-4 border-success">
               <div className="flex items-center gap-2 mb-2">
-                <span className="material-symbols-outlined text-emerald-600 text-lg">support_agent</span>
+                <span className="material-symbols-outlined text-on-success-container text-lg">support_agent</span>
                 <h4 className="text-sm font-bold text-on-surface">Front Desk</h4>
               </div>
               <p className="text-xs text-on-surface-variant leading-relaxed">

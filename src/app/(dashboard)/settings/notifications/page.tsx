@@ -105,7 +105,7 @@ export default function NotificationsPage() {
             aria-live="polite"
             className={`px-8 py-3 rounded-lg font-bold shadow-lg transition-all flex items-center gap-2 ${
               prefsSaved
-                ? "bg-emerald-500 text-white shadow-emerald-500/20"
+                ? "bg-success-container0 text-white shadow-success/20"
                 : "bg-gradient-to-br from-primary to-primary-container text-white hover:shadow-primary/20 hover:-translate-y-0.5 active:translate-y-0"
             }`}
           >

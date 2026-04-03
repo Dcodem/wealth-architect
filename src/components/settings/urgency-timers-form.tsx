@@ -23,7 +23,7 @@ const LEVELS = [
   { key: "critical", label: "Critical", dotColor: "bg-red-600" },
   { key: "high", label: "High", dotColor: "bg-orange-500" },
   { key: "medium", label: "Medium", dotColor: "bg-yellow-500" },
-  { key: "low", label: "Low", dotColor: "bg-emerald-500" },
+  { key: "low", label: "Low", dotColor: "bg-success-container0" },
 ] as const;
 
 export function UrgencyTimersForm({
@@ -108,7 +108,7 @@ export function UrgencyTimersForm({
             <p className="mt-4 text-sm text-red-600 font-medium">{state.error}</p>
           )}
           {state?.success && (
-            <p className="mt-4 text-sm text-emerald-600 font-medium">Saved successfully.</p>
+            <p className="mt-4 text-sm text-on-success-container font-medium">Saved successfully.</p>
           )}
         </div>
         <div className="bg-surface-container-low border-t border-outline-variant/20 px-8 py-4 flex justify-end">

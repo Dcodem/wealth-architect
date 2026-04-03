@@ -37,7 +37,7 @@ const COLUMNS = [
   { key: "new", label: "New Cases", dot: "bg-blue-600" },
   { key: "waiting_on_vendor", label: "Vendor Dispatched", dot: "bg-cyan-600" },
   { key: "in_progress", label: "In Progress", dot: "bg-amber-400" },
-  { key: "resolved", label: "Resolved", dot: "bg-emerald-500" },
+  { key: "resolved", label: "Resolved", dot: "bg-success-container0" },
 ] as const;
 
 interface CaseKanbanProps {
@@ -144,7 +144,7 @@ export function CaseKanban({ cases, properties, tenants }: CaseKanbanProps) {
                         {isResolved ? (
                           <>
                             <div className={`w-3 h-3 rounded-full ${URGENCY_DOT[c.urgency ?? "low"]}`}></div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-on-success-container">
                               <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                               <polyline points="22 4 12 14.01 9 11.01"></polyline>
                             </svg>

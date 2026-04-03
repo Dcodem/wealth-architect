@@ -119,7 +119,7 @@ export default function SplitTransactionPage({
               disabled={!isBalanced || !personalValid}
               className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold shadow-md transition-all ${
                 saved
-                  ? "bg-emerald-500 text-white shadow-emerald-500/20"
+                  ? "bg-success-container0 text-white shadow-success/20"
                   : isBalanced && personalValid
                   ? "bg-primary text-white shadow-primary/20 hover:opacity-90"
                   : "bg-outline-variant/30 text-on-surface-variant cursor-not-allowed shadow-none"
@@ -398,7 +398,7 @@ export default function SplitTransactionPage({
               {allocations.map((alloc, i) => {
                 const val = parseFloat(alloc.value) || 0;
                 const pct = (val / cap) * 100;
-                const colors = ["bg-primary", "bg-teal-500", "bg-amber-500"];
+                const colors = ["bg-primary", "bg-primary-fixed0", "bg-amber-500"];
                 return (
                   <div
                     key={i}
@@ -436,7 +436,7 @@ export default function SplitTransactionPage({
                 const dollarVal = isPercent
                   ? (val / 100) * totalAmount * (hasPersonal ? (businessCap / 100) : 1)
                   : val;
-                const colors = ["bg-primary", "bg-teal-500", "bg-amber-500"];
+                const colors = ["bg-primary", "bg-primary-fixed0", "bg-amber-500"];
                 return (
                   <div key={i} className="flex items-center justify-between py-3 px-4 bg-surface-container-low/40 rounded-xl">
                     <div className="flex items-center gap-3">
@@ -463,20 +463,20 @@ export default function SplitTransactionPage({
           {/* Balance status */}
           <div className={`px-6 py-4 flex items-center justify-between ${
             isBalanced && personalValid
-              ? "bg-emerald-50 border-t border-emerald-200/50"
+              ? "bg-success-container border-t border-success-border/50"
               : "bg-amber-50 border-t border-amber-200/50"
           }`}>
             <div className="flex items-center gap-3">
-              <span aria-hidden="true" className={`material-symbols-outlined ${isBalanced && personalValid ? "text-emerald-600" : "text-amber-600"}`}>
+              <span aria-hidden="true" className={`material-symbols-outlined ${isBalanced && personalValid ? "text-on-success-container" : "text-amber-600"}`}>
                 {isBalanced && personalValid ? "check_circle" : "warning"}
               </span>
               <div>
-                <p className={`text-sm font-bold ${isBalanced && personalValid ? "text-emerald-800" : "text-amber-800"}`}>
+                <p className={`text-sm font-bold ${isBalanced && personalValid ? "text-on-success-container" : "text-amber-800"}`}>
                   {isBalanced && personalValid
                     ? "Balanced — all amounts allocated"
                     : `${unit === "%" ? "" : "$"}${Math.abs(remaining).toFixed(isPercent ? 1 : 2)}${unit === "%" ? "%" : ""} remaining to allocate`}
                 </p>
-                <p className={`text-xs mt-0.5 ${isBalanced && personalValid ? "text-emerald-600" : "text-amber-600"}`}>
+                <p className={`text-xs mt-0.5 ${isBalanced && personalValid ? "text-on-success-container" : "text-amber-600"}`}>
                   {isBalanced && personalValid
                     ? `${hasPersonal ? "Personal + " : ""}${allocations.length} propert${allocations.length === 1 ? "y" : "ies"} totaling ${txn.amount}`
                     : "Distribute the remaining amount to save"}
@@ -484,12 +484,12 @@ export default function SplitTransactionPage({
               </div>
             </div>
             <div className="text-right">
-              <p className={`text-lg font-extrabold ${isBalanced && personalValid ? "text-emerald-700" : "text-amber-700"}`} style={{ fontFamily: "'Manrope', sans-serif" }}>
+              <p className={`text-lg font-extrabold ${isBalanced && personalValid ? "text-on-success-container" : "text-amber-700"}`} style={{ fontFamily: "'Manrope', sans-serif" }}>
                 {isPercent
                   ? `${(personalNum + allocatedBusiness).toFixed(1)}%`
                   : `$${((hasPersonal ? personalNum : 0) + allocatedBusiness).toFixed(2)}`}
               </p>
-              <p className={`text-[11px] uppercase tracking-wider font-bold ${isBalanced && personalValid ? "text-emerald-600" : "text-amber-600"}`}>
+              <p className={`text-[11px] uppercase tracking-wider font-bold ${isBalanced && personalValid ? "text-on-success-container" : "text-amber-600"}`}>
                 of {isPercent ? "100%" : txn.amount}
               </p>
             </div>

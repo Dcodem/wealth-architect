@@ -52,7 +52,7 @@ export default function OnboardingStep3() {
         return (
           <span
             aria-hidden="true"
-            className="material-symbols-outlined text-emerald-700"
+            className="material-symbols-outlined text-on-success-container"
             style={{ fontVariationSettings: "'FILL' 1" }}
           >
             check_circle
@@ -76,7 +76,7 @@ export default function OnboardingStep3() {
   const statusLabel = (status: TaskStatus) => {
     switch (status) {
       case "complete":
-        return <span className="text-xs font-semibold uppercase tracking-wider text-emerald-700">Complete</span>;
+        return <span className="text-xs font-semibold uppercase tracking-wider text-on-success-container">Complete</span>;
       case "in-progress":
         return <span className="text-xs font-semibold uppercase tracking-wider text-primary">In Progress</span>;
       case "pending":
@@ -129,11 +129,11 @@ export default function OnboardingStep3() {
                 <motion.div
                   initial={{ scale: 0.8, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
-                  className="w-24 h-24 rounded-full bg-emerald-50 flex items-center justify-center"
+                  className="w-24 h-24 rounded-full bg-success-container flex items-center justify-center"
                 >
                   <span
                     aria-hidden="true"
-                    className="material-symbols-outlined text-emerald-600 text-4xl"
+                    className="material-symbols-outlined text-on-success-container text-4xl"
                     style={{ fontVariationSettings: "'FILL' 1" }}
                   >
                     check_circle
@@ -201,7 +201,7 @@ export default function OnboardingStep3() {
                     Continue to Dashboard Setup
                   </Link>
                   <div className="flex items-center gap-2 text-on-surface-variant/70 bg-surface-container-high/40 px-5 py-2 rounded-full">
-                    <span aria-hidden="true" className="material-symbols-outlined text-sm text-emerald-600">cloud_done</span>
+                    <span aria-hidden="true" className="material-symbols-outlined text-sm text-on-success-container">cloud_done</span>
                     <p className="text-xs font-medium">Any remaining analysis will continue in the background</p>
                   </div>
                 </motion.div>

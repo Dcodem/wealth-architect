@@ -34,8 +34,8 @@ const resolutionConfig: Record<Resolution, { label: string; icon: string; color:
   "not-duplicate": {
     label: "Not a Duplicate",
     icon: "done_all",
-    color: "text-emerald-700",
-    bgColor: "bg-emerald-50",
+    color: "text-on-success-container",
+    bgColor: "bg-success-container",
     description: "Both transactions are legitimate. No changes made.",
   },
   reverted: {
@@ -121,7 +121,7 @@ export default function DuplicatesPage() {
         <section className="flex-1 min-w-0 flex flex-col gap-8">
           {visiblePairs.length === 0 ? (
             <div className="bg-surface-container-lowest rounded-xl p-12 card-shadow text-center border border-outline-variant/10">
-              <span aria-hidden="true" className="material-symbols-outlined text-[48px] text-emerald-400 block mb-3">task_alt</span>
+              <span aria-hidden="true" className="material-symbols-outlined text-[48px] text-success block mb-3">task_alt</span>
               <h3 className="text-lg font-bold text-on-surface mb-1">All pairs reviewed</h3>
               <p className="text-sm text-on-surface-variant">Every duplicate pair has been resolved. Check the resolution log for your decisions.</p>
             </div>
@@ -342,7 +342,7 @@ export default function DuplicatesPage() {
                     <div className="flex items-center gap-2">
                       <span className="text-sm font-bold text-on-surface">{count}</span>
                       {resolvedCount > 0 && (
-                        <span className="text-[11px] text-emerald-700 font-bold">({resolvedCount} done)</span>
+                        <span className="text-[11px] text-on-success-container font-bold">({resolvedCount} done)</span>
                       )}
                     </div>
                   </div>
@@ -376,10 +376,10 @@ export default function DuplicatesPage() {
             )}
 
             {Object.keys(resolutions).length === pairs.length && (
-              <div className="bg-emerald-50 border border-emerald-200/50 rounded-xl p-4 text-center">
-                <span aria-hidden="true" className="material-symbols-outlined text-emerald-600 text-[24px] block mb-1">task_alt</span>
-                <p className="text-sm font-bold text-emerald-800">All pairs reviewed</p>
-                <p className="text-xs text-emerald-600 mt-0.5">Check the resolution log for your decisions.</p>
+              <div className="bg-success-container border border-success-border/50 rounded-xl p-4 text-center">
+                <span aria-hidden="true" className="material-symbols-outlined text-on-success-container text-[24px] block mb-1">task_alt</span>
+                <p className="text-sm font-bold text-on-success-container">All pairs reviewed</p>
+                <p className="text-xs text-on-success-container mt-0.5">Check the resolution log for your decisions.</p>
               </div>
             )}
           </div>

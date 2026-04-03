@@ -182,7 +182,7 @@ export function ProfileClient({ user, orgName }: ProfileClientProps) {
               <h2 className="text-xl font-bold tracking-tight">Security &amp; Access</h2>
               <div className="bg-surface-container-low px-4 py-2 rounded-lg flex items-center gap-3">
                 <p className="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant">Current Active Session</p>
-                <span className="text-xs font-bold text-emerald-500">Active Session</span>
+                <span className="text-xs font-bold text-on-success-container">Active Session</span>
               </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -204,17 +204,17 @@ export function ProfileClient({ user, orgName }: ProfileClientProps) {
                   {resetting ? "Sending..." : "Reset Password"}
                 </button>
               </div>
-              <div className="flex items-center justify-between p-6 bg-emerald-50/30 rounded-xl border border-emerald-100">
+              <div className="flex items-center justify-between p-6 bg-success-container/30 rounded-xl border border-success-border">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center text-emerald-600">
+                  <div className="w-12 h-12 bg-success-container rounded-lg flex items-center justify-center text-on-success-container">
                     <span className="material-symbols-outlined text-2xl" style={{ fontVariationSettings: "'FILL' 1" }}>security</span>
                   </div>
                   <div>
                     <p className="text-sm font-bold">Two-Factor Authentication</p>
-                    <p className="text-xs text-emerald-600 font-medium">Enabled &amp; Secure</p>
+                    <p className="text-xs text-on-success-container font-medium">Enabled &amp; Secure</p>
                   </div>
                 </div>
-                <span className="text-xs font-bold text-emerald-700 px-4 py-2 rounded-lg border border-emerald-200">Enabled</span>
+                <span className="text-xs font-bold text-on-success-container px-4 py-2 rounded-lg border border-success-border">Enabled</span>
               </div>
             </div>
             {resetMsg && (

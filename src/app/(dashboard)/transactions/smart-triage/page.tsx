@@ -510,7 +510,7 @@ export default function TransactionReviewPage() {
                   {/* AI Recommendation */}
                   <div className="pt-5 border-t border-surface">
                     <p className="text-[11px] uppercase tracking-widest text-on-surface-variant font-bold mb-3">AI Recommendation</p>
-                    <div className="bg-surface-container-low p-4 rounded-xl border-l-2 border-teal-400">
+                    <div className="bg-surface-container-low p-4 rounded-xl border-l-2 border-primary-fixed-dim">
                       <p className="text-[13px] leading-relaxed text-on-surface">{activeItem.recommendation}</p>
                     </div>
                   </div>
@@ -535,7 +535,7 @@ export default function TransactionReviewPage() {
                   <div className="pt-5 space-y-3">
                     <button
                       onClick={() => handleAccept(activeItem)}
-                      className="w-full py-3 rounded-xl font-bold transition-all shadow-lg flex items-center justify-center gap-2 bg-primary hover:bg-primary-container text-white shadow-teal-100"
+                      className="w-full py-3 rounded-xl font-bold transition-all shadow-lg flex items-center justify-center gap-2 bg-primary hover:bg-primary-container text-white shadow-primary-fixed"
                     >
                       <span aria-hidden="true" className="material-symbols-outlined text-[20px]">check_circle</span>
                       Accept Transaction

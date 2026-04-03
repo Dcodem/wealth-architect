@@ -14,8 +14,8 @@ export interface PropertyFile {
 const typeIcons: Record<string, { icon: string; bg: string; text: string }> = {
   pdf: { icon: "picture_as_pdf", bg: "bg-red-50", text: "text-red-500" },
   image: { icon: "image", bg: "bg-blue-50", text: "text-blue-500" },
-  spreadsheet: { icon: "table_chart", bg: "bg-emerald-50", text: "text-emerald-500" },
-  document: { icon: "description", bg: "bg-teal-50", text: "text-teal-500" },
+  spreadsheet: { icon: "table_chart", bg: "bg-success-container", text: "text-on-success-container" },
+  document: { icon: "description", bg: "bg-primary-fixed", text: "text-primary" },
 };
 
 interface AISummary {
@@ -174,10 +174,10 @@ export default function PropertyFiles({ initialFiles }: { initialFiles: Property
         <div className="flex items-start gap-4">
           <div className="shrink-0">
             <div className={`w-14 h-14 rounded-xl flex items-center justify-center ${
-              summary.score >= 80 ? "bg-emerald-50" : summary.score >= 50 ? "bg-amber-50" : "bg-red-50"
+              summary.score >= 80 ? "bg-success-container" : summary.score >= 50 ? "bg-amber-50" : "bg-red-50"
             }`}>
               <span className={`text-xl font-extrabold ${
-                summary.score >= 80 ? "text-emerald-700" : summary.score >= 50 ? "text-amber-600" : "text-red-500"
+                summary.score >= 80 ? "text-on-success-container" : summary.score >= 50 ? "text-amber-600" : "text-red-500"
               }`}>{summary.score}%</span>
             </div>
             <p className="text-[9px] font-bold text-on-surface-variant uppercase tracking-widest text-center mt-1">Complete</p>
@@ -230,7 +230,7 @@ export default function PropertyFiles({ initialFiles }: { initialFiles: Property
             )}
 
             {summary.score === 100 && summary.expiring.length === 0 && (
-              <div className="mt-3 flex items-center gap-1.5 text-emerald-700">
+              <div className="mt-3 flex items-center gap-1.5 text-on-success-container">
                 <span aria-hidden="true" className="material-symbols-outlined text-[16px]">verified</span>
                 <p className="text-[12px] font-bold">All essential documents are current and on file.</p>
               </div>

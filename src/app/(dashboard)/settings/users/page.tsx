@@ -33,7 +33,7 @@ const roleDescriptions: Record<Role, { description: string; icon: string; color:
   Accountant: {
     description: "View all data and generate exports/statements. Cannot modify transactions.",
     icon: "account_balance",
-    color: "bg-emerald-100 text-emerald-700",
+    color: "bg-success-container text-on-success-container",
   },
   Viewer: {
     description: "Read-only access to dashboards and reports. Cannot export or modify data.",
@@ -284,7 +284,7 @@ export default function UserManagementPage() {
                             </select>
                             <button
                               onClick={() => saveRole(member.id)}
-                              className="w-7 h-7 flex items-center justify-center rounded-full bg-emerald-100 text-emerald-700 hover:bg-emerald-200 transition-all"
+                              className="w-7 h-7 flex items-center justify-center rounded-full bg-success-container text-on-success-container hover:bg-success-container transition-all"
                             >
                               <span aria-hidden="true" className="material-symbols-outlined text-[14px]">
                                 check
@@ -317,7 +317,7 @@ export default function UserManagementPage() {
                           <span
                             className={`w-1.5 h-1.5 rounded-full ${
                               member.status === "Active"
-                                ? "bg-emerald-500"
+                                ? "bg-success-container0"
                                 : member.status === "Invited"
                                 ? "bg-amber-500"
                                 : "bg-outline-variant"
@@ -326,7 +326,7 @@ export default function UserManagementPage() {
                           <span
                             className={`text-[11px] font-bold ${
                               member.status === "Active"
-                                ? "text-emerald-700"
+                                ? "text-on-success-container"
                                 : member.status === "Invited"
                                 ? "text-amber-600"
                                 : "text-on-surface-variant"
@@ -398,7 +398,7 @@ export default function UserManagementPage() {
             {[
               { icon: "person_add", text: "Jonathan Sterling invited Sarah Chen as Viewer", time: "2 hours ago", color: "bg-blue-100 text-blue-700" },
               { icon: "edit", text: "Jonathan Sterling changed David Okonkwo's role to Accountant", time: "3 days ago", color: "bg-amber-100 text-amber-700" },
-              { icon: "check_circle", text: "Rachel Kim accepted invitation and joined as Manager", time: "1 week ago", color: "bg-emerald-100 text-emerald-700" },
+              { icon: "check_circle", text: "Rachel Kim accepted invitation and joined as Manager", time: "1 week ago", color: "bg-success-container text-on-success-container" },
               { icon: "group_add", text: "Jonathan Sterling created the team workspace", time: "2 weeks ago", color: "bg-purple-100 text-purple-700" },
             ].map((event, i) => (
               <div key={i} className="flex items-start gap-3">
@@ -498,7 +498,7 @@ export default function UserManagementPage() {
                 disabled={!inviteEmail}
                 className={`px-6 py-2.5 rounded-full text-sm font-bold shadow-md transition-all flex items-center gap-2 ${
                   inviteSent
-                    ? "bg-emerald-500 text-white shadow-emerald-500/20"
+                    ? "bg-success-container0 text-white shadow-success/20"
                     : inviteEmail
                     ? "bg-primary text-white shadow-primary/20 hover:opacity-90"
                     : "bg-outline-variant/30 text-on-surface-variant cursor-not-allowed shadow-none"

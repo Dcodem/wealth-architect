@@ -240,9 +240,9 @@ export default function PropertyForm({ mode, initialData, initialTenants, initia
 
   const docTypeIcon = (name: string) => {
     if (name.endsWith(".pdf")) return { icon: "picture_as_pdf", bg: "bg-red-50", text: "text-red-500" };
-    if (name.match(/\.(xlsx|csv)$/i)) return { icon: "table_chart", bg: "bg-emerald-50", text: "text-emerald-500" };
+    if (name.match(/\.(xlsx|csv)$/i)) return { icon: "table_chart", bg: "bg-success-container", text: "text-on-success-container" };
     if (name.match(/\.(png|jpg|jpeg)$/i)) return { icon: "image", bg: "bg-blue-50", text: "text-blue-500" };
-    return { icon: "description", bg: "bg-teal-50", text: "text-teal-500" };
+    return { icon: "description", bg: "bg-primary-fixed", text: "text-primary" };
   };
 
   return (
@@ -273,13 +273,13 @@ export default function PropertyForm({ mode, initialData, initialTenants, initia
           </div>
         )}
         {extractionResult && !extracting && (
-          <div className="mb-4 p-4 bg-emerald-50 border border-emerald-200/50 rounded-xl flex items-start gap-3">
-            <span aria-hidden="true" className="material-symbols-outlined text-emerald-600 text-[18px] mt-0.5" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
+          <div className="mb-4 p-4 bg-success-container border border-success-border/50 rounded-xl flex items-start gap-3">
+            <span aria-hidden="true" className="material-symbols-outlined text-on-success-container text-[18px] mt-0.5" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
             <div>
-              <p className="text-sm font-bold text-emerald-800">{extractionResult}</p>
-              <p className="text-xs text-emerald-600 mt-0.5">Review the auto-filled fields below and make any corrections needed.</p>
+              <p className="text-sm font-bold text-on-success-container">{extractionResult}</p>
+              <p className="text-xs text-on-success-container mt-0.5">Review the auto-filled fields below and make any corrections needed.</p>
             </div>
-            <button onClick={() => setExtractionResult(null)} className="ml-auto shrink-0 text-emerald-600 hover:text-emerald-800">
+            <button onClick={() => setExtractionResult(null)} className="ml-auto shrink-0 text-on-success-container hover:text-on-success-container">
               <span aria-hidden="true" className="material-symbols-outlined text-[16px]">close</span>
             </button>
           </div>
@@ -662,7 +662,7 @@ export default function PropertyForm({ mode, initialData, initialTenants, initia
           disabled={saving || saved}
           className={`px-6 py-2.5 rounded-xl text-sm font-bold shadow-lg transition-all flex items-center gap-2 ${
             saved
-              ? "bg-emerald-500 text-white shadow-emerald-500/20"
+              ? "bg-success-container0 text-white shadow-success/20"
               : saving
               ? "bg-surface-container-high text-on-surface-variant cursor-wait"
               : "bg-gradient-to-br from-primary to-primary-container text-white shadow-primary/20 hover:scale-[1.02]"

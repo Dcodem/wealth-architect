@@ -31,10 +31,10 @@ const tools = [
     description: "Transactions exceeding your review threshold are held for manual verification. Review receipts, flag for audit, or approve with one click.",
     href: "/transactions/ai-review/large-transactions",
     icon: "electric_bolt",
-    iconBg: "bg-emerald-100",
-    iconColor: "text-emerald-700",
+    iconBg: "bg-success-container",
+    iconColor: "text-on-success-container",
     stat: `${badgeCounts.largeTransactions} to review`,
-    statColor: "text-emerald-700 bg-emerald-50",
+    statColor: "text-on-success-container bg-success-container",
   },
 ];
 
@@ -59,8 +59,8 @@ export default function AIToolsHubPage() {
           </div>
         </div>
         <div className="bg-surface-container-lowest rounded-xl p-5 card-shadow flex items-center gap-4">
-          <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center">
-            <span aria-hidden="true" className="material-symbols-outlined text-emerald-700">check_circle</span>
+          <div className="w-10 h-10 rounded-xl bg-success-container flex items-center justify-center">
+            <span aria-hidden="true" className="material-symbols-outlined text-on-success-container">check_circle</span>
           </div>
           <div>
             <p className="text-2xl font-extrabold text-on-surface">94%</p>
@@ -128,7 +128,7 @@ export default function AIToolsHubPage() {
             </p>
             <div className="flex items-center gap-6 mt-4">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <div className="w-2 h-2 rounded-full bg-success animate-pulse" />
                 <span className="text-xs font-bold text-white/90 uppercase tracking-wider">System Healthy</span>
               </div>
               <span className="text-xs text-white/60">Last sync: 4 minutes ago</span>

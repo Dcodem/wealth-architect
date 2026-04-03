@@ -10,7 +10,7 @@ export interface ToastItem {
 }
 
 const typeStyles: Record<string, { bg: string; text: string; iconColor: string }> = {
-  success: { bg: "bg-emerald-800", text: "text-white", iconColor: "text-emerald-300" },
+  success: { bg: "bg-success-dim", text: "text-white", iconColor: "text-success-container" },
   info: { bg: "bg-primary", text: "text-white", iconColor: "text-primary-fixed" },
   warning: { bg: "bg-orange-700", text: "text-white", iconColor: "text-orange-200" },
   error: { bg: "bg-error", text: "text-white", iconColor: "text-red-200" },

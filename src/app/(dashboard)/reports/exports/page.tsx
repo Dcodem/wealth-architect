@@ -19,8 +19,8 @@ const completenessData = {
 };
 
 const exportHistory = [
-  { name: "FY 2022 Full Ledger", date: "Oct 12, 2023", size: "4.2 MB", format: "Excel", status: "Ready", statusColor: "text-emerald-700", dotColor: "bg-emerald-500" },
-  { name: "Q3 Performance Summary", date: "Sep 01, 2023", size: "1.8 MB", format: "CSV", status: "Ready", statusColor: "text-emerald-700", dotColor: "bg-emerald-500" },
+  { name: "FY 2022 Full Ledger", date: "Oct 12, 2023", size: "4.2 MB", format: "Excel", status: "Ready", statusColor: "text-on-success-container", dotColor: "bg-success-container0" },
+  { name: "Q3 Performance Summary", date: "Sep 01, 2023", size: "1.8 MB", format: "CSV", status: "Ready", statusColor: "text-on-success-container", dotColor: "bg-success-container0" },
   { name: "Main St. Audit Log", date: "Aug 24, 2023", size: "12.1 MB", format: "Excel", status: "Archiving", statusColor: "text-amber-600", dotColor: "bg-amber-500" },
 ];
 
@@ -61,10 +61,10 @@ export default function ExportsPage() {
                 <label
                   onClick={() => setFormat("excel")}
                   className={`relative flex flex-col items-center justify-center p-6 border-2 rounded-xl cursor-pointer transition-all ${
-                    format === "excel" ? "border-primary bg-teal-50/20" : "border-transparent bg-surface-container-low hover:bg-surface-container-high"
+                    format === "excel" ? "border-primary bg-primary-fixed/20" : "border-transparent bg-surface-container-low hover:bg-surface-container-high"
                   }`}
                 >
-                  <span aria-hidden="true" className={`material-symbols-outlined text-[32px] mb-2 ${format === "excel" ? "text-teal-700" : "text-on-surface-variant"}`}>table_chart</span>
+                  <span aria-hidden="true" className={`material-symbols-outlined text-[32px] mb-2 ${format === "excel" ? "text-primary" : "text-on-surface-variant"}`}>table_chart</span>
                   <span className="text-sm font-bold text-on-surface">Excel</span>
                   <span className="text-[11px] text-on-surface-variant">.xlsx file</span>
                   {format === "excel" && (
@@ -76,10 +76,10 @@ export default function ExportsPage() {
                 <label
                   onClick={() => setFormat("csv")}
                   className={`relative flex flex-col items-center justify-center p-6 border-2 rounded-xl cursor-pointer transition-all ${
-                    format === "csv" ? "border-primary bg-teal-50/20" : "border-transparent bg-surface-container-low hover:bg-surface-container-high"
+                    format === "csv" ? "border-primary bg-primary-fixed/20" : "border-transparent bg-surface-container-low hover:bg-surface-container-high"
                   }`}
                 >
-                  <span aria-hidden="true" className={`material-symbols-outlined text-[32px] mb-2 ${format === "csv" ? "text-teal-700" : "text-on-surface-variant"}`}>description</span>
+                  <span aria-hidden="true" className={`material-symbols-outlined text-[32px] mb-2 ${format === "csv" ? "text-primary" : "text-on-surface-variant"}`}>description</span>
                   <span className="text-sm font-bold text-on-surface">CSV</span>
                   <span className="text-[11px] text-on-surface-variant">Raw data</span>
                   {format === "csv" && (
@@ -102,7 +102,7 @@ export default function ExportsPage() {
                   value={dateRange}
                   onChange={(e) => setDateRange(e.target.value)}
                   aria-label="Date range"
-                  className="w-full bg-surface-container-low border-none rounded-xl py-3 pl-4 pr-10 text-sm font-medium focus:ring-2 focus:ring-teal-500/20 appearance-none"
+                  className="w-full bg-surface-container-low border-none rounded-xl py-3 pl-4 pr-10 text-sm font-medium focus:ring-2 focus:ring-primary/20 appearance-none"
                 >
                   <option>2023 Tax Year</option>
                   <option>Q1 2024</option>
@@ -117,14 +117,14 @@ export default function ExportsPage() {
                     <label className="block text-[11px] font-bold text-on-surface-variant uppercase tracking-widest mb-2">Start Date</label>
                     <input
                       type="date"
-                      className="w-full bg-surface-container-low border-none rounded-xl py-3 pl-4 pr-10 text-sm font-medium focus:ring-2 focus:ring-teal-500/20"
+                      className="w-full bg-surface-container-low border-none rounded-xl py-3 pl-4 pr-10 text-sm font-medium focus:ring-2 focus:ring-primary/20"
                     />
                   </div>
                   <div>
                     <label className="block text-[11px] font-bold text-on-surface-variant uppercase tracking-widest mb-2">End Date</label>
                     <input
                       type="date"
-                      className="w-full bg-surface-container-low border-none rounded-xl py-3 pl-4 pr-10 text-sm font-medium focus:ring-2 focus:ring-teal-500/20"
+                      className="w-full bg-surface-container-low border-none rounded-xl py-3 pl-4 pr-10 text-sm font-medium focus:ring-2 focus:ring-primary/20"
                     />
                   </div>
                 </div>
@@ -186,7 +186,7 @@ export default function ExportsPage() {
                 </div>
               </div>
               {generated ? (
-                <div className="w-full py-4 bg-emerald-500 text-white text-lg font-extrabold rounded-xl shadow-lg shadow-emerald-500/20 flex items-center justify-center gap-2">
+                <div className="w-full py-4 bg-success-container0 text-white text-lg font-extrabold rounded-xl shadow-lg shadow-success/20 flex items-center justify-center gap-2">
                   <span aria-hidden="true" className="material-symbols-outlined text-[24px]" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
                   Report Ready — Download Now
                 </div>
@@ -194,7 +194,7 @@ export default function ExportsPage() {
                 <button
                   onClick={handleGenerate}
                   disabled={generating}
-                  className="w-full py-4 bg-primary text-white text-lg font-extrabold rounded-xl shadow-lg shadow-teal-500/20 hover:opacity-90 active:scale-95 transition-all disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-3"
+                  className="w-full py-4 bg-primary text-white text-lg font-extrabold rounded-xl shadow-lg shadow-primary/20 hover:opacity-90 active:scale-95 transition-all disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-3"
                 >
                   {generating ? (
                     <>
@@ -220,7 +220,7 @@ export default function ExportsPage() {
               <div className="p-6 border-b border-outline-variant/10">
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-3">
-                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${completenessData.overall >= 80 ? "bg-emerald-100 text-emerald-700" : completenessData.overall >= 60 ? "bg-amber-100 text-amber-600" : "bg-red-100 text-red-600"}`}>
+                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${completenessData.overall >= 80 ? "bg-success-container text-on-success-container" : completenessData.overall >= 60 ? "bg-amber-100 text-amber-600" : "bg-red-100 text-red-600"}`}>
                       <span aria-hidden="true" className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>verified</span>
                     </div>
                     <div>
@@ -228,13 +228,13 @@ export default function ExportsPage() {
                       <p className="text-[11px] text-on-surface-variant font-bold uppercase tracking-wider">Export Ready</p>
                     </div>
                   </div>
-                  <span className={`text-[11px] font-bold px-2.5 py-1 rounded-full ${completenessData.overall >= 95 ? "text-emerald-700 bg-emerald-50" : completenessData.overall >= 80 ? "text-emerald-600 bg-emerald-50" : completenessData.overall >= 60 ? "text-amber-600 bg-amber-50" : "text-red-600 bg-red-50"}`}>
+                  <span className={`text-[11px] font-bold px-2.5 py-1 rounded-full ${completenessData.overall >= 95 ? "text-on-success-container bg-success-container" : completenessData.overall >= 80 ? "text-on-success-container bg-success-container" : completenessData.overall >= 60 ? "text-amber-600 bg-amber-50" : "text-red-600 bg-red-50"}`}>
                     {completenessData.overall >= 95 ? "Clean" : completenessData.overall >= 80 ? "Almost Ready" : completenessData.overall >= 60 ? "Needs Review" : "Issues Found"}
                   </span>
                 </div>
                 <div className="w-full h-2.5 bg-surface-container-high rounded-full overflow-hidden">
                   <div
-                    className={`h-full rounded-full transition-all duration-500 ${completenessData.overall >= 80 ? "bg-emerald-500" : completenessData.overall >= 60 ? "bg-amber-500" : "bg-red-500"}`}
+                    className={`h-full rounded-full transition-all duration-500 ${completenessData.overall >= 80 ? "bg-success-container0" : completenessData.overall >= 60 ? "bg-amber-500" : "bg-red-500"}`}
                     style={{ width: `${completenessData.overall}%` }}
                   />
                 </div>
@@ -247,11 +247,11 @@ export default function ExportsPage() {
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center justify-between mb-1">
                         <span className="text-xs font-bold text-on-surface truncate">{prop.name}</span>
-                        <span className={`text-[11px] font-bold ${prop.pct === 100 ? "text-emerald-600" : prop.pct >= 90 ? "text-on-surface" : "text-amber-600"}`}>{prop.pct}%</span>
+                        <span className={`text-[11px] font-bold ${prop.pct === 100 ? "text-on-success-container" : prop.pct >= 90 ? "text-on-surface" : "text-amber-600"}`}>{prop.pct}%</span>
                       </div>
                       <div className="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden">
                         <div
-                          className={`h-full rounded-full ${prop.pct === 100 ? "bg-emerald-500" : prop.pct >= 90 ? "bg-primary" : "bg-amber-500"}`}
+                          className={`h-full rounded-full ${prop.pct === 100 ? "bg-success-container0" : prop.pct >= 90 ? "bg-primary" : "bg-amber-500"}`}
                           style={{ width: `${prop.pct}%` }}
                         />
                       </div>

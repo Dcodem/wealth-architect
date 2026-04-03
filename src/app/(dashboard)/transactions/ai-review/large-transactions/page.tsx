@@ -36,8 +36,8 @@ const resolutionConfig: Record<Resolution, { label: string; icon: string; color:
   verified: {
     label: "Verified & Approved",
     icon: "check_circle",
-    color: "text-emerald-700",
-    bgColor: "bg-emerald-50",
+    color: "text-on-success-container",
+    bgColor: "bg-success-container",
   },
   flagged: {
     label: "Flagged for Review",
@@ -72,8 +72,8 @@ const resolutionConfig: Record<Resolution, { label: string; icon: string; color:
   receipt_attached: {
     label: "Receipt Attached",
     icon: "attach_file",
-    color: "text-teal-700",
-    bgColor: "bg-teal-50",
+    color: "text-primary",
+    bgColor: "bg-primary-fixed",
   },
 };
 
@@ -259,7 +259,7 @@ export default function LargeTransactionsPage() {
         <div className="flex-1 min-w-0 space-y-6">
           {visibleTransactions.length === 0 ? (
             <div className="bg-surface-container-lowest rounded-xl p-12 card-shadow text-center">
-              <span aria-hidden="true" className="material-symbols-outlined text-[48px] text-emerald-400 block mb-3">task_alt</span>
+              <span aria-hidden="true" className="material-symbols-outlined text-[48px] text-success block mb-3">task_alt</span>
               <h3 className="text-lg font-bold text-on-surface mb-1">All transactions reviewed</h3>
               <p className="text-sm text-on-surface-variant">Every transaction has been verified. Check the resolution log for your decisions.</p>
             </div>
@@ -338,12 +338,12 @@ export default function LargeTransactionsPage() {
 
                 {/* User-attached receipt indicator */}
                 {receipts[i] && (
-                  <div className="mt-4 px-4 py-3 bg-teal-50 rounded-lg border border-teal-200">
+                  <div className="mt-4 px-4 py-3 bg-primary-fixed rounded-lg border border-primary-fixed-dim">
                     <div className="flex items-center gap-2">
-                      <span aria-hidden="true" className="material-symbols-outlined text-teal-700 text-[16px]">attach_file</span>
-                      <span className="text-[12px] font-bold text-teal-700 uppercase tracking-widest">Attached</span>
+                      <span aria-hidden="true" className="material-symbols-outlined text-primary text-[16px]">attach_file</span>
+                      <span className="text-[12px] font-bold text-primary uppercase tracking-widest">Attached</span>
                       <span className="text-[12px] text-on-surface-variant ml-1 truncate">{receipts[i]}</span>
-                      <button onClick={() => openReceipt(i)} className="ml-auto text-[11px] font-bold text-teal-600 hover:underline shrink-0">Replace</button>
+                      <button onClick={() => openReceipt(i)} className="ml-auto text-[11px] font-bold text-primary hover:underline shrink-0">Replace</button>
                     </div>
                   </div>
                 )}
@@ -392,7 +392,7 @@ export default function LargeTransactionsPage() {
                             onClick={() => openReceipt(i)}
                             className="w-full px-4 py-2.5 text-left text-[13px] font-medium text-on-surface hover:bg-surface-container-low transition-colors flex items-center gap-3"
                           >
-                            <span aria-hidden="true" className="material-symbols-outlined text-[18px] text-teal-600">attach_file</span>
+                            <span aria-hidden="true" className="material-symbols-outlined text-[18px] text-primary">attach_file</span>
                             {receipts[i] ? "Replace Receipt" : "Attach Receipt"}
                           </button>
                           <button
@@ -424,7 +424,7 @@ export default function LargeTransactionsPage() {
                     )}
                     <button
                       onClick={() => handleVerify(i)}
-                      className="px-4 py-2 text-[13px] font-bold rounded-lg shadow-md transition-all flex items-center gap-2 text-white bg-emerald-600 shadow-emerald-200 hover:bg-emerald-700"
+                      className="px-4 py-2 text-[13px] font-bold rounded-lg shadow-md transition-all flex items-center gap-2 text-white bg-primary-container shadow-success hover:bg-primary/80"
                     >
                       <span aria-hidden="true" className="material-symbols-outlined text-[18px]">check_circle</span>
                       Verify and Approve
@@ -568,7 +568,7 @@ export default function LargeTransactionsPage() {
                   </div>
                   <div className="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-emerald-500 rounded-full transition-all duration-500"
+                      className="h-full bg-success-container0 rounded-full transition-all duration-500"
                       style={{ width: `${thresholdFiltered.length > 0 ? (verifiedCount / thresholdFiltered.length) * 100 : 0}%` }}
                     />
                   </div>
@@ -578,7 +578,7 @@ export default function LargeTransactionsPage() {
                 <div>
                   <div className="flex justify-between items-end mb-4">
                     <div className="text-[13px] font-bold text-on-surface">Monthly Comparison</div>
-                    <div className="text-[11px] text-emerald-700 font-bold">+12% vs LY</div>
+                    <div className="text-[11px] text-on-success-container font-bold">+12% vs LY</div>
                   </div>
                   <div className="h-32 flex items-end gap-6 px-4">
                     <div className="flex-1 flex flex-col items-center gap-2">
@@ -599,7 +599,7 @@ export default function LargeTransactionsPage() {
                     disabled={exporting}
                     className={`w-full py-3.5 border-2 text-[14px] font-bold rounded-xl transition-colors flex items-center justify-center gap-2 ${
                       exported
-                        ? "border-emerald-500 text-emerald-700 bg-emerald-50"
+                        ? "border-success text-on-success-container bg-success-container"
                         : exporting
                         ? "border-outline-variant text-on-surface-variant cursor-wait"
                         : "border-outline-variant text-on-surface hover:bg-surface-container-low"
@@ -731,11 +731,11 @@ export default function LargeTransactionsPage() {
 
               {/* Balance indicator */}
               <div className="px-6 py-4">
-                <div className={`flex items-center justify-between px-4 py-3 rounded-lg ${isBalanced ? "bg-emerald-50" : "bg-orange-50"}`}>
-                  <span className={`text-[12px] font-bold uppercase tracking-widest ${isBalanced ? "text-emerald-700" : "text-orange-600"}`}>
+                <div className={`flex items-center justify-between px-4 py-3 rounded-lg ${isBalanced ? "bg-success-container" : "bg-orange-50"}`}>
+                  <span className={`text-[12px] font-bold uppercase tracking-widest ${isBalanced ? "text-on-success-container" : "text-orange-600"}`}>
                     {isBalanced ? "Balanced" : "Remaining"}
                   </span>
-                  <span className={`text-[16px] font-extrabold ${isBalanced ? "text-emerald-700" : "text-orange-600"}`}>
+                  <span className={`text-[16px] font-extrabold ${isBalanced ? "text-on-success-container" : "text-orange-600"}`}>
                     {isBalanced ? "$0.00" : `$${Math.abs(remaining).toFixed(2)}`}
                     {!isBalanced && remaining < 0 && " over"}
                   </span>
@@ -826,8 +826,8 @@ export default function LargeTransactionsPage() {
               <div className="px-6 py-5 border-b border-outline-variant/10">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center">
-                      <span aria-hidden="true" className="material-symbols-outlined text-teal-700 text-[20px]">attach_file</span>
+                    <div className="w-10 h-10 bg-primary-fixed rounded-lg flex items-center justify-center">
+                      <span aria-hidden="true" className="material-symbols-outlined text-primary text-[20px]">attach_file</span>
                     </div>
                     <div>
                       <h3 className="text-[16px] font-bold text-on-surface">Attach Receipt</h3>
@@ -841,9 +841,9 @@ export default function LargeTransactionsPage() {
               </div>
               <div className="px-6 py-6">
                 {receiptFile ? (
-                  <div className="flex items-center gap-4 p-4 bg-teal-50 rounded-lg border border-teal-200">
-                    <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center shrink-0">
-                      <span aria-hidden="true" className="material-symbols-outlined text-teal-700 text-[24px]">description</span>
+                  <div className="flex items-center gap-4 p-4 bg-primary-fixed rounded-lg border border-primary-fixed-dim">
+                    <div className="w-12 h-12 bg-primary-fixed rounded-lg flex items-center justify-center shrink-0">
+                      <span aria-hidden="true" className="material-symbols-outlined text-primary text-[24px]">description</span>
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-[13px] font-bold text-on-surface truncate">{receiptFile}</p>
@@ -851,13 +851,13 @@ export default function LargeTransactionsPage() {
                     </div>
                     <button
                       onClick={() => setReceiptFile("")}
-                      className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-teal-100 transition-colors shrink-0"
+                      className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-primary-fixed transition-colors shrink-0"
                     >
                       <span aria-hidden="true" className="material-symbols-outlined text-on-surface-variant text-[18px]">close</span>
                     </button>
                   </div>
                 ) : (
-                  <label className="flex flex-col items-center gap-3 p-8 border-2 border-dashed border-outline-variant/30 rounded-xl hover:border-teal-400 hover:bg-teal-50/30 transition-colors cursor-pointer">
+                  <label className="flex flex-col items-center gap-3 p-8 border-2 border-dashed border-outline-variant/30 rounded-xl hover:border-primary-fixed-dim hover:bg-primary-fixed/30 transition-colors cursor-pointer">
                     <span aria-hidden="true" className="material-symbols-outlined text-[40px] text-outline-variant">cloud_upload</span>
                     <div className="text-center">
                       <p className="text-[13px] font-bold text-on-surface">Drop file here or click to browse</p>
@@ -885,7 +885,7 @@ export default function LargeTransactionsPage() {
                 <button
                   onClick={() => confirmReceipt(receiptFile)}
                   disabled={!receiptFile}
-                  className="px-5 py-2.5 text-[13px] font-bold text-white bg-teal-600 rounded-lg shadow-md shadow-teal-200 hover:bg-teal-700 disabled:opacity-40 disabled:cursor-not-allowed transition-all flex items-center gap-2"
+                  className="px-5 py-2.5 text-[13px] font-bold text-white bg-primary rounded-lg shadow-md shadow-primary-fixed hover:bg-primary/80 disabled:opacity-40 disabled:cursor-not-allowed transition-all flex items-center gap-2"
                 >
                   <span aria-hidden="true" className="material-symbols-outlined text-[18px]">check</span>
                   Attach Receipt

@@ -4,13 +4,13 @@ import PageHeader from "@/components/PageHeader";
 import { useState } from "react";
 
 const allExports = [
-  { id: 1, name: "FY 2022 Full Ledger", date: "Oct 12, 2023", size: "4.2 MB", format: "Excel", properties: "All Properties", dateRange: "Jan 1 – Dec 31, 2022", status: "Ready", statusColor: "text-emerald-700", dotColor: "bg-emerald-500" },
-  { id: 2, name: "Q3 Performance Summary", date: "Sep 01, 2023", size: "1.8 MB", format: "CSV", properties: "All Properties", dateRange: "Jul 1 – Sep 30, 2023", status: "Ready", statusColor: "text-emerald-700", dotColor: "bg-emerald-500" },
+  { id: 1, name: "FY 2022 Full Ledger", date: "Oct 12, 2023", size: "4.2 MB", format: "Excel", properties: "All Properties", dateRange: "Jan 1 – Dec 31, 2022", status: "Ready", statusColor: "text-on-success-container", dotColor: "bg-success-container0" },
+  { id: 2, name: "Q3 Performance Summary", date: "Sep 01, 2023", size: "1.8 MB", format: "CSV", properties: "All Properties", dateRange: "Jul 1 – Sep 30, 2023", status: "Ready", statusColor: "text-on-success-container", dotColor: "bg-success-container0" },
   { id: 3, name: "Main St. Audit Log", date: "Aug 24, 2023", size: "12.1 MB", format: "Excel", properties: "Main St. Loft", dateRange: "Jan 1 – Aug 24, 2023", status: "Archiving", statusColor: "text-amber-600", dotColor: "bg-amber-500" },
-  { id: 4, name: "Oak Ridge Tax Prep", date: "Jul 15, 2023", size: "3.6 MB", format: "Excel", properties: "Oak Ridge Estate", dateRange: "Jan 1 – Jun 30, 2023", status: "Ready", statusColor: "text-emerald-700", dotColor: "bg-emerald-500" },
-  { id: 5, name: "Downtown Plaza Q2", date: "Jul 02, 2023", size: "2.1 MB", format: "CSV", properties: "Downtown Plaza", dateRange: "Apr 1 – Jun 30, 2023", status: "Ready", statusColor: "text-emerald-700", dotColor: "bg-emerald-500" },
-  { id: 6, name: "FY 2021 Full Ledger", date: "Feb 18, 2023", size: "3.9 MB", format: "Excel", properties: "All Properties", dateRange: "Jan 1 – Dec 31, 2021", status: "Ready", statusColor: "text-emerald-700", dotColor: "bg-emerald-500" },
-  { id: 7, name: "Insurance Claim Backup", date: "Jan 05, 2023", size: "8.4 MB", format: "Excel", properties: "Oak Ridge Estate", dateRange: "Jun 1 – Dec 31, 2022", status: "Ready", statusColor: "text-emerald-700", dotColor: "bg-emerald-500" },
+  { id: 4, name: "Oak Ridge Tax Prep", date: "Jul 15, 2023", size: "3.6 MB", format: "Excel", properties: "Oak Ridge Estate", dateRange: "Jan 1 – Jun 30, 2023", status: "Ready", statusColor: "text-on-success-container", dotColor: "bg-success-container0" },
+  { id: 5, name: "Downtown Plaza Q2", date: "Jul 02, 2023", size: "2.1 MB", format: "CSV", properties: "Downtown Plaza", dateRange: "Apr 1 – Jun 30, 2023", status: "Ready", statusColor: "text-on-success-container", dotColor: "bg-success-container0" },
+  { id: 6, name: "FY 2021 Full Ledger", date: "Feb 18, 2023", size: "3.9 MB", format: "Excel", properties: "All Properties", dateRange: "Jan 1 – Dec 31, 2021", status: "Ready", statusColor: "text-on-success-container", dotColor: "bg-success-container0" },
+  { id: 7, name: "Insurance Claim Backup", date: "Jan 05, 2023", size: "8.4 MB", format: "Excel", properties: "Oak Ridge Estate", dateRange: "Jun 1 – Dec 31, 2022", status: "Ready", statusColor: "text-on-success-container", dotColor: "bg-success-container0" },
   { id: 8, name: "Q4 Board Review", date: "Jan 03, 2023", size: "2.7 MB", format: "CSV", properties: "All Properties", dateRange: "Oct 1 – Dec 31, 2022", status: "Expired", statusColor: "text-on-surface-variant", dotColor: "bg-outline-variant" },
 ];
 
@@ -116,7 +116,7 @@ export default function ExportArchivePage() {
                             disabled={dlState !== "idle"}
                             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
                               dlState === "done"
-                                ? "bg-emerald-500 text-white"
+                                ? "bg-success-container0 text-white"
                                 : dlState === "loading"
                                 ? "bg-primary/10 text-primary cursor-wait"
                                 : "bg-primary/5 text-primary hover:bg-primary/10"
@@ -156,7 +156,7 @@ export default function ExportArchivePage() {
               <p className="text-[11px] text-on-surface-variant">{totalSize.toFixed(1)} MB of 250 GB used</p>
             </div>
           </div>
-          <span className="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full">Healthy</span>
+          <span className="text-[11px] font-bold text-on-success-container bg-success-container px-2.5 py-1 rounded-full">Healthy</span>
         </div>
         <div className="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
           <div className="h-full bg-primary rounded-full" style={{ width: `${(totalSize / 250000) * 100}%` }} />

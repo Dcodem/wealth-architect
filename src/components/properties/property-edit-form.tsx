@@ -11,6 +11,10 @@ export function PropertyEditForm({ property }: { property: Property }) {
     address: property.address,
     type: property.type,
     unitCount: property.unitCount ?? 1,
+    purchasePrice: property.purchasePrice ?? "",
+    currentValue: property.currentValue ?? "",
+    monthlyRent: property.monthlyRent ?? "",
+    ownershipPercentage: property.ownershipPercentage ?? 100,
     notes: property.notes ?? "",
     accessInstructions: property.accessInstructions ?? "",
     parkingInstructions: property.parkingInstructions ?? "",
@@ -47,8 +51,8 @@ export function PropertyEditForm({ property }: { property: Property }) {
 
           {/* Success toast */}
           {saved && (
-            <div className="mb-6 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-lg px-4 py-3 flex items-center gap-2 text-sm font-medium animate-in">
-              <span className="material-symbols-outlined text-emerald-600">check_circle</span>
+            <div className="mb-6 bg-success-container border border-success-border text-on-success-container rounded-lg px-4 py-3 flex items-center gap-2 text-sm font-medium animate-in">
+              <span className="material-symbols-outlined text-on-success-container">check_circle</span>
               Property saved successfully. Redirecting...
             </div>
           )}
@@ -87,6 +91,73 @@ export function PropertyEditForm({ property }: { property: Property }) {
                     type="number"
                     min={1}
                   />
+                </div>
+              </div>
+            </div>
+
+            {/* Financials */}
+            <div className="bg-surface-container-lowest rounded-xl p-8 shadow-sm border border-outline-variant/10">
+              <div className="flex items-center gap-2 mb-6">
+                <span className="material-symbols-outlined text-primary text-lg">account_balance</span>
+                <h2 className="text-xl font-bold text-on-surface">Financials</h2>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-on-surface-variant mb-2">Purchase Price</label>
+                  <div className="relative">
+                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">$</span>
+                    <input
+                      value={form.purchasePrice}
+                      onChange={(e) => handleChange("purchasePrice", parseInt(e.target.value) || "")}
+                      className="w-full bg-surface-container-low border-0 border-l-2 border-transparent focus:border-primary focus:ring-0 rounded-lg p-3 pl-7 text-on-surface transition-all"
+                      type="number"
+                      placeholder="0"
+                      min={0}
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-on-surface-variant mb-2">Current Value</label>
+                  <div className="relative">
+                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">$</span>
+                    <input
+                      value={form.currentValue}
+                      onChange={(e) => handleChange("currentValue", parseInt(e.target.value) || "")}
+                      className="w-full bg-surface-container-low border-0 border-l-2 border-transparent focus:border-primary focus:ring-0 rounded-lg p-3 pl-7 text-on-surface transition-all"
+                      type="number"
+                      placeholder="0"
+                      min={0}
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-on-surface-variant mb-2">Monthly Rent</label>
+                  <div className="relative">
+                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">$</span>
+                    <input
+                      value={form.monthlyRent}
+                      onChange={(e) => handleChange("monthlyRent", parseInt(e.target.value) || "")}
+                      className="w-full bg-surface-container-low border-0 border-l-2 border-transparent focus:border-primary focus:ring-0 rounded-lg p-3 pl-7 text-on-surface transition-all"
+                      type="number"
+                      placeholder="0"
+                      min={0}
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-on-surface-variant mb-2">Ownership %</label>
+                  <div className="relative">
+                    <input
+                      value={form.ownershipPercentage}
+                      onChange={(e) => handleChange("ownershipPercentage", parseFloat(e.target.value) || 0)}
+                      className="w-full bg-surface-container-low border-0 border-l-2 border-transparent focus:border-primary focus:ring-0 rounded-lg p-3 pr-8 text-on-surface transition-all"
+                      type="number"
+                      min={0}
+                      max={100}
+                      step={0.1}
+                    />
+                    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">%</span>
+                  </div>
                 </div>
               </div>
             </div>

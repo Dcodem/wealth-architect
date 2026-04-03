@@ -36,7 +36,7 @@ export default function AnimatedNumber({
             diffClassName ??
             `inline-flex items-center px-1.5 py-0.5 text-xs font-bold rounded-full ${
               diff > 0
-                ? "bg-emerald-100 text-emerald-700"
+                ? "bg-success-container text-on-success-container"
                 : "bg-red-100 text-red-600"
             }`
           }

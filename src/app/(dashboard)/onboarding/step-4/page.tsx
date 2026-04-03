@@ -195,7 +195,7 @@ function OnboardingStep4Inner() {
                   initial={{ opacity: 0, y: -8 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -8 }}
-                  className="fixed top-6 right-6 z-50 flex items-center gap-2 px-4 py-2.5 bg-emerald-500 text-white text-sm font-semibold rounded-xl shadow-lg shadow-emerald-500/20"
+                  className="fixed top-6 right-6 z-50 flex items-center gap-2 px-4 py-2.5 bg-primary-container text-on-primary-container text-sm font-semibold rounded-xl shadow-lg shadow-primary/20"
                 >
                   <span className="material-symbols-outlined text-[16px]">upload_file</span>
                   {uploadedDoc} queued for processing
@@ -232,7 +232,7 @@ function OnboardingStep4Inner() {
                     onClick={() => confirmedProperties ? handleUnconfirmProperties() : togglePanel("properties")}
                     className={`text-left p-5 rounded-xl border transition-all ${
                       confirmedProperties
-                        ? "bg-emerald-50/50 border-emerald-200 hover:border-emerald-300"
+                        ? "bg-success-container/50 border-success-border hover:border-success"
                         : activePanel === "properties"
                         ? "bg-primary-fixed/20 border-primary/30 shadow-md"
                         : "bg-surface-container-low border-outline-variant/10 hover:border-primary/20 hover:shadow-sm"
@@ -240,16 +240,16 @@ function OnboardingStep4Inner() {
                   >
                     <div className="flex items-center justify-between mb-2">
                       <div className={`w-9 h-9 rounded-lg flex items-center justify-center ${
-                        confirmedProperties ? "bg-emerald-100" : "bg-primary-fixed-dim"
+                        confirmedProperties ? "bg-success-container" : "bg-primary-fixed-dim"
                       }`}>
                         <span aria-hidden="true" className={`material-symbols-outlined text-[20px] ${
-                          confirmedProperties ? "text-emerald-700" : "text-primary"
+                          confirmedProperties ? "text-on-success-container" : "text-primary"
                         }`} style={confirmedProperties ? { fontVariationSettings: "'FILL' 1" } : undefined}>
                           {confirmedProperties ? "check_circle" : "domain"}
                         </span>
                       </div>
                       <span className={`text-[10px] font-bold uppercase tracking-wider ${
-                        confirmedProperties ? "text-emerald-700" : "text-primary"
+                        confirmedProperties ? "text-on-success-container" : "text-primary"
                       }`}>
                         {confirmedProperties ? "Confirmed" : "Detected"}
                       </span>
@@ -266,7 +266,7 @@ function OnboardingStep4Inner() {
                     onClick={() => reviewDone ? handleReviewUndo() : togglePanel("review")}
                     className={`text-left p-5 rounded-xl border transition-all ${
                       reviewDone
-                        ? "bg-emerald-50/50 border-emerald-200 hover:border-emerald-300"
+                        ? "bg-success-container/50 border-success-border hover:border-success"
                         : activePanel === "review"
                         ? "bg-amber-50/50 border-amber-300 shadow-md"
                         : "bg-surface-container-low border-outline-variant/10 hover:border-amber-200 hover:shadow-sm"
@@ -274,16 +274,16 @@ function OnboardingStep4Inner() {
                   >
                     <div className="flex items-center justify-between mb-2">
                       <div className={`w-9 h-9 rounded-lg flex items-center justify-center ${
-                        reviewDone ? "bg-emerald-100" : "bg-amber-100"
+                        reviewDone ? "bg-success-container" : "bg-amber-100"
                       }`}>
                         <span aria-hidden="true" className={`material-symbols-outlined text-[20px] ${
-                          reviewDone ? "text-emerald-700" : "text-amber-700"
+                          reviewDone ? "text-on-success-container" : "text-amber-700"
                         }`} style={reviewDone ? { fontVariationSettings: "'FILL' 1" } : undefined}>
                           {reviewDone ? "check_circle" : "priority_high"}
                         </span>
                       </div>
                       <span className={`text-[10px] font-bold uppercase tracking-wider ${
-                        reviewDone ? "text-emerald-700" : "text-amber-700"
+                        reviewDone ? "text-on-success-container" : "text-amber-700"
                       }`}>
                         {reviewDone ? "Done" : trainedItems.length > 0 ? `${trainedItems.length}/${reviewItems.length}` : "Needs Review"}
                       </span>
@@ -370,7 +370,7 @@ function OnboardingStep4Inner() {
                                 <p className="text-[10px] text-on-surface-variant">{p.location} &middot; {p.units}</p>
                               </div>
                               <span className="px-2 py-0.5 bg-surface-container-high text-on-surface-variant text-[9px] font-bold rounded-full uppercase tracking-wider">{p.type}</span>
-                              <span aria-hidden="true" className="material-symbols-outlined text-emerald-600 text-[18px]" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
+                              <span aria-hidden="true" className="material-symbols-outlined text-on-success-container text-[18px]" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
                             </div>
                           ))}
                         </div>
@@ -518,7 +518,7 @@ function OnboardingStep4Inner() {
                       animate={{ opacity: 1, y: 0 }}
                       className="flex flex-col items-center gap-3 w-full"
                     >
-                      <div className="flex items-center gap-2 text-emerald-700">
+                      <div className="flex items-center gap-2 text-on-success-container">
                         <span aria-hidden="true" className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>task_alt</span>
                         <span className="text-sm font-bold">Everything looks good — you&apos;re all set!</span>
                       </div>
@@ -534,13 +534,13 @@ function OnboardingStep4Inner() {
                       <p className="text-xs text-on-surface-variant">Click each card to review and confirm</p>
                       <div className="flex items-center gap-3">
                         {confirmedProperties && (
-                          <span className="flex items-center gap-1 text-[10px] font-bold text-emerald-700">
+                          <span className="flex items-center gap-1 text-[10px] font-bold text-on-success-container">
                             <span className="material-symbols-outlined text-[12px]" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
                             Properties
                           </span>
                         )}
                         {reviewDone && (
-                          <span className="flex items-center gap-1 text-[10px] font-bold text-emerald-700">
+                          <span className="flex items-center gap-1 text-[10px] font-bold text-on-success-container">
                             <span className="material-symbols-outlined text-[12px]" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
                             Review
                           </span>

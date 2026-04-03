@@ -154,7 +154,7 @@ export default function TransactionDetailPage({
               aria-live="polite"
               className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold shadow-md transition-all ${
                 saved
-                  ? "bg-emerald-500 text-white shadow-emerald-500/20"
+                  ? "bg-success-container0 text-white shadow-success/20"
                   : "bg-primary text-white shadow-primary/20 hover:opacity-90"
               }`}
             >
@@ -173,11 +173,11 @@ export default function TransactionDetailPage({
           {/* Transaction Overview Card */}
           <div className="bg-surface-container-lowest rounded-2xl card-shadow border border-outline-variant/10 overflow-hidden">
             {/* Amount header */}
-            <div className={`px-8 py-6 ${isIncome ? "bg-gradient-to-r from-emerald-50 to-emerald-100/50" : "bg-gradient-to-r from-surface-container-low to-surface-container-high/50"}`}>
+            <div className={`px-8 py-6 ${isIncome ? "bg-gradient-to-r from-success-container to-success-container/50" : "bg-gradient-to-r from-surface-container-low to-surface-container-high/50"}`}>
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${isIncome ? "bg-emerald-100" : "bg-surface-container-high"}`}>
-                    <span aria-hidden="true" className={`material-symbols-outlined text-2xl ${isIncome ? "text-emerald-700" : "text-on-surface-variant"}`}>
+                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${isIncome ? "bg-success-container" : "bg-surface-container-high"}`}>
+                    <span aria-hidden="true" className={`material-symbols-outlined text-2xl ${isIncome ? "text-on-success-container" : "text-on-surface-variant"}`}>
                       {isIncome ? "arrow_downward" : "arrow_upward"}
                     </span>
                   </div>
@@ -185,12 +185,12 @@ export default function TransactionDetailPage({
                     <p className="text-xs font-semibold text-on-surface-variant uppercase tracking-wider">
                       {isIncome ? "Money In" : "Money Out"}
                     </p>
-                    <p className={`text-3xl font-extrabold mt-0.5 ${isIncome ? "text-emerald-700" : "text-on-surface"}`} style={{ fontFamily: "'Manrope', sans-serif" }}>
+                    <p className={`text-3xl font-extrabold mt-0.5 ${isIncome ? "text-on-success-container" : "text-on-surface"}`} style={{ fontFamily: "'Manrope', sans-serif" }}>
                       {txn.amount}
                     </p>
                   </div>
                 </div>
-                <span className={`px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider ${isIncome ? "bg-emerald-100 text-emerald-700" : "bg-surface-container-high text-on-surface-variant"}`}>
+                <span className={`px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider ${isIncome ? "bg-success-container text-on-success-container" : "bg-surface-container-high text-on-surface-variant"}`}>
                   {isIncome ? "Credit" : "Debit"}
                 </span>
               </div>
@@ -391,11 +391,11 @@ export default function TransactionDetailPage({
                 aria-live="polite"
                 className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all ${
                   duplicated
-                    ? "bg-emerald-50 text-emerald-700"
+                    ? "bg-success-container text-on-success-container"
                     : "text-on-surface hover:bg-surface-container-low"
                 }`}
               >
-                <span aria-hidden="true" className={`material-symbols-outlined text-[20px] ${duplicated ? "text-emerald-700" : "text-primary"}`}>
+                <span aria-hidden="true" className={`material-symbols-outlined text-[20px] ${duplicated ? "text-on-success-container" : "text-primary"}`}>
                   {duplicated ? "check_circle" : "content_copy"}
                 </span>
                 {duplicated ? "Duplicated!" : "Duplicate Entry"}
@@ -491,7 +491,7 @@ export default function TransactionDetailPage({
                 </div>
               )}
               <div className="flex gap-3">
-                <div className="w-2 h-2 rounded-full bg-emerald-500 mt-1.5 shrink-0" />
+                <div className="w-2 h-2 rounded-full bg-success-container0 mt-1.5 shrink-0" />
                 <div>
                   <p className="text-xs font-semibold text-on-surface">Auto-categorized</p>
                   <p className="text-[11px] text-on-surface-variant mt-0.5">{txn.date} — {txn.highlight ? "Low confidence" : "High confidence"}</p>

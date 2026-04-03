@@ -63,7 +63,7 @@ function getStatusBadge(status: string) {
   switch (status) {
     case "resolved":
     case "closed":
-      return "bg-emerald-100 text-emerald-800";
+      return "bg-success-container text-on-success-container";
     case "in_progress":
       return "bg-primary-fixed text-primary";
     case "waiting_on_vendor":
@@ -356,10 +356,10 @@ export function PropertyAnalyticsClient({ property, cases, tenants }: Props) {
                         {/* Total resolution time bar */}
                         {isResolved && (
                           <div className="mt-3 flex items-center gap-2">
-                            <span className="material-symbols-outlined text-xs text-emerald-600">check_circle</span>
-                            <span className="text-xs font-bold text-emerald-700">Resolved in {detail.totalResolution}</span>
+                            <span className="material-symbols-outlined text-xs text-on-success-container">check_circle</span>
+                            <span className="text-xs font-bold text-on-success-container">Resolved in {detail.totalResolution}</span>
                             <div className="flex-1 h-1.5 bg-surface-container-high rounded-full overflow-hidden ml-2">
-                              <div className="h-full bg-emerald-500 rounded-full" style={{ width: "100%" }} />
+                              <div className="h-full bg-success-container0 rounded-full" style={{ width: "100%" }} />
                             </div>
                           </div>
                         )}

@@ -49,11 +49,11 @@ const properties = [
     type: "Mixed-Use Commercial",
     income: "$42,500.00",
     credits: "$1,200.00",
-    creditsColor: "text-emerald-700",
+    creditsColor: "text-on-success-container",
     debits: "($8,450.00)",
     net: "$35,250.00",
     status: "Verified",
-    statusColor: "bg-emerald-100 text-emerald-700",
+    statusColor: "bg-success-container text-on-success-container",
     expanded: true,
     subItems: [
       { name: "Residential Lease - Unit 4B", income: "$4,200.00", credits: "\u2014", debits: "\u2014", net: "$4,200.00" },
@@ -82,11 +82,11 @@ const properties = [
     type: "Retail Strip",
     income: "$15,000.00",
     credits: "$450.00",
-    creditsColor: "text-emerald-700",
+    creditsColor: "text-on-success-container",
     debits: "($7,390.12)",
     net: "$8,059.88",
     status: "Verified",
-    statusColor: "bg-emerald-100 text-emerald-700",
+    statusColor: "bg-success-container text-on-success-container",
     expanded: false,
     subItems: [
       { name: "Retail Lease - Ground Floor", income: "$12,000.00", credits: "$450.00", debits: "\u2014", net: "$12,450.00" },
@@ -344,7 +344,7 @@ export default function StatementsPage() {
                 <span aria-hidden="true" className="material-symbols-outlined">{kpi.icon}</span>
               </div>
               {kpi.hasTrend && (
-                <span className={`text-[11px] font-bold px-2 py-1 rounded-full ${periodData.revenueTrend.startsWith("+") ? "text-emerald-700 bg-emerald-50" : "text-red-600 bg-red-50"}`}>{periodData.revenueTrend}</span>
+                <span className={`text-[11px] font-bold px-2 py-1 rounded-full ${periodData.revenueTrend.startsWith("+") ? "text-on-success-container bg-success-container" : "text-red-600 bg-red-50"}`}>{periodData.revenueTrend}</span>
               )}
             </div>
             <div className="mt-auto">
@@ -461,7 +461,7 @@ export default function StatementsPage() {
           <button
             onClick={() => { if (printState !== "idle") return; setPrintState("loading"); setTimeout(() => { setPrintState("done"); setTimeout(() => setPrintState("idle"), 2000); }, 1500); }}
             disabled={printState !== "idle"}
-            className={`flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-bold transition-all ${printState === "done" ? "bg-emerald-500 text-white" : printState === "loading" ? "border border-outline-variant text-on-surface-variant cursor-wait" : "border border-outline-variant text-on-surface hover:bg-surface-container-low"}`}
+            className={`flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-bold transition-all ${printState === "done" ? "bg-success-container0 text-white" : printState === "loading" ? "border border-outline-variant text-on-surface-variant cursor-wait" : "border border-outline-variant text-on-surface hover:bg-surface-container-low"}`}
           >
             <span aria-hidden="true" className="material-symbols-outlined">{printState === "done" ? "check" : printState === "loading" ? "hourglass_top" : "print"}</span>
             {printState === "done" ? "Sent!" : printState === "loading" ? "Printing..." : "Print"}
@@ -469,7 +469,7 @@ export default function StatementsPage() {
           <button
             onClick={() => { if (downloadState !== "idle") return; setDownloadState("loading"); setTimeout(() => { setDownloadState("done"); setTimeout(() => setDownloadState("idle"), 2000); }, 1500); }}
             disabled={downloadState !== "idle"}
-            className={`flex items-center gap-2 px-8 py-2.5 rounded-xl text-sm font-bold shadow-lg transition-all ${downloadState === "done" ? "bg-emerald-500 text-white shadow-emerald-500/20" : downloadState === "loading" ? "bg-primary/70 text-white shadow-primary/20 cursor-wait" : "bg-primary text-white shadow-primary/20 hover:opacity-90 active:scale-[0.98]"}`}
+            className={`flex items-center gap-2 px-8 py-2.5 rounded-xl text-sm font-bold shadow-lg transition-all ${downloadState === "done" ? "bg-success-container0 text-white shadow-success/20" : downloadState === "loading" ? "bg-primary/70 text-white shadow-primary/20 cursor-wait" : "bg-primary text-white shadow-primary/20 hover:opacity-90 active:scale-[0.98]"}`}
           >
             <span aria-hidden="true" className="material-symbols-outlined">{downloadState === "done" ? "check" : downloadState === "loading" ? "hourglass_top" : "download"}</span>
             {downloadState === "done" ? "Downloaded!" : downloadState === "loading" ? "Downloading..." : "Download PDF"}

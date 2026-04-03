@@ -69,7 +69,7 @@ export default function OnboardingStep2() {
                   </div>
                 </div>
                 <div className="flex items-center space-x-6">
-                  <div className="flex items-center text-emerald-700 font-semibold text-sm">
+                  <div className="flex items-center text-on-success-container font-semibold text-sm">
                     <span
                       aria-hidden="true" className="material-symbols-outlined mr-1"
                       style={{ fontVariationSettings: "'FILL' 1" }}

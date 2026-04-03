@@ -192,7 +192,7 @@ export default function GettingStartedPage() {
                         >
                           <span
                             aria-hidden="true"
-                            className="material-symbols-outlined text-emerald-500 text-[16px] mt-0.5"
+                            className="material-symbols-outlined text-on-success-container text-[16px] mt-0.5"
                           >
                             check_circle
                           </span>

@@ -259,7 +259,7 @@ export default function LargeTransactionDetailPage({
           <div className="bg-surface-container-lowest rounded-2xl card-shadow border border-outline-variant/10 p-6">
             <h3 className="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-4">Actions</h3>
             <div className="space-y-2">
-              <button className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold text-white bg-emerald-600 shadow-md shadow-emerald-200 hover:bg-emerald-700 transition-all">
+              <button className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold text-white bg-primary-container shadow-md shadow-success hover:bg-primary/80 transition-all">
                 <span aria-hidden="true" className="material-symbols-outlined text-[20px]">check_circle</span>
                 Verify &amp; Approve
               </button>

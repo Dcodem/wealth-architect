@@ -418,8 +418,8 @@ function TransactionsContent() {
             </button>
 
             <div className="flex items-center gap-4 mb-6">
-              <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${selectedTransaction.amount.startsWith("+") ? "bg-emerald-100" : "bg-surface-container-high"}`}>
-                <span aria-hidden="true" className={`material-symbols-outlined text-xl ${selectedTransaction.amount.startsWith("+") ? "text-emerald-700" : "text-on-surface-variant"}`}>
+              <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${selectedTransaction.amount.startsWith("+") ? "bg-success-container" : "bg-surface-container-high"}`}>
+                <span aria-hidden="true" className={`material-symbols-outlined text-xl ${selectedTransaction.amount.startsWith("+") ? "text-on-success-container" : "text-on-surface-variant"}`}>
                   {selectedTransaction.amount.startsWith("+") ? "arrow_downward" : "arrow_upward"}
                 </span>
               </div>
@@ -494,11 +494,11 @@ function TransactionsContent() {
             )}
 
             {tempCategory && (
-              <div className="mt-6 bg-emerald-50 border border-emerald-200/50 rounded-xl p-4 flex items-start gap-3">
-                <span aria-hidden="true" className="material-symbols-outlined text-emerald-700 text-xl">check_circle</span>
+              <div className="mt-6 bg-success-container border border-success-border/50 rounded-xl p-4 flex items-start gap-3">
+                <span aria-hidden="true" className="material-symbols-outlined text-on-success-container text-xl">check_circle</span>
                 <div>
-                  <p className="text-sm font-bold text-emerald-800">Recategorized</p>
-                  <p className="text-xs text-emerald-700 mt-0.5">Changed to &quot;{tempCategory.label}&quot;. Save on the detail page to persist.</p>
+                  <p className="text-sm font-bold text-on-success-container">Recategorized</p>
+                  <p className="text-xs text-on-success-container mt-0.5">Changed to &quot;{tempCategory.label}&quot;. Save on the detail page to persist.</p>
                 </div>
               </div>
             )}

@@ -46,7 +46,7 @@ export default function IntegrationsPage() {
               <div>
                 <div className="flex items-center gap-3">
                   <span className="text-base font-semibold text-on-surface">Chase Bank</span>
-                  <span className="px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-700 rounded-full border border-emerald-100">
+                  <span className="px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider bg-success-container text-on-success-container rounded-full border border-success-border">
                     Connected
                   </span>
                 </div>
@@ -118,7 +118,7 @@ export default function IntegrationsPage() {
               }}
               aria-live="polite"
               className={`px-5 py-2 text-sm font-semibold rounded-lg transition-all flex items-center gap-1.5 ${
-                amexReconnecting === "done" ? "bg-emerald-500 text-white border border-emerald-500"
+                amexReconnecting === "done" ? "bg-success-container0 text-white border border-success"
                 : amexReconnecting === "loading" ? "bg-primary/10 text-primary border border-primary/20 cursor-wait"
                 : "text-primary hover:bg-primary/10 border border-primary/20"
               }`}
@@ -138,7 +138,7 @@ export default function IntegrationsPage() {
               <div>
                 <div className="flex items-center gap-3">
                   <span className="text-base font-semibold text-on-surface">Vanguard</span>
-                  <span className="px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-700 rounded-full border border-emerald-100">
+                  <span className="px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider bg-success-container text-on-success-container rounded-full border border-success-border">
                     Connected
                   </span>
                 </div>
