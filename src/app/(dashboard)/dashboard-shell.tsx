@@ -11,7 +11,7 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen bg-surface">
       <SidebarNav open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       <div className="lg:pl-[220px]">
-        <TopBar onMenuClick={() => setSidebarOpen(true)} />
+        <TopBar onMenuToggle={() => setSidebarOpen(true)} />
         <main className="p-6 lg:p-8">{children}</main>
       </div>
     </div>
