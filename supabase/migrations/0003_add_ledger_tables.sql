@@ -1,15 +1,10 @@
--- Add financial fields to properties
+-- Add financial fields to properties (operational text fields already exist from 0000)
 ALTER TABLE "properties" ADD COLUMN "slug" text;--> statement-breakpoint
 ALTER TABLE "properties" ADD COLUMN "purchase_price" integer;--> statement-breakpoint
 ALTER TABLE "properties" ADD COLUMN "current_value" integer;--> statement-breakpoint
 ALTER TABLE "properties" ADD COLUMN "ownership_percentage" real DEFAULT 100;--> statement-breakpoint
 ALTER TABLE "properties" ADD COLUMN "monthly_rent" integer;--> statement-breakpoint
 ALTER TABLE "properties" ADD COLUMN "image_url" text;--> statement-breakpoint
-ALTER TABLE "properties" ADD COLUMN "access_instructions" text;--> statement-breakpoint
-ALTER TABLE "properties" ADD COLUMN "parking_instructions" text;--> statement-breakpoint
-ALTER TABLE "properties" ADD COLUMN "unit_access_notes" text;--> statement-breakpoint
-ALTER TABLE "properties" ADD COLUMN "special_instructions" text;--> statement-breakpoint
-ALTER TABLE "properties" ADD COLUMN "notes" text;--> statement-breakpoint
 
 -- Transaction AI status enum
 CREATE TYPE "public"."transaction_ai_status" AS ENUM('reviewed', 'needs_review', 'flagged');--> statement-breakpoint
