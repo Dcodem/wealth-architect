@@ -8,7 +8,7 @@ const reportLinks = [
     title: "Statements",
     desc: "Consolidated financial reports for any time period with line-item detail.",
     icon: "receipt_long",
-    iconBg: "bg-emerald-50 text-emerald-700",
+    iconBg: "bg-primary-fixed text-primary",
     href: "/reports/statements",
   },
   {

@@ -398,13 +398,13 @@ export default function TransactionReviewPage() {
                 {acceptedCards.map((c) => (
                   <div key={c.id} className="bg-surface-container-low/60 rounded-xl p-5 flex items-center justify-between border border-dashed border-outline-variant">
                     <div className="flex items-center gap-4">
-                      <div className="w-9 h-9 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center">
+                      <div className="w-9 h-9 rounded-lg bg-success-container text-on-success-container flex items-center justify-center">
                         <span aria-hidden="true" className="material-symbols-outlined text-[18px]">check_circle</span>
                       </div>
                       <div>
                         <h4 className="text-sm font-semibold text-on-surface-variant">{c.vendor}</h4>
                         <div className="flex items-center gap-2 mt-0.5">
-                          <span className="text-xs font-bold text-emerald-700 uppercase tracking-tight">Accepted</span>
+                          <span className="text-xs font-bold text-on-success-container uppercase tracking-tight">Accepted</span>
                           <span className="text-on-surface-variant/40 text-xs">&middot;</span>
                           <span className="text-on-surface-variant/60 text-xs">{c.suggestion}</span>
                           <span className="text-on-surface-variant/40 text-xs">&middot;</span>

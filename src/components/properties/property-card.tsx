@@ -6,11 +6,16 @@ type Property = {
   address: string;
   unitCount: number | null;
   type: string;
+  purchasePrice: number | null;
+  currentValue: number | null;
+  ownershipPercentage: number | null;
+  monthlyRent: number | null;
+  imageUrl: string | null;
 };
 
 const TYPE_GRADIENTS: Record<string, string> = {
   residential: "from-blue-900/80 via-blue-800/60 to-slate-900/80",
-  commercial: "from-emerald-900/80 via-emerald-800/60 to-slate-900/80",
+  commercial: "from-primary/80 via-primary-container/60 to-slate-900/80",
 };
 
 const TYPE_ICONS: Record<string, string> = {
@@ -61,7 +66,7 @@ export function PropertyCard({
               {activeCases} Active {activeCases === 1 ? "Case" : "Cases"}
             </span>
           ) : (
-            <span className="px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-[11px] font-bold uppercase tracking-wider shadow-sm">
+            <span className="px-3 py-1 rounded-full bg-success-container text-on-success-container text-[11px] font-bold uppercase tracking-wider shadow-sm">
               No Issues
             </span>
           )}
@@ -77,19 +82,31 @@ export function PropertyCard({
             <span className="text-sm capitalize">{property.type}</span>
           </div>
         </div>
-        <div className="flex justify-between items-end pt-2">
+        <div className="grid grid-cols-3 gap-2 pt-2">
           <div>
-            <p className="text-[11px] font-bold text-on-surface-variant uppercase tracking-wider">Units</p>
-            <p className="text-lg font-bold text-on-surface">{String(property.unitCount ?? 1).padStart(2, "0")}</p>
+            <p className="text-[11px] font-bold text-on-surface-variant uppercase tracking-wider">Value</p>
+            <p className="text-base font-bold text-on-surface tabular-nums">
+              {property.currentValue
+                ? `$${(property.currentValue / 1000).toFixed(0)}K`
+                : "—"}
+            </p>
+          </div>
+          <div>
+            <p className="text-[11px] font-bold text-on-surface-variant uppercase tracking-wider">Rent/mo</p>
+            <p className="text-base font-bold text-on-surface tabular-nums">
+              {property.monthlyRent
+                ? `$${property.monthlyRent.toLocaleString()}`
+                : "—"}
+            </p>
           </div>
           <div className="text-right">
-            <p className="text-[11px] font-bold text-on-surface-variant uppercase tracking-wider">Cases</p>
-            <p className="text-lg font-bold text-primary">{activeCases}</p>
+            <p className="text-[11px] font-bold text-on-surface-variant uppercase tracking-wider">Units</p>
+            <p className="text-base font-bold text-on-surface">{property.unitCount ?? 1}</p>
           </div>
         </div>
         {/* Activity summary */}
         <div className={`pt-2 border-t border-outline-variant/10 flex items-center gap-1.5 ${
-          activeCases > 0 ? "text-amber-600" : "text-emerald-600"
+          activeCases > 0 ? "text-warning-dim" : "text-success-dim"
         }`}>
           <span className="material-symbols-outlined text-sm">
             {activeCases > 0 ? "build" : "check_circle"}

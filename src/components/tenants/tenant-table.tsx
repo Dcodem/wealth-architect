@@ -31,7 +31,7 @@ function getInitials(name: string) {
 const INITIAL_COLORS = [
   "bg-primary-fixed text-primary",
   "bg-amber-100 text-amber-700",
-  "bg-emerald-100 text-emerald-700",
+  "bg-success-container text-on-success-container",
   "bg-violet-100 text-violet-700",
   "bg-rose-100 text-rose-700",
   "bg-sky-100 text-sky-700",
@@ -60,7 +60,7 @@ function getLeaseStatusClasses(leaseEnd: Date | null) {
   if (daysUntilEnd <= 90) {
     return "bg-yellow-50 text-yellow-700 border-yellow-200";
   }
-  return "bg-emerald-50 text-emerald-700 border-emerald-100";
+  return "bg-success-container text-on-success-container border-success-border";
 }
 
 function formatDate(date: Date | null) {
@@ -211,8 +211,8 @@ export function TenantTable({
                           Late
                         </button>
                       ) : (
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-100">
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-success-container text-on-success-container border border-success-border">
+                          <span className="w-1.5 h-1.5 rounded-full bg-success"></span>
                           Paid
                         </span>
                       )}

@@ -26,7 +26,7 @@ export default function KPICard({ label, value, numericValue, format, icon, icon
         </div>
         {trend && (
           <InfoTooltip content={trendTooltip ?? "vs. previous period"}>
-            <span className={`text-[11px] font-bold flex items-center gap-0.5 cursor-help ${trendUp ? "text-green-700" : "text-error"}`}>
+            <span className={`text-[11px] font-bold flex items-center gap-0.5 cursor-help ${trendUp ? "text-success-dim" : "text-error"}`}>
               <span aria-hidden="true" className="material-symbols-outlined text-[14px]">
                 {trendUp ? "trending_up" : "trending_down"}
               </span>

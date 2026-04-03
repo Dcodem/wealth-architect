@@ -109,8 +109,8 @@ export function OverviewClient({ cases, properties, tenants, vendorCount, portfo
               value=""
               numericValue={portfolioKPIs.monthlyIncome}
               icon="trending_up"
-              iconBg="bg-green-100"
-              iconColor="text-green-700"
+              iconBg="bg-primary-fixed"
+              iconColor="text-primary"
               trend="+3.1%"
               trendUp
               trendTooltip="vs. last month"
@@ -173,8 +173,8 @@ export function OverviewClient({ cases, properties, tenants, vendorCount, portfo
             </div>
             <Link href="/vendors" className="block group">
               <div className="bg-surface-container-lowest p-5 rounded-xl card-shadow flex items-center gap-4 group-hover:ring-2 group-hover:ring-blue-300 transition-all">
-                <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center">
-                  <span className="material-symbols-outlined text-emerald-700">engineering</span>
+                <div className="w-10 h-10 rounded-xl bg-primary-fixed flex items-center justify-center">
+                  <span className="material-symbols-outlined text-primary">engineering</span>
                 </div>
                 <div>
                   <p className="text-2xl font-extrabold text-on-surface">{vendorCount}</p>
@@ -339,7 +339,7 @@ export function OverviewClient({ cases, properties, tenants, vendorCount, portfo
             <div className="bg-surface-container-low p-5 rounded-lg border-l-2 border-primary-fixed-dim">
               <span className="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant block mb-3">Status</span>
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <div className="w-2 h-2 rounded-full bg-primary-container animate-pulse" />
                 <span className="text-lg font-bold">Active &amp; Learning</span>
               </div>
             </div>

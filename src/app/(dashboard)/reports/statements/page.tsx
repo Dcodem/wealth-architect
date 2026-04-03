@@ -40,7 +40,7 @@ const periodLabels: Record<string, string> = {
 const kpiMeta = [
   { icon: "payments", iconBg: "bg-primary-fixed-dim", iconColor: "text-primary", label: "Total Revenue", key: "revenue" as const, hasTrend: true },
   { icon: "account_balance_wallet", iconBg: "bg-orange-100", iconColor: "text-orange-600", label: "Total Expenses", key: "expenses" as const },
-  { icon: "trending_up", iconBg: "bg-emerald-100", iconColor: "text-emerald-700", label: "Operating Profit", key: "profit" as const, note: "Pre-tax reconciliation" },
+  { icon: "trending_up", iconBg: "bg-primary-fixed", iconColor: "text-primary", label: "Operating Profit", key: "profit" as const, note: "Pre-tax reconciliation" },
 ];
 
 const properties = [

@@ -123,6 +123,47 @@ export function PropertyDetailClient({ property, tenants, cases }: Props) {
         </div>
       </section>
 
+      {/* Financial Overview */}
+      {(property.currentValue || property.purchasePrice || property.monthlyRent) && (
+        <section className="px-8 mt-8">
+          <div className="flex items-center gap-2 mb-4">
+            <span className="material-symbols-outlined text-primary text-lg">account_balance</span>
+            <h3 className="text-sm font-bold text-on-surface-variant uppercase tracking-wider">Financials</h3>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="bg-surface-container-lowest p-5 rounded-xl">
+              <p className="text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Current Value</p>
+              <p className="text-2xl font-extrabold text-on-surface tabular-nums">
+                {property.currentValue ? `$${property.currentValue.toLocaleString()}` : "—"}
+              </p>
+            </div>
+            <div className="bg-surface-container-lowest p-5 rounded-xl">
+              <p className="text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Purchase Price</p>
+              <p className="text-2xl font-extrabold text-on-surface tabular-nums">
+                {property.purchasePrice ? `$${property.purchasePrice.toLocaleString()}` : "—"}
+              </p>
+            </div>
+            <div className="bg-surface-container-lowest p-5 rounded-xl">
+              <p className="text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Monthly Rent</p>
+              <p className="text-2xl font-extrabold text-on-surface tabular-nums">
+                {property.monthlyRent ? `$${property.monthlyRent.toLocaleString()}` : "—"}
+              </p>
+            </div>
+            <div className="bg-surface-container-lowest p-5 rounded-xl">
+              <p className="text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Ownership</p>
+              <p className="text-2xl font-extrabold text-on-surface tabular-nums">
+                {property.ownershipPercentage ?? 100}%
+              </p>
+              {property.currentValue && property.purchasePrice && (
+                <p className="text-xs text-success-dim font-bold mt-1">
+                  +${((property.currentValue - property.purchasePrice)).toLocaleString()} equity
+                </p>
+              )}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Operational Overview Cards */}
       <section className="px-8 mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="bg-surface-container-lowest p-8 rounded-2xl border-none flex flex-col justify-between h-48">
