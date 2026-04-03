@@ -108,19 +108,64 @@ export const users = pgTable("users", {
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });
 
+export const transactionAiStatusEnum = pgEnum("transaction_ai_status", [
+  "reviewed",
+  "needs_review",
+  "flagged",
+]);
+
 export const properties = pgTable("properties", {
   id: uuid("id").defaultRandom().primaryKey(),
   orgId: uuid("org_id")
     .references(() => organizations.id, { onDelete: "cascade" })
     .notNull(),
   address: text("address").notNull(),
+  slug: text("slug"),
   unitCount: integer("unit_count").default(1),
   type: propertyTypeEnum("type").default("residential").notNull(),
+  // ─── Financial fields (Ledger module) ───
+  purchasePrice: integer("purchase_price"),
+  currentValue: integer("current_value"),
+  ownershipPercentage: real("ownership_percentage").default(100),
+  monthlyRent: integer("monthly_rent"),
+  imageUrl: text("image_url"),
+  // ─── Operational fields ───
   accessInstructions: text("access_instructions"),
   parkingInstructions: text("parking_instructions"),
   unitAccessNotes: text("unit_access_notes"),
   specialInstructions: text("special_instructions"),
   notes: text("notes"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
+});
+
+export const bankAccounts = pgTable("bank_accounts", {
+  id: uuid("id").defaultRandom().primaryKey(),
+  orgId: uuid("org_id")
+    .references(() => organizations.id, { onDelete: "cascade" })
+    .notNull(),
+  name: text("name").notNull(),
+  institution: text("institution").notNull(),
+  mask: text("mask"),
+  plaidId: text("plaid_id"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const transactions = pgTable("transactions", {
+  id: uuid("id").defaultRandom().primaryKey(),
+  orgId: uuid("org_id")
+    .references(() => organizations.id, { onDelete: "cascade" })
+    .notNull(),
+  propertyId: uuid("property_id").references(() => properties.id),
+  bankAccountId: uuid("bank_account_id").references(() => bankAccounts.id),
+  date: timestamp("date").notNull(),
+  title: text("title").notNull(),
+  subtitle: text("subtitle"),
+  category: text("category"),
+  amount: integer("amount").notNull(),
+  aiStatus: transactionAiStatusEnum("ai_status").default("needs_review"),
+  aiConfidence: real("ai_confidence"),
+  duplicateGroupId: text("duplicate_group_id"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });
@@ -255,3 +300,7 @@ export type Case = typeof cases.$inferSelect;
 export type NewCase = typeof cases.$inferInsert;
 export type CaseTimelineEntry = typeof caseTimeline.$inferSelect;
 export type NewCaseTimelineEntry = typeof caseTimeline.$inferInsert;
+export type BankAccount = typeof bankAccounts.$inferSelect;
+export type NewBankAccount = typeof bankAccounts.$inferInsert;
+export type Transaction = typeof transactions.$inferSelect;
+export type NewTransaction = typeof transactions.$inferInsert;
