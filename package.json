@@ -1,0 +1,47 @@
+{
+  "name": "wealth-architect",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The Wealth Architect — Luxury real estate portfolio management + AI-powered property operations",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "seed": "tsx scripts/seed.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.80.0",
+    "@number-flow/react": "^0.6.0",
+    "@sendgrid/mail": "^8.1.6",
+    "@supabase/ssr": "^0.9.0",
+    "@supabase/supabase-js": "^2.100.1",
+    "@upstash/ratelimit": "^2.0.8",
+    "@upstash/redis": "^1.37.0",
+    "drizzle-orm": "^0.45.2",
+    "framer-motion": "^12.38.0",
+    "inngest": "^4.1.0",
+    "lucide-react": "^1.7.0",
+    "next": "16.2.1",
+    "postgres": "^3.4.8",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "recharts": "^3.8.1",
+    "twilio": "^5.13.1",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^25",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "dotenv": "^17.3.1",
+    "drizzle-kit": "^0.31.10",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.1",
+    "tailwindcss": "^4",
+    "tsx": "^4.21.0",
+    "typescript": "^6",
+    "vitest": "^4.1.2"
+  }
+}

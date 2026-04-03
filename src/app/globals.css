@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* ── Primary ──────────────────────────────────────── */
+  --color-primary: #0F766E;
+  --color-primary-container: #14B8A6;
+  --color-primary-fixed: #CCFBF1;
+  --color-primary-fixed-dim: #5EEAD4;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #F0FDFA;
+
+  /* ── Secondary ────────────────────────────────────── */
+  --color-secondary: #1C1917;
+  --color-secondary-container: #A8A29E;
+  --color-secondary-fixed-dim: #D6D3D1;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #44403C;
+
+  /* ── Tertiary / Gold ──────────────────────────────── */
+  --color-tertiary: #A16207;
+  --color-gold: #A16207;
+
+  /* ── Error ────────────────────────────────────────── */
+  --color-error: #DC2626;
+  --color-error-container: #FEE2E2;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #991B1B;
+  --color-error-border: #FECACA;
+
+  /* ── Success ──────────────────────────────────────── */
+  --color-success: #10B981;
+  --color-success-container: #F0FDF4;
+  --color-on-success-container: #166534;
+  --color-success-dim: #16A34A;
+  --color-success-border: #BBF7D0;
+
+  /* ── Warning ──────────────────────────────────────── */
+  --color-warning: #F59E0B;
+  --color-warning-container: #FFFBEB;
+  --color-on-warning-container: #92400E;
+  --color-warning-dim: #D97706;
+  --color-warning-border: #FDE68A;
+
+  /* ── Caution ──────────────────────────────────────── */
+  --color-caution: #EA580C;
+  --color-caution-container: #FFF7ED;
+  --color-on-caution-container: #9A3412;
+  --color-caution-border: #FED7AA;
+
+  /* ── Info ──────────────────────────────────────────── */
+  --color-info: #1E40AF;
+  --color-info-container: #EFF6FF;
+  --color-on-info-container: #1E40AF;
+  --color-info-dot: #006872;
+  --color-info-border: #BFDBFE;
+
+  /* ── Purple ───────────────────────────────────────── */
+  --color-purple: #7C3AED;
+  --color-purple-container: #F5F3FF;
+  --color-on-purple-container: #5B21B6;
+  --color-purple-border: #DDD6FE;
+
+  /* ── Neutral ──────────────────────────────────────── */
+  --color-neutral: #9CA3AF;
+  --color-neutral-container: #F9FAFB;
+  --color-on-neutral-container: #4B5563;
+  --color-neutral-border: #E5E7EB;
+
+  /* ── Surface ──────────────────────────────────────── */
+  --color-surface: #FAFAF9;
+  --color-surface-dim: #D6D3D1;
+  --color-surface-bright: #FAFAF9;
+  --color-surface-container: #F0FDFA;
+  --color-surface-container-low: #F5F5F4;
+  --color-surface-container-high: #E7E5E4;
+  --color-surface-container-highest: #D6D3D1;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-variant: #E7E5E4;
+  --color-on-surface: #0C0A09;
+  --color-on-surface-variant: #57534E;
+
+  /* ── Outline ──────────────────────────────────────── */
+  --color-outline: #78716C;
+  --color-outline-variant: #D6D3D1;
+
+  /* ── Inverse ──────────────────────────────────────── */
+  --color-inverse-surface: #1C1917;
+  --color-inverse-on-surface: #F5F5F4;
+  --color-inverse-primary: #5EEAD4;
+
+  /* ── Background ───────────────────────────────────── */
+  --color-background: #FAFAF9;
+  --color-on-background: #0C0A09;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--color-surface);
+  color: var(--color-on-surface);
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.glass-effect {
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.card-shadow {
+  box-shadow: 0 12px 32px rgba(20, 27, 43, 0.04);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Animations ─────────────────────────────────────── */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes toastIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.animate-fade-in-up { animation: fadeInUp 0.4s ease-out both; }
+.animate-fade-in { animation: fadeIn 0.3s ease-out both; }
+.animate-slide-down { animation: slideDown 0.3s ease-out both; }
+.animate-toast-in { animation: toastIn 0.3s ease-out both; }
+
+.stagger-1 { animation-delay: 50ms; }
+.stagger-2 { animation-delay: 100ms; }
+.stagger-3 { animation-delay: 150ms; }
+.stagger-4 { animation-delay: 200ms; }
+
+/* ── Tabular figures for financial data ─────────────── */
+
+table td,
+.tabular-nums,
+[data-financial] {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Reduced motion ─────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up,
+  .animate-fade-in,
+  .animate-slide-down,
+  .animate-toast-in {
+    animation: none;
+  }
+
+  .stagger-1, .stagger-2, .stagger-3, .stagger-4 {
+    animation-delay: 0ms;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* ── Accessibility ──────────────────────────────────── */
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
