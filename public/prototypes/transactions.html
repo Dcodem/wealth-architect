@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Transactions - The Wealth Architect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "outline-variant": "#ccc3d8",
+        "surface-dim": "#d3daef",
+        "surface-variant": "#dce2f7",
+        "primary": "#630ed4",
+        "background": "#f9f9ff",
+        "on-background": "#141b2b",
+        "surface-container": "#e9edff",
+        "surface-container-lowest": "#ffffff",
+        "primary-fixed-dim": "#d2bbff",
+        "surface": "#f9f9ff",
+        "primary-container": "#7c3aed",
+        "error": "#ba1a1a",
+        "outline": "#7b7487",
+        "surface-tint": "#732ee4",
+        "primary-fixed": "#eaddff",
+        "on-surface": "#141b2b",
+        "surface-container-high": "#e1e8fd",
+        "on-primary": "#ffffff",
+        "surface-container-low": "#f1f3ff",
+        "on-surface-variant": "#4a4455",
+        "secondary": "#6a4fa0",
+        "secondary-container": "#c4a7ff",
+        "secondary-fixed-dim": "#d2bbff",
+        "inverse-surface": "#293040",
+      },
+      fontFamily: {
+        "headline": ["Manrope"],
+        "body": ["Inter"],
+        "label": ["Inter"]
+      },
+      borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+    },
+  },
+}
+</script>
+<style>
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+}
+body { font-family: 'Inter', sans-serif; }
+h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+.sidebar-scroll::-webkit-scrollbar { width: 4px; }
+.sidebar-scroll::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+</style>
+</head>
+<body class="bg-background text-on-background flex min-h-screen">
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- UNIFIED SIDEBAR                                        -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<aside class="w-[220px] h-screen fixed left-0 top-0 overflow-y-auto bg-slate-50 flex flex-col py-8 px-4 sidebar-scroll z-50">
+  <div class="mb-10 px-2">
+    <h1 class="text-lg font-extrabold tracking-tight text-on-surface leading-none">The Wealth<br/>Architect</h1>
+    <div class="flex items-center gap-1.5 mt-2">
+      <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+      <p class="text-[10px] text-on-surface-variant font-medium">Portfolio Active</p>
+    </div>
+  </div>
+
+  <nav class="flex-1 space-y-0.5">
+    <div class="pb-2 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Portfolio</div>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">dashboard</span>
+      <span class="text-sm font-medium">Dashboard</span>
+    </a>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">domain</span>
+      <span class="text-sm font-medium">Properties</span>
+    </a>
+    <!-- Active: Transactions -->
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-primary font-bold bg-primary/5 border-r-2 border-primary transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">payments</span>
+      <span class="text-sm">Transactions</span>
+    </a>
+
+    <div class="pt-5 pb-2 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Intelligence</div>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">rule_folder</span>
+      <span class="text-sm font-medium">Smart Triage</span>
+      <span class="ml-auto text-[10px] font-bold bg-primary/10 text-primary px-2 py-0.5 rounded-full">3</span>
+    </a>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">psychology</span>
+      <span class="text-sm font-medium">AI Review</span>
+    </a>
+
+    <div class="pt-5 pb-2 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Reports</div>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">analytics</span>
+      <span class="text-sm font-medium">Performance</span>
+    </a>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">assessment</span>
+      <span class="text-sm font-medium">Statements</span>
+    </a>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">file_export</span>
+      <span class="text-sm font-medium">Exports</span>
+    </a>
+
+    <div class="pt-5 pb-2 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">System</div>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">settings</span>
+      <span class="text-sm font-medium">Settings</span>
+    </a>
+  </nav>
+
+  <div class="mt-auto pt-6 border-t border-slate-200 space-y-3">
+    <div class="flex items-center gap-3 px-2">
+      <div class="w-9 h-9 rounded-full bg-primary-fixed-dim flex items-center justify-center overflow-hidden">
+        <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDidJpIUVcppIpLRSOFehpZuo2diAu4nba3o91wO8i9UQHevsYtWtxKHlFoU6Z44QkbVqtBoxMJc8yeK_8NGW79hTPFYi7uCwod1wOsHtWwAhEn2F0RREPBQ29O-iF4b1MSnD2R7PMh9-lZwdxqW_352rpoIazhsxUaZYG5_kYF_gfCINniuXBBfT8K-fjnxvqIVNLkqpHUGuV7Qw4yE0SPPLSBriQ-tFrKhO_qwqA96rLxMMoHmyV8JSY6QMF7PgG2C9qgmD1A-lGx"/>
+      </div>
+      <div class="flex-1 min-w-0">
+        <p class="text-xs font-bold text-on-surface truncate">Julian Vane</p>
+        <p class="text-[10px] text-slate-500 truncate">Portfolio Principal</p>
+      </div>
+    </div>
+    <div class="flex gap-1 px-2">
+      <a class="flex items-center gap-2 px-2 py-1.5 rounded text-slate-400 hover:text-slate-600 transition-colors text-[11px] font-medium" href="#">
+        <span class="material-symbols-outlined text-[16px]">help</span>Help
+      </a>
+      <a class="flex items-center gap-2 px-2 py-1.5 rounded text-slate-400 hover:text-slate-600 transition-colors text-[11px] font-medium" href="#">
+        <span class="material-symbols-outlined text-[16px]">logout</span>Sign out
+      </a>
+    </div>
+  </div>
+</aside>
+
+<!-- UNIFIED TOP BAR -->
+<header class="fixed top-0 right-0 w-[calc(100%-220px)] h-16 bg-white/80 backdrop-blur-xl z-40 flex items-center justify-between px-8 shadow-sm">
+  <div class="flex items-center flex-1 max-w-xl">
+    <div class="relative w-full">
+      <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+      <input class="w-full bg-surface-container-low border-none rounded-xl pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 transition-all outline-none" placeholder="Search properties, transactions, reports..." type="text"/>
+    </div>
+  </div>
+  <div class="flex items-center gap-4">
+    <button class="flex items-center gap-2 bg-primary text-white px-5 py-2 rounded-xl text-sm font-semibold hover:opacity-90 transition-opacity">
+      <span class="material-symbols-outlined text-[18px]">add</span>
+      Add Property
+    </button>
+    <div class="flex items-center gap-2 border-l border-slate-200 pl-4">
+      <button class="p-2 text-slate-400 hover:bg-slate-50 rounded-lg transition-colors relative">
+        <span class="material-symbols-outlined">notifications</span>
+        <span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full border-2 border-white"></span>
+      </button>
+      <button class="p-2 text-slate-400 hover:bg-slate-50 rounded-lg transition-colors">
+        <span class="material-symbols-outlined">help_outline</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- MAIN: UNIFIED TRANSACTIONS                             -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<main class="ml-[220px] pt-16 flex-1">
+  <div class="max-w-[1400px] mx-auto p-8 lg:p-12 space-y-8">
+
+    <!-- Header -->
+    <div class="flex items-end justify-between">
+      <div>
+        <h1 class="text-[28px] font-extrabold text-on-surface tracking-tight">Transactions</h1>
+        <p class="text-on-surface-variant font-medium mt-1 flex items-center gap-2">
+          <span class="material-symbols-outlined text-[16px]">sync</span>
+          Last synced 12 minutes ago · 482 transactions
+        </p>
+      </div>
+      <button class="flex items-center gap-2 border border-outline-variant/30 px-5 py-2 rounded-xl text-sm font-semibold text-on-surface hover:bg-slate-50 transition-colors">
+        <span class="material-symbols-outlined text-[18px]">download</span>
+        Export
+      </button>
+    </div>
+
+    <!-- AI Alert Banner -->
+    <div class="bg-amber-50 border border-amber-200/50 rounded-2xl p-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-amber-600">warning</span>
+        <p class="text-sm font-medium text-amber-900">1 transaction needs review — AI couldn't confidently categorize this item</p>
+      </div>
+      <button class="px-4 py-2 border border-amber-300 rounded-xl text-sm font-bold text-amber-800 hover:bg-amber-100 transition-colors">Review Now</button>
+    </div>
+
+    <!-- Filter Tabs + Property Filter -->
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <button class="flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-xl text-sm font-semibold text-on-surface-variant hover:bg-surface-container-high transition-colors">
+          <span class="material-symbols-outlined text-[18px]">filter_list</span>
+          Filters
+        </button>
+        <div class="flex bg-surface-container-low rounded-xl p-1">
+          <button class="px-4 py-1.5 bg-primary text-white rounded-lg text-sm font-bold">All</button>
+          <button class="px-4 py-1.5 text-on-surface-variant text-sm font-medium hover:text-on-surface transition-colors">Income</button>
+          <button class="px-4 py-1.5 text-on-surface-variant text-sm font-medium hover:text-on-surface transition-colors">Expenses</button>
+        </div>
+      </div>
+      <div class="relative">
+        <select class="appearance-none bg-surface-container-lowest border border-outline-variant/30 rounded-xl px-4 py-2 pr-10 text-sm font-medium focus:ring-2 focus:ring-primary/20 outline-none cursor-pointer">
+          <option>All Properties</option>
+          <option>Main St. Loft</option>
+          <option>Oak Ridge Estate</option>
+          <option>Downtown Plaza</option>
+        </select>
+        <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400 text-[18px]">expand_more</span>
+      </div>
+    </div>
+
+    <!-- Transaction Table -->
+    <div class="bg-surface-container-lowest rounded-2xl shadow-[0_12px_32px_rgba(20,27,43,0.04)] border border-outline-variant/10 overflow-hidden">
+      <table class="w-full text-left">
+        <thead>
+          <tr class="text-[11px] font-bold text-on-surface-variant uppercase tracking-widest bg-surface-container-low/50">
+            <th class="py-4 px-6">Date</th>
+            <th class="py-4 px-6">Description</th>
+            <th class="py-4 px-6">Property</th>
+            <th class="py-4 px-6">Category</th>
+            <th class="py-4 px-6 text-right">Amount</th>
+          </tr>
+        </thead>
+        <tbody class="text-sm">
+          <tr class="hover:bg-slate-50/50 transition-colors cursor-pointer">
+            <td class="py-5 px-6 text-on-surface-variant font-medium">Mar 15</td>
+            <td class="py-5 px-6">
+              <p class="font-semibold text-on-surface">Home Depot - Materials</p>
+              <p class="text-[11px] text-on-surface-variant">Project #402 - Kitchen Reno</p>
+            </td>
+            <td class="py-5 px-6">
+              <span class="text-xs font-medium text-on-surface-variant">Main St. Loft</span>
+            </td>
+            <td class="py-5 px-6">
+              <span class="px-2.5 py-1 bg-violet-100 text-violet-700 text-[10px] font-bold rounded-full uppercase">Capital Improvement</span>
+            </td>
+            <td class="py-5 px-6 text-right font-bold">-$2,450.00</td>
+          </tr>
+          <tr class="hover:bg-slate-50/50 transition-colors cursor-pointer">
+            <td class="py-5 px-6 text-on-surface-variant font-medium">Mar 14</td>
+            <td class="py-5 px-6">
+              <p class="font-semibold text-on-surface">Liberty Mutual - Premium</p>
+              <p class="text-[11px] text-on-surface-variant">Policy: LP-998231</p>
+            </td>
+            <td class="py-5 px-6">
+              <span class="text-xs font-medium text-on-surface-variant">Oak Ridge Estate</span>
+            </td>
+            <td class="py-5 px-6">
+              <span class="px-2.5 py-1 bg-blue-100 text-blue-700 text-[10px] font-bold rounded-full uppercase">Insurance</span>
+            </td>
+            <td class="py-5 px-6 text-right font-bold">-$845.20</td>
+          </tr>
+          <tr class="hover:bg-slate-50/50 transition-colors cursor-pointer">
+            <td class="py-5 px-6 text-on-surface-variant font-medium">Mar 14</td>
+            <td class="py-5 px-6">
+              <p class="font-semibold text-on-surface">Zillow - Rent Payment</p>
+              <p class="text-[11px] text-on-surface-variant">Tenant: Unit 4B - Maxwell</p>
+            </td>
+            <td class="py-5 px-6">
+              <span class="text-xs font-medium text-on-surface-variant">Oak Ridge Estate</span>
+            </td>
+            <td class="py-5 px-6">
+              <span class="px-2.5 py-1 bg-emerald-100 text-emerald-700 text-[10px] font-bold rounded-full uppercase">Rental Income</span>
+            </td>
+            <td class="py-5 px-6 text-right font-bold text-emerald-600">+$3,200.00</td>
+          </tr>
+          <tr class="hover:bg-slate-50/50 transition-colors cursor-pointer bg-amber-50/30">
+            <td class="py-5 px-6 text-on-surface-variant font-medium">Mar 13</td>
+            <td class="py-5 px-6">
+              <p class="font-semibold text-on-surface">Stripe - Mktplace</p>
+              <p class="text-[11px] text-on-surface-variant">Merchant ID: STR-0091</p>
+            </td>
+            <td class="py-5 px-6">
+              <span class="text-xs font-medium text-on-surface-variant">—</span>
+            </td>
+            <td class="py-5 px-6">
+              <span class="px-2.5 py-1 bg-amber-100 text-amber-700 text-[10px] font-bold rounded-full uppercase flex items-center gap-1 w-fit">
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                Needs Review
+              </span>
+            </td>
+            <td class="py-5 px-6 text-right font-bold">-$1,102.55</td>
+          </tr>
+          <tr class="hover:bg-slate-50/50 transition-colors cursor-pointer">
+            <td class="py-5 px-6 text-on-surface-variant font-medium">Mar 12</td>
+            <td class="py-5 px-6">
+              <p class="font-semibold text-on-surface">ConEd - Energy</p>
+              <p class="text-[11px] text-on-surface-variant">Acc: 771-001-22</p>
+            </td>
+            <td class="py-5 px-6">
+              <span class="text-xs font-medium text-on-surface-variant">Downtown Plaza</span>
+            </td>
+            <td class="py-5 px-6">
+              <span class="px-2.5 py-1 bg-sky-100 text-sky-700 text-[10px] font-bold rounded-full uppercase">Utilities</span>
+            </td>
+            <td class="py-5 px-6 text-right font-bold">-$118.40</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- Pagination -->
+      <div class="flex items-center justify-between px-6 py-4 border-t border-outline-variant/10">
+        <p class="text-xs text-on-surface-variant">Showing 1-25 of 482 transactions</p>
+        <div class="flex items-center gap-2">
+          <button class="w-8 h-8 rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors flex items-center justify-center">
+            <span class="material-symbols-outlined text-[18px]">chevron_left</span>
+          </button>
+          <button class="w-8 h-8 rounded-lg bg-primary text-white font-bold text-xs flex items-center justify-center">1</button>
+          <button class="w-8 h-8 rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors text-xs font-medium flex items-center justify-center">2</button>
+          <button class="w-8 h-8 rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors text-xs font-medium flex items-center justify-center">3</button>
+          <span class="text-on-surface-variant text-xs">...</span>
+          <button class="w-8 h-8 rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors flex items-center justify-center">
+            <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI categorization banner + portfolio split — inline, same visual weight -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-gradient-to-br from-primary to-primary-container p-6 rounded-2xl text-white flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-white/20 backdrop-blur flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">psychology</span>
+        </div>
+        <div>
+          <p class="text-xs font-semibold text-white/70 uppercase tracking-widest">Smart Categorization</p>
+          <p class="text-sm font-bold mt-1">AI classified 92% of transactions this month.</p>
+          <button class="mt-2 text-xs font-bold text-white/90 underline underline-offset-2 hover:text-white">View Report</button>
+        </div>
+      </div>
+      <div class="bg-surface-container-lowest p-6 rounded-2xl shadow-[0_12px_32px_rgba(20,27,43,0.04)] border border-outline-variant/10 flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-primary-fixed-dim flex items-center justify-center text-primary shrink-0">
+          <span class="material-symbols-outlined">pie_chart</span>
+        </div>
+        <div>
+          <p class="text-xs font-semibold text-on-surface-variant uppercase tracking-widest">Portfolio Split</p>
+          <p class="text-sm font-bold text-on-surface mt-1">See expense distribution across assets.</p>
+          <a class="mt-2 text-xs font-bold text-primary hover:underline" href="#">View Analytics</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Unified Footer -->
+  <footer class="max-w-[1400px] mx-auto px-8 lg:px-12 py-8 border-t border-outline-variant/10 flex justify-between items-center text-xs text-on-surface-variant">
+    <p>© 2024 The Wealth Architect · v4.2</p>
+    <div class="flex gap-6 font-semibold">
+      <a class="hover:text-primary" href="#">Documentation</a>
+      <a class="hover:text-primary" href="#">Privacy Policy</a>
+      <a class="hover:text-primary" href="#">Data Integrity</a>
+    </div>
+  </footer>
+</main>
+
+</body>
+</html>

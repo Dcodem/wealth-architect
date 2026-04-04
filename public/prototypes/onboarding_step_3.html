@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Processing - The Wealth Architect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "outline-variant": "#ccc3d8",
+        "surface-dim": "#d3daef",
+        "surface-variant": "#dce2f7",
+        "primary": "#630ed4",
+        "background": "#f9f9ff",
+        "on-background": "#141b2b",
+        "surface-container": "#e9edff",
+        "surface-container-lowest": "#ffffff",
+        "primary-fixed-dim": "#d2bbff",
+        "surface": "#f9f9ff",
+        "primary-container": "#7c3aed",
+        "error": "#ba1a1a",
+        "outline": "#7b7487",
+        "surface-tint": "#732ee4",
+        "primary-fixed": "#eaddff",
+        "on-surface": "#141b2b",
+        "surface-container-high": "#e1e8fd",
+        "on-primary": "#ffffff",
+        "surface-container-low": "#f1f3ff",
+        "on-surface-variant": "#4a4455",
+        "secondary": "#6a4fa0",
+        "secondary-container": "#c4a7ff",
+        "secondary-fixed": "#eaddff",
+        "secondary-fixed-dim": "#d2bbff",
+        "on-secondary": "#ffffff",
+        "on-primary-container": "#ede0ff",
+        "on-secondary-container": "#523787",
+        "surface-container-highest": "#dce2f7",
+        "error-container": "#ffdad6",
+        "on-error-container": "#93000a",
+        "on-error": "#ffffff",
+        "inverse-surface": "#293040",
+        "inverse-on-surface": "#edf0ff",
+        "on-secondary-fixed": "#25005a",
+        "on-primary-fixed": "#25005a",
+      },
+      fontFamily: {
+        "headline": ["Manrope", "sans-serif"],
+        "body": ["Inter", "sans-serif"],
+        "label": ["Inter", "sans-serif"]
+      },
+      borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+    },
+  },
+}
+</script>
+<style>
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  vertical-align: middle;
+}
+.processing-pulse {
+  background: radial-gradient(circle, rgba(99, 14, 212, 0.15) 0%, rgba(99, 14, 212, 0) 70%);
+}
+</style>
+</head>
+<body class="bg-background font-body text-on-surface min-h-screen flex flex-col">
+
+<!-- Header -->
+<header class="fixed top-0 w-full flex justify-center items-center py-8 z-50 bg-transparent">
+  <div class="container max-w-[1440px] px-8 flex justify-center">
+    <h1 class="font-headline font-extrabold text-2xl tracking-tight text-on-surface">The Wealth Architect</h1>
+  </div>
+</header>
+
+<!-- Main Content Canvas -->
+<main class="flex-grow flex items-center justify-center px-4 pt-24 pb-32">
+  <div class="max-w-[1440px] w-full flex justify-center">
+    <!-- Full-screen centered card -->
+    <div class="bg-surface-container-lowest rounded-xl shadow-[0_12px_32px_rgba(20,27,43,0.04)] w-full max-w-2xl overflow-hidden relative border border-outline-variant/10">
+      <!-- Atmospheric Background Detail -->
+      <div class="absolute top-0 right-0 w-64 h-64 processing-pulse -mr-32 -mt-32 rounded-full pointer-events-none"></div>
+
+      <div class="p-12 md:p-16 flex flex-col items-center text-center relative z-10">
+        <!-- Processing Visualization -->
+        <div class="mb-10 relative">
+          <div class="w-24 h-24 rounded-full border-4 border-surface-container-high border-t-primary animate-spin"></div>
+          <div class="absolute inset-0 flex items-center justify-center">
+            <span class="material-symbols-outlined text-primary text-3xl">cognition</span>
+          </div>
+        </div>
+
+        <!-- Header Section -->
+        <div class="space-y-3 mb-12">
+          <h1 class="font-headline font-bold text-3xl md:text-4xl text-on-surface tracking-tight">AI is Processing Your Data</h1>
+          <p class="text-on-surface-variant text-lg">Analyzing your records for properties and trends</p>
+        </div>
+
+        <!-- Status Rows -->
+        <div class="w-full max-w-sm space-y-4 mb-10">
+          <!-- Row 1: Complete -->
+          <div class="flex items-center justify-between p-4 rounded-lg bg-surface-container-low transition-all duration-300">
+            <div class="flex items-center space-x-4">
+              <span class="material-symbols-outlined text-emerald-600" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              <span class="font-medium text-on-surface">Categorizing Transactions</span>
+            </div>
+            <span class="text-xs font-semibold uppercase tracking-wider text-emerald-600">Complete</span>
+          </div>
+          <!-- Row 2: In Progress -->
+          <div class="flex items-center justify-between p-4 rounded-lg bg-surface-container-lowest border border-primary/20 shadow-sm transition-all duration-300">
+            <div class="flex items-center space-x-4">
+              <span class="material-symbols-outlined text-primary animate-spin">progress_activity</span>
+              <span class="font-medium text-on-surface">Detecting Properties</span>
+            </div>
+            <span class="text-xs font-semibold uppercase tracking-wider text-primary">In Progress</span>
+          </div>
+          <!-- Row 3: Pending -->
+          <div class="flex items-center justify-between p-4 rounded-lg bg-surface-container-low opacity-60 transition-all duration-300">
+            <div class="flex items-center space-x-4">
+              <span class="material-symbols-outlined text-slate-400">schedule</span>
+              <span class="font-medium text-on-surface">Flagging Anomalies</span>
+            </div>
+            <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Pending</span>
+          </div>
+        </div>
+
+        <!-- Estimated Time Footer -->
+        <div class="flex items-center space-x-2 text-on-surface-variant/80 bg-surface-container-high/40 px-6 py-2 rounded-full">
+          <span class="material-symbols-outlined text-sm">timer</span>
+          <p class="text-sm font-medium">Estimated time: ~2 minutes</p>
+        </div>
+      </div>
+
+      <!-- Subtle Decorative Gradient Bottom -->
+      <div class="h-1 w-full bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+    </div>
+  </div>
+</main>
+
+<!-- Bottom Step Indicator Nav -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-center items-center px-4 pb-12">
+  <div class="flex items-center space-x-8">
+    <!-- Step 1 (Completed) -->
+    <div class="flex flex-col items-center space-y-2">
+      <div class="h-1.5 w-8 rounded-full bg-primary/30"></div>
+      <span class="font-label text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400">Step 1</span>
+    </div>
+    <!-- Step 2 (Completed) -->
+    <div class="flex flex-col items-center space-y-2">
+      <div class="h-1.5 w-8 rounded-full bg-primary/30"></div>
+      <span class="font-label text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400">Step 2</span>
+    </div>
+    <!-- Step 3 (Active) -->
+    <div class="flex flex-col items-center space-y-2">
+      <div class="h-1.5 w-16 rounded-full bg-primary shadow-[0_0_8px_rgba(99,14,212,0.4)]"></div>
+      <div class="flex items-center space-x-2 text-violet-600">
+        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; font-size: 10px;">fiber_manual_record</span>
+        <span class="font-label text-[10px] font-bold uppercase tracking-[0.2em]">Step 3 of 4</span>
+      </div>
+    </div>
+    <!-- Step 4 (Inactive) -->
+    <div class="flex flex-col items-center space-y-2">
+      <div class="h-1.5 w-8 rounded-full bg-slate-200"></div>
+      <span class="font-label text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-300">Final</span>
+    </div>
+  </div>
+</nav>
+
+<!-- Background Decoration -->
+<div class="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none overflow-hidden">
+  <div class="absolute top-[10%] left-[5%] w-96 h-96 bg-primary/5 blur-[120px] rounded-full"></div>
+  <div class="absolute bottom-[10%] right-[5%] w-[30rem] h-[30rem] bg-secondary/5 blur-[120px] rounded-full"></div>
+</div>
+
+</body>
+</html>

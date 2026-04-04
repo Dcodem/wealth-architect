@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Review &amp; Confirm - The Wealth Architect</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "outline-variant": "#ccc3d8",
+        "surface-dim": "#d3daef",
+        "surface-variant": "#dce2f7",
+        "primary": "#630ed4",
+        "background": "#f9f9ff",
+        "on-background": "#141b2b",
+        "surface-container": "#e9edff",
+        "surface-container-lowest": "#ffffff",
+        "primary-fixed-dim": "#d2bbff",
+        "surface": "#f9f9ff",
+        "primary-container": "#7c3aed",
+        "error": "#ba1a1a",
+        "outline": "#7b7487",
+        "surface-tint": "#732ee4",
+        "primary-fixed": "#eaddff",
+        "on-surface": "#141b2b",
+        "surface-container-high": "#e1e8fd",
+        "on-primary": "#ffffff",
+        "surface-container-low": "#f1f3ff",
+        "on-surface-variant": "#4a4455",
+        "secondary": "#6a4fa0",
+        "secondary-container": "#c4a7ff",
+        "secondary-fixed": "#eaddff",
+        "secondary-fixed-dim": "#d2bbff",
+        "on-secondary": "#ffffff",
+        "on-primary-container": "#ede0ff",
+        "on-secondary-container": "#523787",
+        "surface-container-highest": "#dce2f7",
+        "error-container": "#ffdad6",
+        "on-error-container": "#93000a",
+        "on-error": "#ffffff",
+        "inverse-surface": "#293040",
+        "inverse-on-surface": "#edf0ff",
+        "on-secondary-fixed": "#25005a",
+        "on-primary-fixed": "#25005a",
+      },
+      fontFamily: {
+        "headline": ["Manrope"],
+        "body": ["Inter"],
+        "label": ["Inter"]
+      },
+      borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+    },
+  },
+}
+</script>
+<style>
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  display: inline-block;
+  vertical-align: middle;
+}
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f9f9ff;
+}
+.headline-font { font-family: 'Manrope', sans-serif; }
+</style>
+</head>
+<body class="bg-background font-body text-on-surface min-h-screen flex flex-col">
+
+<!-- Header -->
+<header class="fixed top-0 w-full flex justify-center items-center py-8 bg-transparent z-50">
+  <div class="max-w-[1440px] w-full px-8 flex justify-between items-center">
+    <span class="text-2xl font-extrabold text-on-surface headline-font tracking-tight">The Wealth Architect</span>
+    <div class="flex items-center space-x-8">
+      <span class="text-slate-400 headline-font font-bold text-lg tracking-tight">Setup Guide</span>
+    </div>
+  </div>
+</header>
+
+<!-- Main Content Canvas -->
+<main class="flex-grow min-h-screen flex items-center justify-center pt-24 pb-32">
+  <div class="max-w-[1200px] w-full px-6">
+    <!-- Central Onboarding Card -->
+    <div class="bg-surface-container-lowest rounded-xl shadow-[0_12px_32px_rgba(20,27,43,0.04)] overflow-hidden">
+      <div class="p-12">
+        <!-- Step Indicator (inside card) -->
+        <div class="flex justify-center mb-10">
+          <div class="inline-flex items-center bg-white/60 backdrop-blur-md px-8 py-3 rounded-full border border-white/40 shadow-sm space-x-8">
+            <!-- Step 1 (Inactive) -->
+            <div class="flex items-center space-x-2 text-slate-300">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; font-size: 8px;">fiber_manual_record</span>
+              <span class="headline-font text-[10px] font-bold uppercase tracking-widest">Step 1</span>
+            </div>
+            <!-- Step 2 (Inactive) -->
+            <div class="flex items-center space-x-2 text-slate-300">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; font-size: 8px;">fiber_manual_record</span>
+              <span class="headline-font text-[10px] font-bold uppercase tracking-widest">Step 2</span>
+            </div>
+            <!-- Step 3 (Inactive) -->
+            <div class="flex items-center space-x-2 text-slate-300">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; font-size: 8px;">fiber_manual_record</span>
+              <span class="headline-font text-[10px] font-bold uppercase tracking-widest">Step 3</span>
+            </div>
+            <!-- Step 4 (Active) -->
+            <div class="flex items-center space-x-2 text-primary">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; font-size: 10px;">fiber_manual_record</span>
+              <span class="headline-font text-[10px] font-bold uppercase tracking-widest">Step 4 of 4</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Title Section -->
+        <div class="mb-12 text-center">
+          <h1 class="headline-font text-on-surface text-[2rem] font-extrabold tracking-tight mb-4">Review &amp; Confirm</h1>
+          <p class="text-on-surface-variant text-lg max-w-2xl mx-auto">We've analyzed your connected accounts. Review the summary below before we finalize your wealth portfolio.</p>
+        </div>
+
+        <!-- Summary Metric Cards (In a row) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          <!-- Stat Card 1 -->
+          <div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant/10">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-lg bg-primary-fixed-dim flex items-center justify-center">
+                <span class="material-symbols-outlined text-primary">receipt_long</span>
+              </div>
+              <span class="text-primary font-bold headline-font text-sm uppercase tracking-wider">88% Match</span>
+            </div>
+            <h3 class="headline-font text-2xl font-bold mb-1">127 Transactions Found</h3>
+            <p class="text-on-surface-variant text-sm">Synced from 4 accounts</p>
+          </div>
+          <!-- Stat Card 2 -->
+          <div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant/10">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-lg bg-primary-fixed-dim flex items-center justify-center">
+                <span class="material-symbols-outlined text-primary">domain</span>
+              </div>
+              <span class="text-primary font-bold headline-font text-sm uppercase tracking-wider">Validated</span>
+            </div>
+            <h3 class="headline-font text-2xl font-bold mb-1">3 Properties Detected</h3>
+            <p class="text-on-surface-variant text-sm">Residential &amp; Commercial</p>
+          </div>
+          <!-- Stat Card 3 -->
+          <div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant/10">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-lg bg-error-container flex items-center justify-center">
+                <span class="material-symbols-outlined text-error">priority_high</span>
+              </div>
+              <span class="text-error font-bold headline-font text-sm uppercase tracking-wider">Action Required</span>
+            </div>
+            <h3 class="headline-font text-2xl font-bold mb-1">5 Items Need Review</h3>
+            <p class="text-on-surface-variant text-sm">Uncategorized expenses</p>
+          </div>
+        </div>
+
+        <!-- Preview Table of Transactions -->
+        <div class="mb-12 overflow-hidden rounded-xl bg-surface-container-low/50 border border-outline-variant/5">
+          <div class="px-8 py-6 border-b border-outline-variant/10 flex justify-between items-center">
+            <h2 class="headline-font text-xl font-bold">Recent Transaction Preview</h2>
+            <span class="text-on-surface-variant text-sm font-medium">Displaying 4 of 127</span>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="text-on-surface-variant text-xs font-semibold uppercase tracking-wider">
+                  <th class="px-8 py-5">DATE</th>
+                  <th class="px-8 py-5">DESCRIPTION</th>
+                  <th class="px-8 py-5">CATEGORY</th>
+                  <th class="px-8 py-5">PROPERTY</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-outline-variant/5">
+                <tr class="hover:bg-surface-container-high/50 transition-colors">
+                  <td class="px-8 py-6 text-on-surface font-medium">Oct 24, 2023</td>
+                  <td class="px-8 py-6">
+                    <div class="flex items-center space-x-3">
+                      <div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-[10px] font-bold">MS</div>
+                      <span class="text-on-surface font-semibold">Maintenance Services Ltd</span>
+                    </div>
+                  </td>
+                  <td class="px-8 py-6">
+                    <span class="px-3 py-1 bg-surface-container-highest rounded-full text-xs font-semibold">Repairs</span>
+                  </td>
+                  <td class="px-8 py-6 text-on-surface-variant">The Greenwich Estate</td>
+                </tr>
+                <tr class="hover:bg-surface-container-high/50 transition-colors">
+                  <td class="px-8 py-6 text-on-surface font-medium">Oct 22, 2023</td>
+                  <td class="px-8 py-6">
+                    <div class="flex items-center space-x-3">
+                      <div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-[10px] font-bold">PR</div>
+                      <span class="text-on-surface font-semibold">Premier Real Estate Tax</span>
+                    </div>
+                  </td>
+                  <td class="px-8 py-6">
+                    <span class="px-3 py-1 bg-surface-container-highest rounded-full text-xs font-semibold">Taxes</span>
+                  </td>
+                  <td class="px-8 py-6 text-on-surface-variant">Aspen Ridge Villa</td>
+                </tr>
+                <tr class="hover:bg-surface-container-high/50 transition-colors">
+                  <td class="px-8 py-6 text-on-surface font-medium">Oct 20, 2023</td>
+                  <td class="px-8 py-6">
+                    <div class="flex items-center space-x-3">
+                      <div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-[10px] font-bold">UT</div>
+                      <span class="text-on-surface font-semibold">City Utilities Corp</span>
+                    </div>
+                  </td>
+                  <td class="px-8 py-6">
+                    <span class="px-3 py-1 bg-surface-container-highest rounded-full text-xs font-semibold">Utilities</span>
+                  </td>
+                  <td class="px-8 py-6 text-on-surface-variant">The Greenwich Estate</td>
+                </tr>
+                <tr class="hover:bg-surface-container-high/50 transition-colors">
+                  <td class="px-8 py-6 text-on-surface font-medium">Oct 18, 2023</td>
+                  <td class="px-8 py-6">
+                    <div class="flex items-center space-x-3">
+                      <div class="w-8 h-8 rounded-full bg-error-container/30 flex items-center justify-center text-[10px] font-bold text-error">?</div>
+                      <span class="text-on-surface font-semibold italic text-on-surface-variant">Unknown Transaction</span>
+                    </div>
+                  </td>
+                  <td class="px-8 py-6">
+                    <span class="px-3 py-1 bg-error-container text-on-error-container rounded-full text-xs font-semibold">Needs Review</span>
+                  </td>
+                  <td class="px-8 py-6 text-on-surface-variant">Unassigned</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Centered Bottom Actions -->
+        <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4 pt-6">
+          <button class="w-full md:w-auto px-12 py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary headline-font font-bold rounded-lg shadow-lg hover:opacity-90 transition-all active:scale-95 duration-150">
+            Go to Dashboard
+          </button>
+          <button class="w-full md:w-auto px-12 py-4 border border-outline-variant text-primary headline-font font-bold rounded-lg hover:bg-surface-container-low transition-all active:scale-95 duration-150">
+            Review Details
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Data Aggregation Policy Consent -->
+    <p class="mt-8 text-center text-on-surface-variant text-sm font-medium">
+      By confirming, you agree to our <a class="underline text-primary hover:opacity-80" href="#">Data Aggregation Policy</a> and automated reconciliation.
+    </p>
+  </div>
+</main>
+
+<!-- Background Decoration -->
+<div class="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none overflow-hidden">
+  <div class="absolute top-[10%] right-[5%] w-96 h-96 bg-primary/5 blur-[120px] rounded-full"></div>
+  <div class="absolute bottom-[10%] left-[5%] w-[30rem] h-[30rem] bg-secondary/5 blur-[120px] rounded-full"></div>
+</div>
+
+</body>
+</html>

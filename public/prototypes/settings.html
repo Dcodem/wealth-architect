@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings - The Wealth Architect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "outline-variant": "#ccc3d8",
+        "surface-dim": "#d3daef",
+        "surface-variant": "#dce2f7",
+        "primary": "#630ed4",
+        "background": "#f9f9ff",
+        "on-background": "#141b2b",
+        "surface-container": "#e9edff",
+        "surface-container-lowest": "#ffffff",
+        "primary-fixed-dim": "#d2bbff",
+        "surface": "#f9f9ff",
+        "primary-container": "#7c3aed",
+        "error": "#ba1a1a",
+        "outline": "#7b7487",
+        "surface-tint": "#732ee4",
+        "primary-fixed": "#eaddff",
+        "on-surface": "#141b2b",
+        "surface-container-high": "#e1e8fd",
+        "on-primary": "#ffffff",
+        "surface-container-low": "#f1f3ff",
+        "on-surface-variant": "#4a4455",
+        "secondary": "#6a4fa0",
+        "secondary-container": "#c4a7ff",
+        "secondary-fixed-dim": "#d2bbff",
+        "inverse-surface": "#293040",
+        "error-container": "#ffdad6",
+        "on-error-container": "#93000a",
+      },
+      fontFamily: {
+        "headline": ["Manrope"],
+        "body": ["Inter"],
+        "label": ["Inter"]
+      },
+      borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+    },
+  },
+}
+</script>
+<style>
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+}
+body { font-family: 'Inter', sans-serif; }
+h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+.sidebar-scroll::-webkit-scrollbar { width: 4px; }
+.sidebar-scroll::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+</style>
+</head>
+<body class="bg-background text-on-background flex min-h-screen">
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- UNIFIED SIDEBAR                                        -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<aside class="w-[220px] h-screen fixed left-0 top-0 overflow-y-auto bg-slate-50 flex flex-col py-8 px-4 sidebar-scroll z-50">
+  <!-- Brand -->
+  <div class="mb-10 px-2">
+    <h1 class="text-lg font-extrabold tracking-tight text-on-surface leading-none">The Wealth<br/>Architect</h1>
+    <div class="flex items-center gap-1.5 mt-2">
+      <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+      <p class="text-[10px] text-on-surface-variant font-medium">Portfolio Active</p>
+    </div>
+  </div>
+
+  <nav class="flex-1 space-y-0.5">
+    <!-- PORTFOLIO section -->
+    <div class="pb-2 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Portfolio</div>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">dashboard</span>
+      <span class="text-sm font-medium">Dashboard</span>
+    </a>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">domain</span>
+      <span class="text-sm font-medium">Properties</span>
+    </a>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">payments</span>
+      <span class="text-sm font-medium">Transactions</span>
+    </a>
+
+    <!-- INTELLIGENCE section -->
+    <div class="pt-5 pb-2 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Intelligence</div>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">rule_folder</span>
+      <span class="text-sm font-medium">Smart Triage</span>
+      <span class="ml-auto text-[10px] font-bold bg-primary/10 text-primary px-2 py-0.5 rounded-full">3</span>
+    </a>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">psychology</span>
+      <span class="text-sm font-medium">AI Review</span>
+    </a>
+
+    <!-- REPORTS section -->
+    <div class="pt-5 pb-2 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Reports</div>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">analytics</span>
+      <span class="text-sm font-medium">Performance</span>
+    </a>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">assessment</span>
+      <span class="text-sm font-medium">Statements</span>
+    </a>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">file_export</span>
+      <span class="text-sm font-medium">Exports</span>
+    </a>
+
+    <!-- SYSTEM section -->
+    <div class="pt-5 pb-2 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">System</div>
+    <!-- Active: Settings -->
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-primary font-bold bg-primary/5 border-r-2 border-primary transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">settings</span>
+      <span class="text-sm">Settings</span>
+    </a>
+  </nav>
+
+  <!-- Sidebar footer -->
+  <div class="mt-auto pt-6 border-t border-slate-200 space-y-3">
+    <div class="flex items-center gap-3 px-2">
+      <div class="w-9 h-9 rounded-full bg-primary-fixed-dim flex items-center justify-center overflow-hidden">
+        <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDidJpIUVcppIpLRSOFehpZuo2diAu4nba3o91wO8i9UQHevsYtWtxKHlFoU6Z44QkbVqtBoxMJc8yeK_8NGW79hTPFYi7uCwod1wOsHtWwAhEn2F0RREPBQ29O-iF4b1MSnD2R7PMh9-lZwdxqW_352rpoIazhsxUaZYG5_kYF_gfCINniuXBBfT8K-fjnxvqIVNLkqpHUGuV7Qw4yE0SPPLSBriQ-tFrKhO_qwqA96rLxMMoHmyV8JSY6QMF7PgG2C9qgmD1A-lGx"/>
+      </div>
+      <div class="flex-1 min-w-0">
+        <p class="text-xs font-bold text-on-surface truncate">Julian Vane</p>
+        <p class="text-[10px] text-slate-500 truncate">Portfolio Principal</p>
+      </div>
+    </div>
+    <div class="flex gap-1 px-2">
+      <a class="flex items-center gap-2 px-2 py-1.5 rounded text-slate-400 hover:text-slate-600 transition-colors text-[11px] font-medium" href="#">
+        <span class="material-symbols-outlined text-[16px]">help</span>Help
+      </a>
+      <a class="flex items-center gap-2 px-2 py-1.5 rounded text-slate-400 hover:text-slate-600 transition-colors text-[11px] font-medium" href="#">
+        <span class="material-symbols-outlined text-[16px]">logout</span>Sign out
+      </a>
+    </div>
+  </div>
+</aside>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- UNIFIED TOP BAR                                        -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<header class="fixed top-0 right-0 w-[calc(100%-220px)] h-16 bg-white/80 backdrop-blur-xl z-40 flex items-center justify-between px-8 shadow-sm">
+  <div class="flex items-center flex-1 max-w-xl">
+    <div class="relative w-full">
+      <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+      <input class="w-full bg-surface-container-low border-none rounded-xl pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 transition-all outline-none" placeholder="Search properties, transactions, reports..." type="text"/>
+    </div>
+  </div>
+  <div class="flex items-center gap-4">
+    <button class="flex items-center gap-2 bg-primary text-white px-5 py-2 rounded-xl text-sm font-semibold hover:opacity-90 transition-opacity">
+      <span class="material-symbols-outlined text-[18px]">add</span>
+      Add Property
+    </button>
+    <div class="flex items-center gap-2 border-l border-slate-200 pl-4">
+      <button class="p-2 text-slate-400 hover:bg-slate-50 rounded-lg transition-colors relative">
+        <span class="material-symbols-outlined">notifications</span>
+        <span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full border-2 border-white"></span>
+      </button>
+      <button class="p-2 text-slate-400 hover:bg-slate-50 rounded-lg transition-colors">
+        <span class="material-symbols-outlined">help_outline</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- MAIN: SETTINGS                                         -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<main class="ml-[220px] pt-16 min-h-screen flex flex-col">
+  <div class="max-w-4xl mx-auto w-full p-8 lg:p-12 space-y-8 flex-1">
+
+    <!-- Page Header -->
+    <div>
+      <h1 class="text-[28px] font-extrabold text-on-surface tracking-tight">Settings</h1>
+      <p class="text-on-surface-variant font-medium mt-1">Manage your account and preferences</p>
+    </div>
+
+    <!-- Tab Bar -->
+    <div class="flex gap-8 border-b border-outline-variant/30">
+      <button
+        id="tab-account"
+        onclick="switchTab('account')"
+        class="pb-3 text-sm text-primary border-b-2 border-primary font-semibold transition-all">
+        Account
+      </button>
+      <button
+        id="tab-integrations"
+        onclick="switchTab('integrations')"
+        class="pb-3 text-sm text-on-surface-variant font-medium hover:text-primary transition-colors">
+        Integrations
+      </button>
+      <button
+        id="tab-notifications"
+        onclick="switchTab('notifications')"
+        class="pb-3 text-sm text-on-surface-variant font-medium hover:text-primary transition-colors">
+        Notifications
+      </button>
+    </div>
+
+    <!-- ─── ACCOUNT TAB ─── -->
+    <div id="panel-account" class="space-y-6">
+
+      <!-- 1. Profile Information Card -->
+      <div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0_12px_32px_rgba(20,27,43,0.04)]">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="material-symbols-outlined text-primary">person</span>
+          <h3 class="font-headline text-lg font-bold">Profile Information</h3>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="space-y-1.5">
+            <label class="text-xs font-semibold text-on-surface-variant tracking-wide">FULL NAME</label>
+            <input class="w-full bg-surface-container-high border-none rounded-lg px-4 py-2.5 text-sm focus:bg-white focus:ring-1 focus:ring-primary/40 transition-all outline-none" type="text" value="Jonathan Sterling"/>
+          </div>
+          <div class="space-y-1.5">
+            <label class="text-xs font-semibold text-on-surface-variant tracking-wide">EMAIL ADDRESS</label>
+            <input class="w-full bg-surface-container-high border-none rounded-lg px-4 py-2.5 text-sm focus:bg-white focus:ring-1 focus:ring-primary/40 transition-all outline-none" type="email" value="j.sterling@estatetrust.com"/>
+          </div>
+        </div>
+        <div class="mt-8 flex justify-end">
+          <button class="bg-gradient-to-br from-primary to-primary-container text-white px-6 py-2.5 rounded-lg text-sm font-semibold shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform">
+            Save Changes
+          </button>
+        </div>
+      </div>
+
+      <!-- 2. Security & Password Card -->
+      <div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0_12px_32px_rgba(20,27,43,0.04)]">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="material-symbols-outlined text-primary">security</span>
+          <h3 class="font-headline text-lg font-bold">Security &amp; Password</h3>
+        </div>
+        <div class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg mb-8">
+          <div class="flex items-center gap-4">
+            <div class="h-10 w-10 rounded-full bg-primary-fixed-dim flex items-center justify-center">
+              <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">phonelink_lock</span>
+            </div>
+            <div>
+              <p class="text-sm font-semibold">Two-Factor Authentication</p>
+              <p class="text-xs text-on-surface-variant">Last verified Nov 12, 2023</p>
+            </div>
+          </div>
+          <span class="px-3 py-1 bg-emerald-100 text-emerald-700 text-[10px] font-bold rounded-full tracking-wider uppercase">Enabled</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="space-y-1.5">
+            <label class="text-xs font-semibold text-on-surface-variant tracking-wide">CURRENT PASSWORD</label>
+            <input class="w-full bg-surface-container-high border-none rounded-lg px-4 py-2.5 text-sm focus:bg-white focus:ring-1 focus:ring-primary/40 transition-all outline-none" type="password" value="••••••••••••"/>
+          </div>
+          <div class="space-y-1.5">
+            <label class="text-xs font-semibold text-on-surface-variant tracking-wide">NEW PASSWORD</label>
+            <input class="w-full bg-surface-container-high border-none rounded-lg px-4 py-2.5 text-sm focus:bg-white focus:ring-1 focus:ring-primary/40 transition-all outline-none" placeholder="Enter new password" type="password"/>
+          </div>
+        </div>
+        <div class="mt-8 flex justify-end">
+          <button class="bg-gradient-to-br from-primary to-primary-container text-white px-6 py-2.5 rounded-lg text-sm font-semibold shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform">
+            Update Password
+          </button>
+        </div>
+      </div>
+
+      <!-- 3. Onboarding Card -->
+      <div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0_12px_32px_rgba(20,27,43,0.04)] border border-dashed border-outline-variant/40">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div class="max-w-md">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="material-symbols-outlined text-primary">auto_awesome</span>
+              <h3 class="font-headline text-lg font-bold">Onboarding</h3>
+            </div>
+            <p class="text-sm text-on-surface-variant leading-relaxed">Want to see the introduction tour again? Restart the onboarding flow to review key features.</p>
+          </div>
+          <button class="px-6 py-2.5 border border-outline-variant/60 rounded-lg text-sm font-semibold text-primary hover:bg-surface-container-low transition-colors whitespace-nowrap">
+            Restart Onboarding
+          </button>
+        </div>
+      </div>
+
+    </div><!-- /panel-account -->
+
+    <!-- ─── INTEGRATIONS TAB ─── -->
+    <div id="panel-integrations" class="space-y-6 hidden">
+
+      <div class="flex items-center justify-between">
+        <h3 class="text-[20px] font-semibold text-on-surface">Bank Connections</h3>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6">
+
+        <!-- Chase Bank -->
+        <div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_12px_32px_rgba(20,27,43,0.04)] flex items-center justify-between group">
+          <div class="flex items-center gap-5">
+            <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-blue-50 text-blue-700">
+              <span class="material-symbols-outlined text-[28px]">account_balance</span>
+            </div>
+            <div>
+              <div class="flex items-center gap-3">
+                <span class="text-base font-semibold text-on-surface">Chase Bank</span>
+                <span class="px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-700 rounded-full border border-emerald-100">Connected</span>
+              </div>
+              <p class="text-xs text-on-surface-variant mt-1">Synced 2 min ago</p>
+            </div>
+          </div>
+          <button class="px-4 py-2 text-sm font-medium text-error hover:bg-error-container/20 rounded-lg transition-colors">
+            Disconnect
+          </button>
+        </div>
+
+        <!-- Wells Fargo -->
+        <div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_12px_32px_rgba(20,27,43,0.04)] flex items-center justify-between">
+          <div class="flex items-center gap-5">
+            <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-red-50 text-red-700">
+              <span class="material-symbols-outlined text-[28px]">account_balance</span>
+            </div>
+            <div>
+              <div class="flex items-center gap-3">
+                <span class="text-base font-semibold text-on-surface">Wells Fargo</span>
+                <span class="flex items-center gap-1.5 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-blue-50 text-blue-700 rounded-full border border-blue-100">
+                  <span class="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse"></span>
+                  Syncing
+                </span>
+              </div>
+              <p class="text-xs text-on-surface-variant mt-1 italic">In progress...</p>
+            </div>
+          </div>
+          <button class="px-4 py-2 text-sm font-medium text-slate-500 hover:bg-slate-100 rounded-lg transition-colors">
+            Cancel
+          </button>
+        </div>
+
+        <!-- American Express -->
+        <div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_12px_32px_rgba(20,27,43,0.04)] flex items-center justify-between border-l-4 border-error">
+          <div class="flex items-center gap-5">
+            <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-slate-900 text-white">
+              <span class="material-symbols-outlined text-[28px]">credit_card</span>
+            </div>
+            <div>
+              <div class="flex items-center gap-3">
+                <span class="text-base font-semibold text-on-surface">American Express</span>
+                <span class="px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-red-50 text-red-700 rounded-full border border-red-100">Error</span>
+              </div>
+              <p class="text-xs text-on-surface-variant mt-1">Last sync 3 days ago</p>
+            </div>
+          </div>
+          <button class="px-5 py-2 text-sm font-semibold text-primary hover:bg-primary/10 border border-primary/20 rounded-lg transition-all">
+            Reconnect
+          </button>
+        </div>
+
+        <!-- Vanguard -->
+        <div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_12px_32px_rgba(20,27,43,0.04)] flex items-center justify-between">
+          <div class="flex items-center gap-5">
+            <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-primary-fixed-dim text-primary">
+              <span class="material-symbols-outlined text-[28px]">monitoring</span>
+            </div>
+            <div>
+              <div class="flex items-center gap-3">
+                <span class="text-base font-semibold text-on-surface">Vanguard</span>
+                <span class="px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-700 rounded-full border border-emerald-100">Connected</span>
+              </div>
+              <p class="text-xs text-on-surface-variant mt-1">Synced 4 hours ago</p>
+            </div>
+          </div>
+          <button class="px-4 py-2 text-sm font-medium text-error hover:bg-error-container/20 rounded-lg transition-colors">
+            Disconnect
+          </button>
+        </div>
+
+        <!-- Add Bank Account -->
+        <button class="group w-full border-2 border-dashed border-slate-200 hover:border-primary/50 hover:bg-primary-fixed/20 transition-all duration-300 p-8 rounded-xl flex flex-col items-center justify-center gap-2">
+          <div class="w-10 h-10 rounded-full bg-slate-100 group-hover:bg-primary group-hover:text-white transition-colors flex items-center justify-center">
+            <span class="material-symbols-outlined text-lg">add</span>
+          </div>
+          <span class="text-sm font-semibold text-slate-600 group-hover:text-primary transition-colors">+ Add Bank Account</span>
+        </button>
+
+      </div>
+    </div><!-- /panel-integrations -->
+
+    <!-- ─── NOTIFICATIONS TAB ─── -->
+    <div id="panel-notifications" class="space-y-6 hidden">
+
+      <!-- Notification Settings Table -->
+      <div class="bg-surface-container-lowest rounded-xl shadow-[0_12px_32px_rgba(20,27,43,0.04)] overflow-hidden">
+        <!-- Header Row -->
+        <div class="grid grid-cols-[1fr_120px_120px] px-8 py-5 bg-surface-container-low text-[12px] font-bold text-on-surface-variant uppercase tracking-wider">
+          <div>Setting Name</div>
+          <div class="text-center">Email</div>
+          <div class="text-center">In-App</div>
+        </div>
+
+        <!-- Group 1: Transaction Alerts -->
+        <div class="px-8 py-6">
+          <h3 class="font-headline text-sm font-bold text-primary mb-4">Transaction Alerts</h3>
+          <div class="space-y-6">
+            <!-- New transaction detected: both ON -->
+            <div class="grid grid-cols-[1fr_120px_120px] items-center">
+              <div class="text-sm font-medium text-on-surface">New transaction detected</div>
+              <div class="flex justify-center">
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input checked class="sr-only peer" type="checkbox"/>
+                  <div class="w-10 h-5 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+                </label>
+              </div>
+              <div class="flex justify-center">
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input checked class="sr-only peer" type="checkbox"/>
+                  <div class="w-10 h-5 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+                </label>
+              </div>
+            </div>
+            <!-- Large transaction alert: both ON -->
+            <div class="grid grid-cols-[1fr_120px_120px] items-center">
+              <div class="text-sm font-medium text-on-surface">Large transaction alert (&gt;$1,000)</div>
+              <div class="flex justify-center">
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input checked class="sr-only peer" type="checkbox"/>
+                  <div class="w-10 h-5 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+                </label>
+              </div>
+              <div class="flex justify-center">
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input checked class="sr-only peer" type="checkbox"/>
+                  <div class="w-10 h-5 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+                </label>
+              </div>
+            </div>
+            <!-- Duplicate transaction warning: both ON -->
+            <div class="grid grid-cols-[1fr_120px_120px] items-center">
+              <div class="text-sm font-medium text-on-surface">Duplicate transaction warning</div>
+              <div class="flex justify-center">
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input checked class="sr-only peer" type="checkbox"/>
+                  <div class="w-10 h-5 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+                </label>
+              </div>
+              <div class="flex justify-center">
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input checked class="sr-only peer" type="checkbox"/>
+                  <div class="w-10 h-5 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Group 2: Reports -->
+        <div class="px-8 py-6 bg-surface-container-low/30">
+          <h3 class="font-headline text-sm font-bold text-primary mb-4">Reports</h3>
+          <div class="space-y-6">
+            <!-- Monthly report ready: both ON -->
+            <div class="grid grid-cols-[1fr_120px_120px] items-center">
+              <div class="text-sm font-medium text-on-surface">Monthly report ready</div>
+              <div class="flex justify-center">
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input checked class="sr-only peer" type="checkbox"/>
+                  <div class="w-10 h-5 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+                </label>
+              </div>
+              <div class="flex justify-center">
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input checked class="sr-only peer" type="checkbox"/>
+                  <div class="w-10 h-5 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+                </label>
+              </div>
+            </div>
+            <!-- Export completed: both OFF -->
+            <div class="grid grid-cols-[1fr_120px_120px] items-center">
+              <div class="text-sm font-medium text-on-surface">Export completed</div>
+              <div class="flex justify-center">
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input class="sr-only peer" type="checkbox"/>
+                  <div class="w-10 h-5 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+                </label>
+              </div>
+              <div class="flex justify-center">
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input class="sr-only peer" type="checkbox"/>
+                  <div class="w-10 h-5 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Group 3: System -->
+        <div class="px-8 py-6">
+          <h3 class="font-headline text-sm font-bold text-primary mb-4">System</h3>
+          <div class="space-y-6">
+            <!-- Bank sync errors: both ON -->
+            <div class="grid grid-cols-[1fr_120px_120px] items-center">
+              <div class="text-sm font-medium text-on-surface">Bank sync errors</div>
+              <div class="flex justify-center">
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input checked class="sr-only peer" type="checkbox"/>
+                  <div class="w-10 h-5 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+                </label>
+              </div>
+              <div class="flex justify-center">
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input checked class="sr-only peer" type="checkbox"/>
+                  <div class="w-10 h-5 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+                </label>
+              </div>
+            </div>
+            <!-- AI review suggestions ready: both OFF -->
+            <div class="grid grid-cols-[1fr_120px_120px] items-center">
+              <div class="text-sm font-medium text-on-surface">AI review suggestions ready</div>
+              <div class="flex justify-center">
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input class="sr-only peer" type="checkbox"/>
+                  <div class="w-10 h-5 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+                </label>
+              </div>
+              <div class="flex justify-center">
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input class="sr-only peer" type="checkbox"/>
+                  <div class="w-10 h-5 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Save Preferences -->
+      <div class="flex justify-end">
+        <button class="px-8 py-3 bg-gradient-to-br from-primary to-primary-container text-white rounded-lg font-bold shadow-lg hover:shadow-primary/20 transition-all hover:-translate-y-0.5 active:translate-y-0">
+          Save Preferences
+        </button>
+      </div>
+
+      <!-- Info Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="p-6 bg-surface-container-high/50 rounded-xl flex items-start gap-4">
+          <div class="w-10 h-10 rounded-full bg-primary-fixed-dim flex items-center justify-center text-primary shrink-0">
+            <span class="material-symbols-outlined">security</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-sm mb-1">Privacy Focused</h4>
+            <p class="text-xs text-on-surface-variant leading-relaxed">Notification content is encrypted and only visible to authorized accounts. Transaction details in emails can be masked for additional security.</p>
+          </div>
+        </div>
+        <div class="p-6 bg-surface-container-high/50 rounded-xl flex items-start gap-4">
+          <div class="w-10 h-10 rounded-full bg-primary-fixed-dim flex items-center justify-center text-primary shrink-0">
+            <span class="material-symbols-outlined">bolt</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-sm mb-1">Real-time Delivery</h4>
+            <p class="text-xs text-on-surface-variant leading-relaxed">In-app notifications appear within 2 seconds of the event. Email alerts are dispatched via our priority enterprise network.</p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /panel-notifications -->
+
+  </div>
+
+  <!-- Unified Footer -->
+  <footer class="max-w-4xl mx-auto w-full px-8 lg:px-12 py-8 border-t border-outline-variant/10 flex justify-between items-center text-xs text-on-surface-variant">
+    <p>© 2024 The Wealth Architect · v4.2</p>
+    <div class="flex gap-6 font-semibold">
+      <a class="hover:text-primary" href="#">Documentation</a>
+      <a class="hover:text-primary" href="#">Privacy Policy</a>
+      <a class="hover:text-primary" href="#">Data Integrity</a>
+    </div>
+  </footer>
+</main>
+
+<script>
+  const tabs = ['account', 'integrations', 'notifications'];
+
+  function switchTab(active) {
+    tabs.forEach(function(tab) {
+      var btn = document.getElementById('tab-' + tab);
+      var panel = document.getElementById('panel-' + tab);
+      if (tab === active) {
+        btn.classList.add('text-primary', 'border-b-2', 'border-primary', 'font-semibold');
+        btn.classList.remove('text-on-surface-variant', 'font-medium');
+        panel.classList.remove('hidden');
+      } else {
+        btn.classList.remove('text-primary', 'border-b-2', 'border-primary', 'font-semibold');
+        btn.classList.add('text-on-surface-variant', 'font-medium');
+        panel.classList.add('hidden');
+      }
+    });
+  }
+</script>
+
+</body>
+</html>

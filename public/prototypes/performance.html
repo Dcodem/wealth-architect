@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Performance Summary - The Wealth Architect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "outline-variant": "#ccc3d8",
+        "surface-dim": "#d3daef",
+        "surface-variant": "#dce2f7",
+        "primary": "#630ed4",
+        "background": "#f9f9ff",
+        "on-background": "#141b2b",
+        "surface-container": "#e9edff",
+        "surface-container-lowest": "#ffffff",
+        "primary-fixed-dim": "#d2bbff",
+        "surface": "#f9f9ff",
+        "primary-container": "#7c3aed",
+        "error": "#ba1a1a",
+        "outline": "#7b7487",
+        "surface-tint": "#732ee4",
+        "primary-fixed": "#eaddff",
+        "on-surface": "#141b2b",
+        "surface-container-high": "#e1e8fd",
+        "on-primary": "#ffffff",
+        "surface-container-low": "#f1f3ff",
+        "on-surface-variant": "#4a4455",
+        "secondary": "#6a4fa0",
+        "secondary-container": "#c4a7ff",
+        "secondary-fixed-dim": "#d2bbff",
+        "inverse-surface": "#293040",
+        "error-container": "#ffdad6",
+        "on-error-container": "#93000a",
+        "on-primary-fixed-variant": "#5a00c6",
+        "on-primary-fixed": "#25005a",
+        "on-secondary-container": "#523787",
+        "surface-container-highest": "#dce2f7",
+      },
+      fontFamily: { "headline": ["Manrope"], "body": ["Inter"], "label": ["Inter"] },
+      borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+    },
+  },
+}
+</script>
+<style>
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+}
+body { font-family: 'Inter', sans-serif; }
+h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+.sidebar-scroll::-webkit-scrollbar { width: 4px; }
+.sidebar-scroll::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+</style>
+</head>
+<body class="bg-background text-on-background flex min-h-screen">
+
+<!-- SIDEBAR -->
+<aside class="w-[220px] h-screen fixed left-0 top-0 overflow-y-auto bg-slate-50 flex flex-col py-8 px-4 sidebar-scroll z-50">
+  <div class="mb-10 px-2">
+    <h1 class="text-lg font-extrabold tracking-tight text-on-surface leading-none">The Wealth<br/>Architect</h1>
+    <div class="flex items-center gap-1.5 mt-2">
+      <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+      <p class="text-[10px] text-on-surface-variant font-medium">Portfolio Active</p>
+    </div>
+  </div>
+  <nav class="flex-1 space-y-0.5">
+    <div class="pb-2 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Portfolio</div>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">dashboard</span>
+      <span class="text-sm font-medium">Dashboard</span>
+    </a>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">domain</span>
+      <span class="text-sm font-medium">Properties</span>
+    </a>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">payments</span>
+      <span class="text-sm font-medium">Transactions</span>
+    </a>
+    <div class="pt-5 pb-2 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Intelligence</div>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">rule_folder</span>
+      <span class="text-sm font-medium">Smart Triage</span>
+      <span class="ml-auto text-[10px] font-bold bg-primary/10 text-primary px-2 py-0.5 rounded-full">3</span>
+    </a>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">psychology</span>
+      <span class="text-sm font-medium">AI Review</span>
+    </a>
+    <div class="pt-5 pb-2 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Reports</div>
+    <!-- Performance: ACTIVE -->
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-primary font-bold bg-primary/5 border-r-2 border-primary transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">analytics</span>
+      <span class="text-sm">Performance</span>
+    </a>
+    <!-- Statements: INACTIVE -->
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">assessment</span>
+      <span class="text-sm font-medium">Statements</span>
+    </a>
+    <!-- Exports: INACTIVE -->
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">file_export</span>
+      <span class="text-sm font-medium">Exports</span>
+    </a>
+    <div class="pt-5 pb-2 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">System</div>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">settings</span>
+      <span class="text-sm font-medium">Settings</span>
+    </a>
+  </nav>
+  <div class="mt-auto pt-6 border-t border-slate-200 space-y-3">
+    <div class="flex items-center gap-3 px-2">
+      <div class="w-9 h-9 rounded-full bg-primary-fixed-dim flex items-center justify-center overflow-hidden">
+        <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDidJpIUVcppIpLRSOFehpZuo2diAu4nba3o91wO8i9UQHevsYtWtxKHlFoU6Z44QkbVqtBoxMJc8yeK_8NGW79hTPFYi7uCwod1wOsHtWwAhEn2F0RREPBQ29O-iF4b1MSnD2R7PMh9-lZwdxqW_352rpoIazhsxUaZYG5_kYF_gfCINniuXBBfT8K-fjnxvqIVNLkqpHUGuV7Qw4yE0SPPLSBriQ-tFrKhO_qwqA96rLxMMoHmyV8JSY6QMF7PgG2C9qgmD1A-lGx"/>
+      </div>
+      <div class="flex-1 min-w-0">
+        <p class="text-xs font-bold text-on-surface truncate">Julian Vane</p>
+        <p class="text-[10px] text-slate-500 truncate">Portfolio Principal</p>
+      </div>
+    </div>
+    <div class="flex gap-1 px-2">
+      <a class="flex items-center gap-2 px-2 py-1.5 rounded text-slate-400 hover:text-slate-600 transition-colors text-[11px] font-medium" href="#"><span class="material-symbols-outlined text-[16px]">help</span>Help</a>
+      <a class="flex items-center gap-2 px-2 py-1.5 rounded text-slate-400 hover:text-slate-600 transition-colors text-[11px] font-medium" href="#"><span class="material-symbols-outlined text-[16px]">logout</span>Sign out</a>
+    </div>
+  </div>
+</aside>
+
+<!-- TOPBAR -->
+<header class="fixed top-0 right-0 w-[calc(100%-220px)] h-16 bg-white/80 backdrop-blur-xl z-40 flex items-center justify-between px-8 shadow-sm">
+  <div class="flex items-center flex-1 max-w-xl">
+    <div class="relative w-full">
+      <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+      <input class="w-full bg-surface-container-low border-none rounded-xl pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 transition-all outline-none" placeholder="Search properties, transactions, reports..." type="text"/>
+    </div>
+  </div>
+  <div class="flex items-center gap-4">
+    <button class="flex items-center gap-2 bg-primary text-white px-5 py-2 rounded-xl text-sm font-semibold hover:opacity-90 transition-opacity">
+      <span class="material-symbols-outlined text-[18px]">add</span>Add Property
+    </button>
+    <div class="flex items-center gap-2 border-l border-slate-200 pl-4">
+      <button class="p-2 text-slate-400 hover:bg-slate-50 rounded-lg transition-colors relative">
+        <span class="material-symbols-outlined">notifications</span>
+        <span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full border-2 border-white"></span>
+      </button>
+      <button class="p-2 text-slate-400 hover:bg-slate-50 rounded-lg transition-colors">
+        <span class="material-symbols-outlined">help_outline</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="ml-[220px] pt-16 min-h-screen flex flex-col">
+  <div class="max-w-[1400px] mx-auto p-8 lg:p-12 space-y-10 flex-1">
+
+    <!-- Breadcrumb + Header -->
+    <div>
+      <a class="flex items-center gap-1 text-sm text-on-surface-variant hover:text-primary transition-colors mb-4" href="#">
+        <span class="material-symbols-outlined text-[18px]">chevron_left</span>
+        Back to Reports
+      </a>
+      <div class="flex items-center justify-between flex-wrap gap-4">
+        <div class="flex items-center gap-4">
+          <h2 class="text-3xl font-extrabold text-on-surface font-headline">Performance Summary</h2>
+          <span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold">Jan 2024 - Jun 2024</span>
+        </div>
+        <button class="flex items-center gap-2 bg-secondary text-white px-5 py-2.5 rounded-xl text-sm font-semibold hover:opacity-90 transition-opacity">
+          <span class="material-symbols-outlined text-[18px]">picture_as_pdf</span>Export PDF
+        </button>
+      </div>
+    </div>
+
+    <!-- KPI Cards Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Total Revenue -->
+      <div class="bg-surface-container-lowest rounded-2xl shadow-[0_12px_32px_rgba(20,27,43,0.04)] p-6 flex flex-col gap-4">
+        <div class="flex items-center justify-between">
+          <p class="text-sm font-medium text-on-surface-variant">Total Revenue</p>
+          <div class="w-10 h-10 rounded-xl bg-primary-fixed-dim flex items-center justify-center">
+            <span class="material-symbols-outlined text-primary text-[20px]">payments</span>
+          </div>
+        </div>
+        <div>
+          <p class="text-3xl font-extrabold text-on-surface font-headline">$18,700</p>
+          <div class="flex items-center gap-1 mt-1">
+            <span class="material-symbols-outlined text-emerald-600 text-[16px]">trending_up</span>
+            <span class="text-xs font-semibold text-emerald-600">+12.4%</span>
+            <span class="text-xs text-on-surface-variant">vs last period</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Total Expenses -->
+      <div class="bg-surface-container-lowest rounded-2xl shadow-[0_12px_32px_rgba(20,27,43,0.04)] p-6 flex flex-col gap-4">
+        <div class="flex items-center justify-between">
+          <p class="text-sm font-medium text-on-surface-variant">Total Expenses</p>
+          <div class="w-10 h-10 rounded-xl bg-secondary-fixed-dim flex items-center justify-center">
+            <span class="material-symbols-outlined text-secondary text-[20px]">receipt_long</span>
+          </div>
+        </div>
+        <div>
+          <p class="text-3xl font-extrabold text-on-surface font-headline">$110,500</p>
+          <div class="flex items-center gap-1 mt-1">
+            <span class="material-symbols-outlined text-error text-[16px]">trending_down</span>
+            <span class="text-xs font-semibold text-error">-2.1%</span>
+            <span class="text-xs text-on-surface-variant">vs last period</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Net Income -->
+      <div class="bg-surface-container-lowest rounded-2xl shadow-[0_12px_32px_rgba(20,27,43,0.04)] p-6 flex flex-col gap-4">
+        <div class="flex items-center justify-between">
+          <p class="text-sm font-medium text-on-surface-variant">Net Income</p>
+          <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <span class="material-symbols-outlined text-primary text-[20px]">account_balance_wallet</span>
+          </div>
+        </div>
+        <div>
+          <p class="text-3xl font-extrabold text-on-surface font-headline">$7,200</p>
+          <p class="text-xs text-on-surface-variant mt-1">After operating costs</p>
+        </div>
+      </div>
+
+      <!-- Portfolio ROI -->
+      <div class="bg-surface-container-lowest rounded-2xl shadow-[0_12px_32px_rgba(20,27,43,0.04)] p-6 flex flex-col gap-4">
+        <div class="flex items-center justify-between">
+          <p class="text-sm font-medium text-on-surface-variant">Portfolio ROI</p>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="relative w-16 h-16 flex-shrink-0">
+            <svg class="w-16 h-16 -rotate-90" viewBox="0 0 60 60">
+              <circle cx="30" cy="30" r="24" fill="none" stroke="#e9edff" stroke-width="6"/>
+              <circle cx="30" cy="30" r="24" fill="none" stroke="#630ed4" stroke-width="6" stroke-linecap="round" stroke-dasharray="150.79" stroke-dashoffset="30"/>
+            </svg>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <span class="text-xs font-extrabold text-primary">8.4%</span>
+            </div>
+          </div>
+          <div>
+            <p class="text-3xl font-extrabold text-on-surface font-headline">8.42%</p>
+            <p class="text-xs text-on-surface-variant mt-1">Annualized return</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chart + Top Performer Row -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+      <!-- Revenue vs Expenses Bar Chart -->
+      <div class="bg-surface-container-lowest rounded-2xl shadow-[0_12px_32px_rgba(20,27,43,0.04)] p-6 lg:col-span-2">
+        <div class="flex items-start justify-between mb-6">
+          <div>
+            <h3 class="text-lg font-bold text-on-surface font-headline">Revenue vs Expenses</h3>
+            <p class="text-sm text-on-surface-variant mt-0.5">Comparative financial flow analysis</p>
+          </div>
+          <div class="flex items-center gap-4 text-xs font-medium text-on-surface-variant">
+            <div class="flex items-center gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>Revenue
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-secondary-container"></span>Expenses
+            </div>
+          </div>
+        </div>
+        <div class="flex items-end justify-around h-44 gap-2">
+          <!-- Jan -->
+          <div class="flex flex-col items-center gap-1 flex-1">
+            <div class="flex items-end gap-1.5 w-full justify-center">
+              <div class="w-3 rounded-t-sm bg-primary" style="height: 60%"></div>
+              <div class="w-3 rounded-t-sm bg-secondary-container" style="height: 40%"></div>
+            </div>
+            <span class="text-[10px] text-on-surface-variant font-medium">Jan</span>
+          </div>
+          <!-- Feb -->
+          <div class="flex flex-col items-center gap-1 flex-1">
+            <div class="flex items-end gap-1.5 w-full justify-center">
+              <div class="w-3 rounded-t-sm bg-primary" style="height: 75%"></div>
+              <div class="w-3 rounded-t-sm bg-secondary-container" style="height: 35%"></div>
+            </div>
+            <span class="text-[10px] text-on-surface-variant font-medium">Feb</span>
+          </div>
+          <!-- Mar -->
+          <div class="flex flex-col items-center gap-1 flex-1">
+            <div class="flex items-end gap-1.5 w-full justify-center">
+              <div class="w-3 rounded-t-sm bg-primary" style="height: 45%"></div>
+              <div class="w-3 rounded-t-sm bg-secondary-container" style="height: 65%"></div>
+            </div>
+            <span class="text-[10px] text-on-surface-variant font-medium">Mar</span>
+          </div>
+          <!-- Apr -->
+          <div class="flex flex-col items-center gap-1 flex-1">
+            <div class="flex items-end gap-1.5 w-full justify-center">
+              <div class="w-3 rounded-t-sm bg-primary" style="height: 85%"></div>
+              <div class="w-3 rounded-t-sm bg-secondary-container" style="height: 25%"></div>
+            </div>
+            <span class="text-[10px] text-on-surface-variant font-medium">Apr</span>
+          </div>
+          <!-- May -->
+          <div class="flex flex-col items-center gap-1 flex-1">
+            <div class="flex items-end gap-1.5 w-full justify-center">
+              <div class="w-3 rounded-t-sm bg-primary" style="height: 70%"></div>
+              <div class="w-3 rounded-t-sm bg-secondary-container" style="height: 45%"></div>
+            </div>
+            <span class="text-[10px] text-on-surface-variant font-medium">May</span>
+          </div>
+          <!-- Jun -->
+          <div class="flex flex-col items-center gap-1 flex-1">
+            <div class="flex items-end gap-1.5 w-full justify-center">
+              <div class="w-3 rounded-t-sm bg-primary" style="height: 90%"></div>
+              <div class="w-3 rounded-t-sm bg-secondary-container" style="height: 20%"></div>
+            </div>
+            <span class="text-[10px] text-on-surface-variant font-medium">Jun</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Oak Ridge Estate Top Performer Card -->
+      <div class="bg-surface-container-lowest rounded-2xl shadow-[0_12px_32px_rgba(20,27,43,0.04)] overflow-hidden flex flex-col">
+        <div class="relative h-40">
+          <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHLvdysUjZvnc0vdp4nxsDYpNwIpt6PJNBCiz-72BLTZA8Nvkw6q4W9ZprwGYAqFIP7u01wNvDBe7OooZ_pmtnWe8Ipn2LVkQ1vpLBhq4YRiozBonXXvVNNDnlSGbMvO9lpXt9_6qvdmNrPKtzAt2c1jf3RasM3RrHcI_9hrthDglEIL-aknaVE3GPN5-DlNy2QQ6zRj0PhWiUFpY9kuVsnRniShJRQIa0qYGSbL1AtOr7H7HA_u2gBy0kAaJcFlGgJtkLbRJcr-6l" alt="Oak Ridge Estate"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+          <div class="absolute top-3 left-3">
+            <span class="px-2.5 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white text-[10px] font-bold border border-white/30">Top Performer</span>
+          </div>
+        </div>
+        <div class="p-5 flex flex-col gap-3 flex-1">
+          <div>
+            <h3 class="text-base font-bold text-on-surface font-headline">Oak Ridge Estate</h3>
+            <div class="flex items-center gap-1 mt-0.5">
+              <span class="material-symbols-outlined text-[14px] text-on-surface-variant">location_on</span>
+              <span class="text-xs text-on-surface-variant">Beverly Hills, CA</span>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <p class="text-[10px] text-on-surface-variant font-medium uppercase tracking-wider">Rent</p>
+              <p class="text-sm font-bold text-primary mt-0.5">$4,200</p>
+            </div>
+            <div>
+              <p class="text-[10px] text-on-surface-variant font-medium uppercase tracking-wider">Vacancy</p>
+              <p class="text-sm font-bold text-on-surface mt-0.5">0.0%</p>
+            </div>
+            <div>
+              <p class="text-[10px] text-on-surface-variant font-medium uppercase tracking-wider">Maintenance</p>
+              <p class="text-sm font-bold text-on-surface mt-0.5">$420</p>
+            </div>
+            <div>
+              <p class="text-[10px] text-on-surface-variant font-medium uppercase tracking-wider">Net Yield</p>
+              <p class="text-sm font-extrabold text-primary mt-0.5">12.4%</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Property Comparison Table -->
+    <div class="bg-surface-container-lowest rounded-2xl shadow-[0_12px_32px_rgba(20,27,43,0.04)] overflow-hidden">
+      <div class="p-6 border-b border-outline-variant/20">
+        <h3 class="text-lg font-bold text-on-surface font-headline">Property Comparison</h3>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full">
+          <thead>
+            <tr class="bg-surface-container-low/50 text-left">
+              <th class="px-6 py-3 text-xs font-bold text-on-surface-variant uppercase tracking-wider">Property</th>
+              <th class="px-6 py-3 text-xs font-bold text-on-surface-variant uppercase tracking-wider">Revenue</th>
+              <th class="px-6 py-3 text-xs font-bold text-on-surface-variant uppercase tracking-wider">Expenses</th>
+              <th class="px-6 py-3 text-xs font-bold text-on-surface-variant uppercase tracking-wider">Net Income</th>
+              <th class="px-6 py-3 text-xs font-bold text-on-surface-variant uppercase tracking-wider">ROI %</th>
+              <th class="px-6 py-3 text-xs font-bold text-on-surface-variant uppercase tracking-wider">Status</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-outline-variant/10">
+            <!-- Row 1: Main St. Loft -->
+            <tr class="hover:bg-surface-container-low/30 transition-colors">
+              <td class="px-6 py-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0">
+                    <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVymTACY9v0mFrSi8Uy7lrlUj1ZOIOpw9KkM9Sy7xJDoH1Z4AZd6wyIVoO8kPcqbwJGtLP9qCnS523Nq861qySqCjZi9sgA1MTRjDEEZ9H_Hha4xFKkYQ_gArHOJeVrzkj1bkanww9Ns_Bpj78raU_QSn0qxrPRFRZRiSnjA0QzekSFjfBfFRHQqy0wicy1UN4zNhrshWdKr5PCcodrs8TKK9Fgw4Ker20PGzQ3Ik86F-VOwtYeKO_Pw2kB1idsa7nT_HAchfDo7TL" alt="Main St. Loft"/>
+                  </div>
+                  <span class="text-sm font-semibold text-on-surface">Main St. Loft</span>
+                </div>
+              </td>
+              <td class="px-6 py-4 text-sm text-on-surface">$3,500</td>
+              <td class="px-6 py-4 text-sm text-on-surface">$1,200</td>
+              <td class="px-6 py-4 text-sm font-semibold text-on-surface">$2,300</td>
+              <td class="px-6 py-4">
+                <div class="flex items-center gap-2">
+                  <span class="text-sm font-medium text-on-surface">6.5%</span>
+                  <div class="w-20 h-1.5 bg-surface-container rounded-full overflow-hidden">
+                    <div class="h-full bg-primary rounded-full" style="width: 65%"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="px-6 py-4">
+                <span class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-700 text-[11px] font-bold">Stable</span>
+              </td>
+            </tr>
+            <!-- Row 2: Oak Ridge -->
+            <tr class="hover:bg-surface-container-low/30 transition-colors">
+              <td class="px-6 py-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0">
+                    <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiH4ucfBZq-aBKooIKDgMKm5sifp-sI3GpZ_L786rFhJqOUgtFmxMc3F4K8Tt-vBFAmIZMYZ11lka0FlDY3eECX2hhV3AJcMq6V1SPnod7Vs5YB47B1wX2ZXYpRu6P-_35LTdRaXcsp6YC8W1QvKBiI4Rd1gdUUKm6dquhRPCBVatptV_IWxeNKUoTmgirdIHIW765jLUi3asi_QpIi-vtDpDLztOSPY3lT_2SruyMR8wCYYrAR_pRTO0bL3kPrzcI8UF0w-qTWz9" alt="Oak Ridge"/>
+                  </div>
+                  <span class="text-sm font-semibold text-on-surface">Oak Ridge</span>
+                </div>
+              </td>
+              <td class="px-6 py-4 text-sm text-on-surface">$8,400</td>
+              <td class="px-6 py-4 text-sm text-on-surface">$2,800</td>
+              <td class="px-6 py-4 text-sm font-semibold text-on-surface">$5,600</td>
+              <td class="px-6 py-4">
+                <div class="flex items-center gap-2">
+                  <span class="text-sm font-medium text-on-surface">8.2%</span>
+                  <div class="w-20 h-1.5 bg-surface-container rounded-full overflow-hidden">
+                    <div class="h-full bg-primary rounded-full" style="width: 82%"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="px-6 py-4">
+                <span class="px-2.5 py-1 rounded-full bg-violet-100 text-violet-700 text-[11px] font-bold">Growth</span>
+              </td>
+            </tr>
+            <!-- Row 3: Downtown Plaza -->
+            <tr class="hover:bg-surface-container-low/30 transition-colors">
+              <td class="px-6 py-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0">
+                    <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMjOXxwYwr_TBnC21p3gxBMD4DDlhsYqU7WdMgtW1u01lACME2BxKkj2j7HgNY45UGKuxDJp8dR2bs96gGxP2aShbNXeFNsfJ7XpnH3SulesbzRrwWFuJozi3SAXGo7rfP-Ezc8OA1d0U6vGgj1wRmLXwrd57ws5mRg-IBVRcyH1n6TMTAyqOHWQW2L1_6x4773dqC5zCwphM0CeE-4ou7Kr0_KEmUh14pk77_PlOrsXG1hlu70nbm2Wi9jTjVNBTsDULV9xtumNmq" alt="Downtown Plaza"/>
+                  </div>
+                  <span class="text-sm font-semibold text-on-surface">Downtown Plaza</span>
+                </div>
+              </td>
+              <td class="px-6 py-4 text-sm text-on-surface">$6,800</td>
+              <td class="px-6 py-4 text-sm text-on-surface">$3,100</td>
+              <td class="px-6 py-4 text-sm font-semibold text-on-surface">$3,700</td>
+              <td class="px-6 py-4">
+                <div class="flex items-center gap-2">
+                  <span class="text-sm font-medium text-on-surface">5.4%</span>
+                  <div class="w-20 h-1.5 bg-surface-container rounded-full overflow-hidden">
+                    <div class="h-full bg-primary rounded-full" style="width: 54%"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="px-6 py-4">
+                <span class="px-2.5 py-1 rounded-full bg-yellow-100 text-yellow-700 text-[11px] font-bold">Watchlist</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="px-6 py-4 border-t border-outline-variant/10">
+        <a class="flex items-center gap-1 text-sm font-semibold text-primary hover:opacity-80 transition-opacity" href="#">
+          View Detailed Metrics
+          <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+  <!-- FOOTER -->
+  <footer class="max-w-[1400px] mx-auto w-full px-8 lg:px-12 py-8 border-t border-outline-variant/10 flex justify-between items-center text-xs text-on-surface-variant">
+    <p>© 2024 The Wealth Architect · v4.2</p>
+    <div class="flex gap-6 font-semibold">
+      <a class="hover:text-primary transition-colors" href="#">Documentation</a>
+      <a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+      <a class="hover:text-primary transition-colors" href="#">Data Integrity</a>
+    </div>
+  </footer>
+</main>
+</body>
+</html>

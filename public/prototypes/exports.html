@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Export Reports - The Wealth Architect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "outline-variant": "#ccc3d8",
+        "surface-dim": "#d3daef",
+        "surface-variant": "#dce2f7",
+        "primary": "#630ed4",
+        "background": "#f9f9ff",
+        "on-background": "#141b2b",
+        "surface-container": "#e9edff",
+        "surface-container-lowest": "#ffffff",
+        "primary-fixed-dim": "#d2bbff",
+        "surface": "#f9f9ff",
+        "primary-container": "#7c3aed",
+        "error": "#ba1a1a",
+        "outline": "#7b7487",
+        "surface-tint": "#732ee4",
+        "primary-fixed": "#eaddff",
+        "on-surface": "#141b2b",
+        "surface-container-high": "#e1e8fd",
+        "on-primary": "#ffffff",
+        "surface-container-low": "#f1f3ff",
+        "on-surface-variant": "#4a4455",
+        "secondary": "#6a4fa0",
+        "secondary-container": "#c4a7ff",
+        "secondary-fixed-dim": "#d2bbff",
+        "inverse-surface": "#293040",
+        "error-container": "#ffdad6",
+        "on-error-container": "#93000a",
+        "on-primary-fixed-variant": "#5a00c6",
+        "on-primary-fixed": "#25005a",
+        "on-secondary-container": "#523787",
+        "surface-container-highest": "#dce2f7",
+      },
+      fontFamily: { "headline": ["Manrope"], "body": ["Inter"], "label": ["Inter"] },
+      borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+    },
+  },
+}
+</script>
+<style>
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+}
+body { font-family: 'Inter', sans-serif; }
+h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+.sidebar-scroll::-webkit-scrollbar { width: 4px; }
+.sidebar-scroll::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+</style>
+</head>
+<body class="bg-background text-on-background flex min-h-screen">
+
+<!-- SIDEBAR -->
+<aside class="w-[220px] h-screen fixed left-0 top-0 overflow-y-auto bg-slate-50 flex flex-col py-8 px-4 sidebar-scroll z-50">
+  <div class="mb-10 px-2">
+    <h1 class="text-lg font-extrabold tracking-tight text-on-surface leading-none">The Wealth<br/>Architect</h1>
+    <div class="flex items-center gap-1.5 mt-2">
+      <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+      <p class="text-[10px] text-on-surface-variant font-medium">Portfolio Active</p>
+    </div>
+  </div>
+  <nav class="flex-1 space-y-0.5">
+    <div class="pb-2 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Portfolio</div>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">dashboard</span>
+      <span class="text-sm font-medium">Dashboard</span>
+    </a>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">domain</span>
+      <span class="text-sm font-medium">Properties</span>
+    </a>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">payments</span>
+      <span class="text-sm font-medium">Transactions</span>
+    </a>
+    <div class="pt-5 pb-2 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Intelligence</div>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">rule_folder</span>
+      <span class="text-sm font-medium">Smart Triage</span>
+      <span class="ml-auto text-[10px] font-bold bg-primary/10 text-primary px-2 py-0.5 rounded-full">3</span>
+    </a>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">psychology</span>
+      <span class="text-sm font-medium">AI Review</span>
+    </a>
+    <div class="pt-5 pb-2 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Reports</div>
+    <!-- Performance: INACTIVE -->
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">analytics</span>
+      <span class="text-sm font-medium">Performance</span>
+    </a>
+    <!-- Statements: INACTIVE -->
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">assessment</span>
+      <span class="text-sm font-medium">Statements</span>
+    </a>
+    <!-- Exports: ACTIVE -->
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-primary font-bold bg-primary/5 border-r-2 border-primary transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">file_export</span>
+      <span class="text-sm">Exports</span>
+    </a>
+    <div class="pt-5 pb-2 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">System</div>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">settings</span>
+      <span class="text-sm font-medium">Settings</span>
+    </a>
+  </nav>
+  <div class="mt-auto pt-6 border-t border-slate-200 space-y-3">
+    <div class="flex items-center gap-3 px-2">
+      <div class="w-9 h-9 rounded-full bg-primary-fixed-dim flex items-center justify-center overflow-hidden">
+        <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDidJpIUVcppIpLRSOFehpZuo2diAu4nba3o91wO8i9UQHevsYtWtxKHlFoU6Z44QkbVqtBoxMJc8yeK_8NGW79hTPFYi7uCwod1wOsHtWwAhEn2F0RREPBQ29O-iF4b1MSnD2R7PMh9-lZwdxqW_352rpoIazhsxUaZYG5_kYF_gfCINniuXBBfT8K-fjnxvqIVNLkqpHUGuV7Qw4yE0SPPLSBriQ-tFrKhO_qwqA96rLxMMoHmyV8JSY6QMF7PgG2C9qgmD1A-lGx"/>
+      </div>
+      <div class="flex-1 min-w-0">
+        <p class="text-xs font-bold text-on-surface truncate">Julian Vane</p>
+        <p class="text-[10px] text-slate-500 truncate">Portfolio Principal</p>
+      </div>
+    </div>
+    <div class="flex gap-1 px-2">
+      <a class="flex items-center gap-2 px-2 py-1.5 rounded text-slate-400 hover:text-slate-600 transition-colors text-[11px] font-medium" href="#"><span class="material-symbols-outlined text-[16px]">help</span>Help</a>
+      <a class="flex items-center gap-2 px-2 py-1.5 rounded text-slate-400 hover:text-slate-600 transition-colors text-[11px] font-medium" href="#"><span class="material-symbols-outlined text-[16px]">logout</span>Sign out</a>
+    </div>
+  </div>
+</aside>
+
+<!-- TOPBAR -->
+<header class="fixed top-0 right-0 w-[calc(100%-220px)] h-16 bg-white/80 backdrop-blur-xl z-40 flex items-center justify-between px-8 shadow-sm">
+  <div class="flex items-center flex-1 max-w-xl">
+    <div class="relative w-full">
+      <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+      <input class="w-full bg-surface-container-low border-none rounded-xl pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 transition-all outline-none" placeholder="Search properties, transactions, reports..." type="text"/>
+    </div>
+  </div>
+  <div class="flex items-center gap-4">
+    <button class="flex items-center gap-2 bg-primary text-white px-5 py-2 rounded-xl text-sm font-semibold hover:opacity-90 transition-opacity">
+      <span class="material-symbols-outlined text-[18px]">add</span>Add Property
+    </button>
+    <div class="flex items-center gap-2 border-l border-slate-200 pl-4">
+      <button class="p-2 text-slate-400 hover:bg-slate-50 rounded-lg transition-colors relative">
+        <span class="material-symbols-outlined">notifications</span>
+        <span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full border-2 border-white"></span>
+      </button>
+      <button class="p-2 text-slate-400 hover:bg-slate-50 rounded-lg transition-colors">
+        <span class="material-symbols-outlined">help_outline</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="ml-[220px] pt-16 min-h-screen flex flex-col">
+  <div class="max-w-[1400px] mx-auto p-8 lg:p-12 space-y-10 flex-1">
+
+    <!-- Header -->
+    <div class="flex items-start justify-between flex-wrap gap-4">
+      <div>
+        <h2 class="text-3xl font-extrabold text-on-surface font-headline">Export Reports</h2>
+        <p class="text-on-surface-variant mt-1">Configure and generate detailed financial statements for your portfolio.</p>
+      </div>
+      <div class="flex items-center gap-2 px-4 py-2 bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/10">
+        <span class="material-symbols-outlined text-primary text-[18px]">auto_awesome</span>
+        <span class="text-xs font-bold text-on-surface-variant">Wealth Architect v4.2</span>
+      </div>
+    </div>
+
+    <!-- 2-Column Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+      <!-- LEFT COLUMN: Export Form -->
+      <div class="lg:col-span-2">
+        <div class="bg-surface-container-lowest rounded-2xl shadow-[0_12px_32px_rgba(20,27,43,0.04)] p-8 space-y-8">
+
+          <!-- Step 1: Select Export Format -->
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-5 h-5 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                <span class="text-[10px] font-bold text-white">1</span>
+              </div>
+              <h3 class="text-base font-bold text-on-surface font-headline">Select Export Format</h3>
+            </div>
+            <div class="grid grid-cols-2 gap-4 pl-8">
+              <!-- Excel (selected) -->
+              <label class="flex items-center gap-4 p-4 rounded-xl border-2 border-primary bg-primary/5 cursor-pointer">
+                <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <span class="material-symbols-outlined text-primary text-[22px]">table_chart</span>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center justify-between gap-2">
+                    <p class="text-sm font-bold text-on-surface">Excel</p>
+                    <span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                  </div>
+                  <p class="text-[11px] text-on-surface-variant mt-0.5">Full .xlsx workbook</p>
+                </div>
+                <input checked class="sr-only" name="format" type="radio" value="excel"/>
+              </label>
+              <!-- CSV (inactive) -->
+              <label class="flex items-center gap-4 p-4 rounded-xl border border-outline-variant/30 bg-surface-container-low/30 cursor-pointer hover:border-primary/30 transition-colors">
+                <div class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center flex-shrink-0">
+                  <span class="material-symbols-outlined text-slate-400 text-[22px]">description</span>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="text-sm font-bold text-on-surface">CSV</p>
+                  <p class="text-[11px] text-on-surface-variant mt-0.5">Plain comma-separated</p>
+                </div>
+                <input class="sr-only" name="format" type="radio" value="csv"/>
+              </label>
+            </div>
+          </div>
+
+          <!-- Step 2: Date Range -->
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-5 h-5 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                <span class="text-[10px] font-bold text-white">2</span>
+              </div>
+              <h3 class="text-base font-bold text-on-surface font-headline">Date Range</h3>
+            </div>
+            <div class="pl-8">
+              <select class="w-full bg-surface-container-low border border-outline-variant/30 rounded-xl px-4 py-3 text-sm text-on-surface focus:ring-2 focus:ring-primary/20 outline-none">
+                <option selected>2023 Tax Year</option>
+                <option>Q1 2024</option>
+                <option>Last 12 Months</option>
+                <option>Custom Range...</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Step 3: Property Selection -->
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-5 h-5 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                <span class="text-[10px] font-bold text-white">3</span>
+              </div>
+              <h3 class="text-base font-bold text-on-surface font-headline">Property Selection</h3>
+            </div>
+            <div class="pl-8 grid grid-cols-2 gap-3">
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input checked class="w-4 h-4 accent-primary rounded" type="checkbox"/>
+                <span class="text-sm font-medium text-on-surface">All Properties</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input class="w-4 h-4 accent-primary rounded" type="checkbox"/>
+                <span class="text-sm font-medium text-on-surface">Main St. Loft</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input class="w-4 h-4 accent-primary rounded" type="checkbox"/>
+                <span class="text-sm font-medium text-on-surface">Oak Ridge</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input class="w-4 h-4 accent-primary rounded" type="checkbox"/>
+                <span class="text-sm font-medium text-on-surface">Downtown Plaza</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Step 4: Table Preferences -->
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-5 h-5 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                <span class="text-[10px] font-bold text-white">4</span>
+              </div>
+              <h3 class="text-base font-bold text-on-surface font-headline">Table Preferences</h3>
+            </div>
+            <div class="pl-8 bg-surface-container-low rounded-xl p-4 space-y-3">
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input checked class="w-4 h-4 accent-primary rounded" type="checkbox"/>
+                <span class="text-sm font-medium text-on-surface">Include charts</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input class="w-4 h-4 accent-primary rounded" type="checkbox"/>
+                <span class="text-sm font-medium text-on-surface">Include notes</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input checked class="w-4 h-4 accent-primary rounded" type="checkbox"/>
+                <span class="text-sm font-medium text-on-surface">Separate sheets per property</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Footer: Storage Quota + Generate Button -->
+          <div class="pt-2 space-y-4 border-t border-outline-variant/10">
+            <div class="flex items-center justify-between text-xs text-on-surface-variant">
+              <span>Storage quota</span>
+              <span class="font-semibold text-on-surface">84.2 GB of 250 GB used</span>
+            </div>
+            <div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+              <div class="h-full bg-primary rounded-full" style="width: 33.68%"></div>
+            </div>
+            <button class="flex items-center justify-center gap-2 bg-primary-container text-white w-full py-3 rounded-xl text-sm font-bold hover:opacity-90 transition-opacity">
+              <span class="material-symbols-outlined text-[18px]">download</span>
+              Generate 2023 Report
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="space-y-6">
+
+        <!-- Quick Export Presets -->
+        <div class="bg-surface-container-lowest rounded-2xl shadow-[0_12px_32px_rgba(20,27,43,0.04)] p-6">
+          <h3 class="text-base font-bold text-on-surface font-headline mb-4">Quick Export Presets</h3>
+          <div class="space-y-3">
+
+            <!-- Accountant-Ready -->
+            <div class="group flex items-center gap-4 p-4 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer">
+              <div class="w-10 h-10 rounded-lg bg-violet-100 flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-violet-600 text-[20px]">account_balance_wallet</span>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-bold text-on-surface">Accountant-Ready</p>
+                <p class="text-[11px] text-on-surface-variant mt-0.5 leading-relaxed">Full general ledger with standardized tax classification codes.</p>
+              </div>
+              <span class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors text-[18px]">arrow_forward_ios</span>
+            </div>
+
+            <!-- Quarterly Review -->
+            <div class="group flex items-center gap-4 p-4 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer">
+              <div class="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-amber-600 text-[20px]">analytics</span>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-bold text-on-surface">Quarterly Review</p>
+                <p class="text-[11px] text-on-surface-variant mt-0.5 leading-relaxed">Summary of performance across all holdings for board review.</p>
+              </div>
+              <span class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors text-[18px]">arrow_forward_ios</span>
+            </div>
+
+            <!-- Individual Property -->
+            <div class="group flex items-center gap-4 p-4 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer">
+              <div class="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-emerald-600 text-[20px]">location_city</span>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-bold text-on-surface">Individual Property</p>
+                <p class="text-[11px] text-on-surface-variant mt-0.5 leading-relaxed">Deep-dive financial history for a single selected asset.</p>
+              </div>
+              <span class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors text-[18px]">arrow_forward_ios</span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Export History -->
+        <div class="bg-surface-container-lowest rounded-2xl shadow-[0_12px_32px_rgba(20,27,43,0.04)] overflow-hidden">
+          <div class="p-6 border-b border-outline-variant/20">
+            <h3 class="text-base font-bold text-on-surface font-headline">Export History</h3>
+          </div>
+          <div class="divide-y divide-outline-variant/10">
+            <!-- Row 1 -->
+            <div class="flex items-center gap-4 px-6 py-4 hover:bg-surface-container-low/30 transition-colors">
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-semibold text-on-surface">FY 2022 Full Ledger</p>
+                <p class="text-[11px] text-on-surface-variant mt-0.5">Oct 12 2023 · 4.2 MB</p>
+              </div>
+              <span class="text-[11px] font-bold text-on-surface-variant px-2.5 py-1 bg-surface-container rounded-full">Excel</span>
+              <div class="flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <span class="text-[11px] font-semibold text-emerald-600">Ready</span>
+              </div>
+            </div>
+            <!-- Row 2 -->
+            <div class="flex items-center gap-4 px-6 py-4 hover:bg-surface-container-low/30 transition-colors">
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-semibold text-on-surface">Q3 Performance Summary</p>
+                <p class="text-[11px] text-on-surface-variant mt-0.5">Sep 01 2023 · 1.8 MB</p>
+              </div>
+              <span class="text-[11px] font-bold text-on-surface-variant px-2.5 py-1 bg-surface-container rounded-full">CSV</span>
+              <div class="flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <span class="text-[11px] font-semibold text-emerald-600">Ready</span>
+              </div>
+            </div>
+            <!-- Row 3 -->
+            <div class="flex items-center gap-4 px-6 py-4 hover:bg-surface-container-low/30 transition-colors">
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-semibold text-on-surface">Main St. Audit Log</p>
+                <p class="text-[11px] text-on-surface-variant mt-0.5">Aug 24 2023 · 12.1 MB</p>
+              </div>
+              <span class="text-[11px] font-bold text-on-surface-variant px-2.5 py-1 bg-surface-container rounded-full">Excel</span>
+              <div class="flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                <span class="text-[11px] font-semibold text-amber-600">Archiving</span>
+              </div>
+            </div>
+          </div>
+          <div class="px-6 py-4 border-t border-outline-variant/10">
+            <a class="flex items-center gap-1 text-sm font-semibold text-primary hover:opacity-80 transition-opacity" href="#">
+              View All Archive
+              <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <!-- FOOTER -->
+  <footer class="max-w-[1400px] mx-auto w-full px-8 lg:px-12 py-8 border-t border-outline-variant/10 flex justify-between items-center text-xs text-on-surface-variant">
+    <p>© 2024 The Wealth Architect · v4.2</p>
+    <div class="flex gap-6 font-semibold">
+      <a class="hover:text-primary transition-colors" href="#">Documentation</a>
+      <a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+      <a class="hover:text-primary transition-colors" href="#">Data Integrity</a>
+    </div>
+  </footer>
+</main>
+</body>
+</html>

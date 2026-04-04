@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Potential Duplicates - The Wealth Architect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "outline-variant": "#ccc3d8",
+        "surface-dim": "#d3daef",
+        "surface-variant": "#dce2f7",
+        "primary": "#630ed4",
+        "background": "#f9f9ff",
+        "on-background": "#141b2b",
+        "surface-container": "#e9edff",
+        "surface-container-lowest": "#ffffff",
+        "primary-fixed-dim": "#d2bbff",
+        "surface": "#f9f9ff",
+        "primary-container": "#7c3aed",
+        "error": "#ba1a1a",
+        "outline": "#7b7487",
+        "surface-tint": "#732ee4",
+        "primary-fixed": "#eaddff",
+        "on-surface": "#141b2b",
+        "surface-container-high": "#e1e8fd",
+        "on-primary": "#ffffff",
+        "surface-container-low": "#f1f3ff",
+        "on-surface-variant": "#4a4455",
+        "secondary": "#6a4fa0",
+        "secondary-container": "#c4a7ff",
+        "secondary-fixed-dim": "#d2bbff",
+        "inverse-surface": "#293040",
+        "error-container": "#ffdad6",
+        "on-error-container": "#93000a",
+        "on-primary-fixed-variant": "#5a00c6",
+        "on-primary-fixed": "#25005a",
+      },
+      fontFamily: {
+        "headline": ["Manrope"],
+        "body": ["Inter"],
+        "label": ["Inter"]
+      },
+      borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+    },
+  },
+}
+</script>
+<style>
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+}
+body { font-family: 'Inter', sans-serif; }
+h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+.sidebar-scroll::-webkit-scrollbar { width: 4px; }
+.sidebar-scroll::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+.duplicate-highlight { background-color: #fef9c3; }
+</style>
+</head>
+<body class="bg-background text-on-background flex min-h-screen">
+
+<!-- UNIFIED SIDEBAR -->
+<aside class="w-[220px] h-screen fixed left-0 top-0 overflow-y-auto bg-slate-50 flex flex-col py-8 px-4 sidebar-scroll z-50">
+  <div class="mb-10 px-2">
+    <h1 class="text-lg font-extrabold tracking-tight text-on-surface leading-none">The Wealth<br/>Architect</h1>
+    <div class="flex items-center gap-1.5 mt-2">
+      <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+      <p class="text-[10px] text-on-surface-variant font-medium">Portfolio Active</p>
+    </div>
+  </div>
+  <nav class="flex-1 space-y-0.5">
+    <div class="pb-2 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Portfolio</div>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">dashboard</span>
+      <span class="text-sm font-medium">Dashboard</span>
+    </a>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">domain</span>
+      <span class="text-sm font-medium">Properties</span>
+    </a>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">payments</span>
+      <span class="text-sm font-medium">Transactions</span>
+    </a>
+    <div class="pt-5 pb-2 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Intelligence</div>
+    <!-- Active: Smart Triage (parent) -->
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-primary font-bold bg-primary/5 border-r-2 border-primary transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">rule_folder</span>
+      <span class="text-sm">Smart Triage</span>
+      <span class="ml-auto text-[10px] font-bold bg-primary/10 text-primary px-2 py-0.5 rounded-full">3</span>
+    </a>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">psychology</span>
+      <span class="text-sm font-medium">AI Review</span>
+    </a>
+    <div class="pt-5 pb-2 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Reports</div>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">analytics</span>
+      <span class="text-sm font-medium">Performance</span>
+    </a>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">assessment</span>
+      <span class="text-sm font-medium">Statements</span>
+    </a>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">file_export</span>
+      <span class="text-sm font-medium">Exports</span>
+    </a>
+    <div class="pt-5 pb-2 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">System</div>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">settings</span>
+      <span class="text-sm font-medium">Settings</span>
+    </a>
+  </nav>
+  <div class="mt-auto pt-6 border-t border-slate-200 space-y-3">
+    <div class="flex items-center gap-3 px-2">
+      <div class="w-9 h-9 rounded-full bg-primary-fixed-dim flex items-center justify-center overflow-hidden">
+        <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDidJpIUVcppIpLRSOFehpZuo2diAu4nba3o91wO8i9UQHevsYtWtxKHlFoU6Z44QkbVqtBoxMJc8yeK_8NGW79hTPFYi7uCwod1wOsHtWwAhEn2F0RREPBQ29O-iF4b1MSnD2R7PMh9-lZwdxqW_352rpoIazhsxUaZYG5_kYF_gfCINniuXBBfT8K-fjnxvqIVNLkqpHUGuV7Qw4yE0SPPLSBriQ-tFrKhO_qwqA96rLxMMoHmyV8JSY6QMF7PgG2C9qgmD1A-lGx"/>
+      </div>
+      <div class="flex-1 min-w-0">
+        <p class="text-xs font-bold text-on-surface truncate">Julian Vane</p>
+        <p class="text-[10px] text-slate-500 truncate">Portfolio Principal</p>
+      </div>
+    </div>
+    <div class="flex gap-1 px-2">
+      <a class="flex items-center gap-2 px-2 py-1.5 rounded text-slate-400 hover:text-slate-600 transition-colors text-[11px] font-medium" href="#">
+        <span class="material-symbols-outlined text-[16px]">help</span>Help
+      </a>
+      <a class="flex items-center gap-2 px-2 py-1.5 rounded text-slate-400 hover:text-slate-600 transition-colors text-[11px] font-medium" href="#">
+        <span class="material-symbols-outlined text-[16px]">logout</span>Sign out
+      </a>
+    </div>
+  </div>
+</aside>
+
+<!-- UNIFIED TOP BAR -->
+<header class="fixed top-0 right-0 w-[calc(100%-220px)] h-16 bg-white/80 backdrop-blur-xl z-40 flex items-center justify-between px-8 shadow-sm">
+  <div class="flex items-center flex-1 max-w-xl">
+    <div class="relative w-full">
+      <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+      <input class="w-full bg-surface-container-low border-none rounded-xl pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 transition-all outline-none" placeholder="Search properties, transactions, reports..." type="text"/>
+    </div>
+  </div>
+  <div class="flex items-center gap-4">
+    <button class="flex items-center gap-2 bg-primary text-white px-5 py-2 rounded-xl text-sm font-semibold hover:opacity-90 transition-opacity">
+      <span class="material-symbols-outlined text-[18px]">add</span>
+      Add Property
+    </button>
+    <div class="flex items-center gap-2 border-l border-slate-200 pl-4">
+      <button class="p-2 text-slate-400 hover:bg-slate-50 rounded-lg transition-colors relative">
+        <span class="material-symbols-outlined">notifications</span>
+        <span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full border-2 border-white"></span>
+      </button>
+      <button class="p-2 text-slate-400 hover:bg-slate-50 rounded-lg transition-colors">
+        <span class="material-symbols-outlined">help_outline</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="ml-[220px] pt-24 px-10 pb-20">
+  <!-- Breadcrumb -->
+  <a class="inline-flex items-center text-[13px] font-semibold text-primary mb-6 hover:underline gap-1" href="#">
+    <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+    Back to Smart Triage
+  </a>
+
+  <!-- Header -->
+  <h1 class="text-[28px] font-extrabold text-on-surface tracking-tight mb-8 font-headline">Potential Duplicates</h1>
+
+  <!-- Two Column Layout -->
+  <div class="flex gap-6 items-start">
+
+    <!-- LEFT: Duplicate Pair Groups -->
+    <section class="w-[700px] flex flex-col gap-8">
+
+      <!-- Group 1: High Confidence (98%) -->
+      <div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm border border-outline-variant/20">
+        <div class="flex justify-between items-center mb-4">
+          <span class="text-xs font-bold text-on-surface-variant tracking-wider uppercase">Pair #1 — High Confidence</span>
+          <div class="flex items-center gap-1.5 px-2 py-0.5 bg-green-50 text-green-700 rounded-full text-[11px] font-bold">
+            <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+            98% MATCH
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4 mb-6">
+          <div class="p-4 rounded-lg bg-surface-container-low/40 space-y-3">
+            <div class="flex justify-between items-start">
+              <span class="text-[10px] font-bold text-slate-400">ID: TR-8821</span>
+              <span class="material-symbols-outlined text-slate-300">receipt</span>
+            </div>
+            <div>
+              <p class="text-[10px] font-semibold text-on-surface-variant">VENDOR</p>
+              <p class="text-sm font-bold duplicate-highlight inline-block px-1">L'Avenue Luxury Property Mgmt</p>
+            </div>
+            <div class="flex justify-between">
+              <div>
+                <p class="text-[10px] font-semibold text-on-surface-variant">DATE</p>
+                <p class="text-sm font-bold duplicate-highlight inline-block px-1">Oct 24, 2023</p>
+              </div>
+              <div class="text-right">
+                <p class="text-[10px] font-semibold text-on-surface-variant">AMOUNT</p>
+                <p class="text-sm font-extrabold duplicate-highlight inline-block px-1">$12,450.00</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-4 rounded-lg bg-surface-container-low/40 space-y-3">
+            <div class="flex justify-between items-start">
+              <span class="text-[10px] font-bold text-slate-400">ID: TR-8822</span>
+              <span class="material-symbols-outlined text-slate-300">description</span>
+            </div>
+            <div>
+              <p class="text-[10px] font-semibold text-on-surface-variant">VENDOR</p>
+              <p class="text-sm font-bold duplicate-highlight inline-block px-1">L'Avenue Luxury Property Mgmt</p>
+            </div>
+            <div class="flex justify-between">
+              <div>
+                <p class="text-[10px] font-semibold text-on-surface-variant">DATE</p>
+                <p class="text-sm font-bold duplicate-highlight inline-block px-1">Oct 24, 2023</p>
+              </div>
+              <div class="text-right">
+                <p class="text-[10px] font-semibold text-on-surface-variant">AMOUNT</p>
+                <p class="text-sm font-extrabold duplicate-highlight inline-block px-1">$12,450.00</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+          <button class="px-5 py-2 rounded-lg text-sm font-bold text-on-surface border border-outline-variant hover:bg-surface-container-low transition-colors">Keep Both</button>
+          <button class="flex-1 px-5 py-2 rounded-lg text-sm font-bold text-white bg-primary shadow-sm hover:shadow-primary/20 transition-all">Merge Transactions</button>
+          <button class="px-5 py-2 rounded-lg text-sm font-bold text-error hover:bg-error/5 transition-colors">Mark as Duplicate</button>
+        </div>
+      </div>
+
+      <!-- Group 2: Medium Confidence (74%) -->
+      <div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm border border-outline-variant/20">
+        <div class="flex justify-between items-center mb-4">
+          <span class="text-xs font-bold text-on-surface-variant tracking-wider uppercase">Pair #2 — Medium Confidence</span>
+          <div class="flex items-center gap-1.5 px-2 py-0.5 bg-orange-50 text-orange-700 rounded-full text-[11px] font-bold">
+            <span class="material-symbols-outlined text-[14px]">info</span>
+            74% MATCH
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4 mb-6">
+          <div class="p-4 rounded-lg bg-surface-container-low/40 space-y-3">
+            <div>
+              <p class="text-[10px] font-semibold text-on-surface-variant">VENDOR</p>
+              <p class="text-sm font-bold duplicate-highlight inline-block px-1">Bel Air Gardens &amp; Pool</p>
+            </div>
+            <div class="flex justify-between">
+              <div>
+                <p class="text-[10px] font-semibold text-on-surface-variant">DATE</p>
+                <p class="text-sm font-bold duplicate-highlight inline-block px-1">Nov 02, 2023</p>
+              </div>
+              <div class="text-right">
+                <p class="text-[10px] font-semibold text-on-surface-variant">AMOUNT</p>
+                <p class="text-sm font-extrabold">$2,100.00</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-4 rounded-lg bg-surface-container-low/40 space-y-3">
+            <div>
+              <p class="text-[10px] font-semibold text-on-surface-variant">VENDOR</p>
+              <p class="text-sm font-bold duplicate-highlight inline-block px-1">Bel Air Gardens &amp; Pool</p>
+            </div>
+            <div class="flex justify-between">
+              <div>
+                <p class="text-[10px] font-semibold text-on-surface-variant">DATE</p>
+                <p class="text-sm font-bold duplicate-highlight inline-block px-1">Nov 02, 2023</p>
+              </div>
+              <div class="text-right">
+                <p class="text-[10px] font-semibold text-on-surface-variant">AMOUNT</p>
+                <p class="text-sm font-extrabold">$2,150.00</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+          <button class="px-5 py-2 rounded-lg text-sm font-bold text-on-surface border border-outline-variant hover:bg-surface-container-low transition-colors">Keep Both</button>
+          <button class="flex-1 px-5 py-2 rounded-lg text-sm font-bold text-white bg-primary shadow-sm hover:shadow-primary/20 transition-all">Merge Transactions</button>
+          <button class="px-5 py-2 rounded-lg text-sm font-bold text-error hover:bg-error/5 transition-colors">Mark as Duplicate</button>
+        </div>
+      </div>
+
+      <!-- Group 3: Low Confidence (42%) -->
+      <div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm border border-outline-variant/20">
+        <div class="flex justify-between items-center mb-4">
+          <span class="text-xs font-bold text-on-surface-variant tracking-wider uppercase">Pair #3 — Low Confidence</span>
+          <div class="flex items-center gap-1.5 px-2 py-0.5 bg-slate-100 text-slate-600 rounded-full text-[11px] font-bold">
+            <span class="material-symbols-outlined text-[14px]">help_center</span>
+            42% MATCH
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4 mb-6">
+          <div class="p-4 rounded-lg bg-surface-container-low/40 space-y-3">
+            <div>
+              <p class="text-[10px] font-semibold text-on-surface-variant">VENDOR</p>
+              <p class="text-sm font-bold">Aria Private Jets Ltd</p>
+            </div>
+            <div class="flex justify-between">
+              <div>
+                <p class="text-[10px] font-semibold text-on-surface-variant">DATE</p>
+                <p class="text-sm font-bold">Oct 15, 2023</p>
+              </div>
+              <div class="text-right">
+                <p class="text-[10px] font-semibold text-on-surface-variant">AMOUNT</p>
+                <p class="text-sm font-extrabold duplicate-highlight inline-block px-1">$45,000.00</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-4 rounded-lg bg-surface-container-low/40 space-y-3">
+            <div>
+              <p class="text-[10px] font-semibold text-on-surface-variant">VENDOR</p>
+              <p class="text-sm font-bold">NetJets Executive</p>
+            </div>
+            <div class="flex justify-between">
+              <div>
+                <p class="text-[10px] font-semibold text-on-surface-variant">DATE</p>
+                <p class="text-sm font-bold">Oct 18, 2023</p>
+              </div>
+              <div class="text-right">
+                <p class="text-[10px] font-semibold text-on-surface-variant">AMOUNT</p>
+                <p class="text-sm font-extrabold duplicate-highlight inline-block px-1">$45,000.00</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+          <button class="px-5 py-2 rounded-lg text-sm font-bold text-on-surface border border-outline-variant hover:bg-surface-container-low transition-colors">Keep Both</button>
+          <button class="flex-1 px-5 py-2 rounded-lg text-sm font-bold text-white bg-primary shadow-sm hover:shadow-primary/20 transition-all">Merge Transactions</button>
+          <button class="px-5 py-2 rounded-lg text-sm font-bold text-error hover:bg-error/5 transition-colors">Mark as Duplicate</button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- RIGHT: Detection Summary -->
+    <aside class="w-[432px] sticky top-24">
+      <div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm border border-outline-variant/20">
+        <h2 class="text-xl font-extrabold mb-6 tracking-tight font-headline">Detection Summary</h2>
+        <div class="space-y-6 mb-8">
+          <div class="flex justify-between items-end pb-4 border-b border-slate-50">
+            <span class="text-sm font-medium text-on-surface-variant">Total suspected pairs</span>
+            <span class="text-2xl font-black text-on-surface leading-none">3</span>
+          </div>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-2 h-2 rounded-full bg-green-500"></div>
+                <span class="text-sm font-medium">High confidence (&gt;90%)</span>
+              </div>
+              <span class="text-sm font-bold">1 pair</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-2 h-2 rounded-full bg-orange-400"></div>
+                <span class="text-sm font-medium">Medium (60-90%)</span>
+              </div>
+              <span class="text-sm font-bold">1 pair</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                <span class="text-sm font-medium">Low (&lt;60%)</span>
+              </div>
+              <span class="text-sm font-bold">1 pair</span>
+            </div>
+          </div>
+        </div>
+        <div class="space-y-3">
+          <button class="w-full py-4 bg-primary text-white font-bold rounded-xl shadow-lg shadow-primary/20 hover:bg-primary-container active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+            <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">auto_fix_high</span>
+            Resolve All High-Confidence
+          </button>
+          <button class="w-full py-4 border border-outline-variant text-on-surface font-bold rounded-xl hover:bg-surface-container-low active:scale-[0.98] transition-all">
+            Ignore All Low-Confidence
+          </button>
+        </div>
+        <div class="mt-8 pt-8 border-t border-slate-100 flex items-start gap-4">
+          <div class="p-2 bg-primary/5 rounded-lg">
+            <span class="material-symbols-outlined text-primary">lightbulb</span>
+          </div>
+          <div>
+            <h3 class="text-sm font-bold mb-1">Architect's Tip</h3>
+            <p class="text-xs text-on-surface-variant leading-relaxed">Merging transactions will combine notes and attachments. The original entries will be archived for audit compliance.</p>
+          </div>
+        </div>
+      </div>
+      <!-- AI Status -->
+      <div class="mt-6 p-4 bg-gradient-to-br from-primary to-primary-container rounded-xl text-white shadow-xl shadow-primary/10">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm">
+            <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+          </div>
+          <div>
+            <p class="text-[10px] font-bold uppercase tracking-widest opacity-80">System Health</p>
+            <p class="text-xs font-medium">AI Triage engine is learning from your manual merges.</p>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- UNIFIED FOOTER -->
+  <footer class="max-w-[1400px] mx-auto px-8 lg:px-12 py-8 mt-12 border-t border-outline-variant/10 flex justify-between items-center text-xs text-on-surface-variant">
+    <p>&copy; 2024 The Wealth Architect &middot; v4.2</p>
+    <div class="flex gap-6">
+      <a class="hover:text-primary transition-colors" href="#">Documentation</a>
+      <a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+      <a class="hover:text-primary transition-colors" href="#">Data Integrity</a>
+    </div>
+  </footer>
+</main>
+
+</body>
+</html>

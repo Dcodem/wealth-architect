@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Oak Ridge Estate - The Wealth Architect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "outline-variant": "#ccc3d8",
+        "surface-dim": "#d3daef",
+        "surface-variant": "#dce2f7",
+        "primary": "#630ed4",
+        "background": "#f9f9ff",
+        "on-background": "#141b2b",
+        "surface-container": "#e9edff",
+        "surface-container-lowest": "#ffffff",
+        "primary-fixed-dim": "#d2bbff",
+        "surface": "#f9f9ff",
+        "primary-container": "#7c3aed",
+        "error": "#ba1a1a",
+        "outline": "#7b7487",
+        "surface-tint": "#732ee4",
+        "primary-fixed": "#eaddff",
+        "on-surface": "#141b2b",
+        "surface-container-high": "#e1e8fd",
+        "on-primary": "#ffffff",
+        "surface-container-low": "#f1f3ff",
+        "on-surface-variant": "#4a4455",
+        "secondary": "#6a4fa0",
+        "secondary-container": "#c4a7ff",
+        "secondary-fixed-dim": "#d2bbff",
+        "inverse-surface": "#293040",
+      },
+      fontFamily: {
+        "headline": ["Manrope"],
+        "body": ["Inter"],
+        "label": ["Inter"]
+      },
+      borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+    },
+  },
+}
+</script>
+<style>
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+}
+body { font-family: 'Inter', sans-serif; }
+h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+.sidebar-scroll::-webkit-scrollbar { width: 4px; }
+.sidebar-scroll::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+.tab-active { color: #630ed4; border-bottom: 2px solid #630ed4; }
+</style>
+</head>
+<body class="bg-background text-on-background flex min-h-screen">
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- UNIFIED SIDEBAR — identical on every page              -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<aside class="w-[220px] h-screen fixed left-0 top-0 overflow-y-auto bg-slate-50 flex flex-col py-8 px-4 sidebar-scroll z-50">
+  <div class="mb-10 px-2">
+    <h1 class="text-lg font-extrabold tracking-tight text-on-surface leading-none">The Wealth<br/>Architect</h1>
+    <div class="flex items-center gap-1.5 mt-2">
+      <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+      <p class="text-[10px] text-on-surface-variant font-medium">Portfolio Active</p>
+    </div>
+  </div>
+
+  <nav class="flex-1 space-y-0.5">
+    <div class="pb-2 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Portfolio</div>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">dashboard</span>
+      <span class="text-sm font-medium">Dashboard</span>
+    </a>
+    <!-- Active: Properties -->
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-primary font-bold bg-primary/5 border-r-2 border-primary transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">domain</span>
+      <span class="text-sm">Properties</span>
+    </a>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">payments</span>
+      <span class="text-sm font-medium">Transactions</span>
+    </a>
+
+    <div class="pt-5 pb-2 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Intelligence</div>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">rule_folder</span>
+      <span class="text-sm font-medium">Smart Triage</span>
+      <span class="ml-auto text-[10px] font-bold bg-primary/10 text-primary px-2 py-0.5 rounded-full">3</span>
+    </a>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">psychology</span>
+      <span class="text-sm font-medium">AI Review</span>
+    </a>
+
+    <div class="pt-5 pb-2 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Reports</div>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">analytics</span>
+      <span class="text-sm font-medium">Performance</span>
+    </a>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">assessment</span>
+      <span class="text-sm font-medium">Statements</span>
+    </a>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">file_export</span>
+      <span class="text-sm font-medium">Exports</span>
+    </a>
+
+    <div class="pt-5 pb-2 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">System</div>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">settings</span>
+      <span class="text-sm font-medium">Settings</span>
+    </a>
+  </nav>
+
+  <div class="mt-auto pt-6 border-t border-slate-200 space-y-3">
+    <div class="flex items-center gap-3 px-2">
+      <div class="w-9 h-9 rounded-full bg-primary-fixed-dim flex items-center justify-center overflow-hidden">
+        <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDidJpIUVcppIpLRSOFehpZuo2diAu4nba3o91wO8i9UQHevsYtWtxKHlFoU6Z44QkbVqtBoxMJc8yeK_8NGW79hTPFYi7uCwod1wOsHtWwAhEn2F0RREPBQ29O-iF4b1MSnD2R7PMh9-lZwdxqW_352rpoIazhsxUaZYG5_kYF_gfCINniuXBBfT8K-fjnxvqIVNLkqpHUGuV7Qw4yE0SPPLSBriQ-tFrKhO_qwqA96rLxMMoHmyV8JSY6QMF7PgG2C9qgmD1A-lGx"/>
+      </div>
+      <div class="flex-1 min-w-0">
+        <p class="text-xs font-bold text-on-surface truncate">Julian Vane</p>
+        <p class="text-[10px] text-slate-500 truncate">Portfolio Principal</p>
+      </div>
+    </div>
+    <div class="flex gap-1 px-2">
+      <a class="flex items-center gap-2 px-2 py-1.5 rounded text-slate-400 hover:text-slate-600 transition-colors text-[11px] font-medium" href="#">
+        <span class="material-symbols-outlined text-[16px]">help</span>Help
+      </a>
+      <a class="flex items-center gap-2 px-2 py-1.5 rounded text-slate-400 hover:text-slate-600 transition-colors text-[11px] font-medium" href="#">
+        <span class="material-symbols-outlined text-[16px]">logout</span>Sign out
+      </a>
+    </div>
+  </div>
+</aside>
+
+<!-- UNIFIED TOP BAR -->
+<header class="fixed top-0 right-0 w-[calc(100%-220px)] h-16 bg-white/80 backdrop-blur-xl z-40 flex items-center justify-between px-8 shadow-sm">
+  <div class="flex items-center flex-1 max-w-xl">
+    <div class="relative w-full">
+      <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+      <input class="w-full bg-surface-container-low border-none rounded-xl pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 transition-all outline-none" placeholder="Search properties, transactions, reports..." type="text"/>
+    </div>
+  </div>
+  <div class="flex items-center gap-4">
+    <button class="flex items-center gap-2 bg-primary text-white px-5 py-2 rounded-xl text-sm font-semibold hover:opacity-90 transition-opacity">
+      <span class="material-symbols-outlined text-[18px]">add</span>
+      Add Property
+    </button>
+    <div class="flex items-center gap-2 border-l border-slate-200 pl-4">
+      <button class="p-2 text-slate-400 hover:bg-slate-50 rounded-lg transition-colors relative">
+        <span class="material-symbols-outlined">notifications</span>
+        <span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full border-2 border-white"></span>
+      </button>
+      <button class="p-2 text-slate-400 hover:bg-slate-50 rounded-lg transition-colors">
+        <span class="material-symbols-outlined">help_outline</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- MAIN: UNIFIED PROPERTY DETAIL                          -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<main class="ml-[220px] pt-16 flex-1">
+  <div class="max-w-[1400px] mx-auto p-8 lg:p-12 space-y-8">
+
+    <!-- Breadcrumb -->
+    <a class="inline-flex items-center gap-2 text-sm font-medium text-on-surface-variant hover:text-primary transition-colors" href="#">
+      <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+      Properties
+    </a>
+
+    <!-- ─── HERO: Property Header ─── -->
+    <div class="bg-surface-container-lowest rounded-2xl shadow-[0_12px_32px_rgba(20,27,43,0.04)] border border-outline-variant/10 overflow-hidden">
+      <!-- Property image banner -->
+      <div class="h-56 relative">
+        <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHLvdysUjZvnc0vdp4nxsDYpNwIpt6PJNBCiz-72BLTZA8Nvkw6q4W9ZprwGYAqFIP7u01wNvDBe7OooZ_pmtnWe8Ipn2LVkQ1vpLBhq4YRiozBonXXvVNNDnlSGbMvO9lpXt9_6qvdmNrPKtzAt2c1jf3RasM3RrHcI_9hrthDglEIL-aknaVE3GPN5-DlNy2QQ6zRj0PhWiUFpY9kuVsnRniShJRQIa0qYGSbL1AtOr7H7HA_u2gBy0kAaJcFlGgJtkLbRJcr-6l"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+        <div class="absolute bottom-6 left-8 text-white">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="px-3 py-1 bg-emerald-500/90 backdrop-blur text-white text-[10px] font-bold rounded-full uppercase tracking-wider">Active</span>
+            <span class="px-3 py-1 bg-white/20 backdrop-blur text-white text-[10px] font-bold rounded-full uppercase tracking-wider">Luxury Residential</span>
+          </div>
+          <h1 class="text-3xl font-extrabold font-headline tracking-tight">Oak Ridge Estate</h1>
+          <p class="text-sm text-white/80 mt-1 flex items-center gap-1">
+            <span class="material-symbols-outlined text-[16px]">location_on</span>
+            Beverly Hills, CA · North Highlands
+          </p>
+        </div>
+        <div class="absolute bottom-6 right-8 flex gap-3">
+          <button class="px-5 py-2 bg-white/20 backdrop-blur text-white border border-white/30 rounded-xl text-sm font-semibold hover:bg-white/30 transition-colors">
+            <span class="material-symbols-outlined text-[16px] mr-1">edit</span>Edit
+          </button>
+          <button class="px-5 py-2 bg-white text-primary rounded-xl text-sm font-bold hover:bg-slate-50 transition-colors">
+            <span class="material-symbols-outlined text-[16px] mr-1">download</span>Export
+          </button>
+        </div>
+      </div>
+
+      <!-- KPI strip under hero — operational + financial in one row -->
+      <div class="grid grid-cols-2 md:grid-cols-5 divide-x divide-outline-variant/10">
+        <div class="p-5 text-center">
+          <p class="text-[10px] font-semibold text-on-surface-variant uppercase tracking-wider">Occupancy</p>
+          <p class="text-xl font-extrabold text-on-surface mt-1">100%</p>
+          <p class="text-[10px] text-emerald-600 font-semibold">Fully leased</p>
+        </div>
+        <div class="p-5 text-center">
+          <p class="text-[10px] font-semibold text-on-surface-variant uppercase tracking-wider">Monthly Revenue</p>
+          <p class="text-xl font-extrabold text-primary mt-1">$8,400</p>
+          <p class="text-[10px] text-emerald-600 font-semibold">+3.2% vs prior</p>
+        </div>
+        <div class="p-5 text-center">
+          <p class="text-[10px] font-semibold text-on-surface-variant uppercase tracking-wider">Monthly Expenses</p>
+          <p class="text-xl font-extrabold text-on-surface mt-1">$2,800</p>
+          <p class="text-[10px] text-on-surface-variant">Maintenance + insurance</p>
+        </div>
+        <div class="p-5 text-center">
+          <p class="text-[10px] font-semibold text-on-surface-variant uppercase tracking-wider">Net Income</p>
+          <p class="text-xl font-extrabold text-on-surface mt-1">$5,600</p>
+          <p class="text-[10px] text-emerald-600 font-semibold">Margin: 66.7%</p>
+        </div>
+        <div class="p-5 text-center">
+          <p class="text-[10px] font-semibold text-on-surface-variant uppercase tracking-wider">ROI</p>
+          <p class="text-xl font-extrabold text-primary mt-1">8.2%</p>
+          <p class="text-[10px] text-violet-600 font-semibold">Growth trajectory</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── TAB BAR (content sections) ─── -->
+    <div class="flex gap-8 border-b border-outline-variant/15 text-sm font-semibold">
+      <button class="tab-active pb-3 px-1">Overview</button>
+      <button class="pb-3 px-1 text-on-surface-variant hover:text-on-surface transition-colors">Transactions</button>
+      <button class="pb-3 px-1 text-on-surface-variant hover:text-on-surface transition-colors">Documents</button>
+      <button class="pb-3 px-1 text-on-surface-variant hover:text-on-surface transition-colors">Tenants</button>
+    </div>
+
+    <!-- ─── TAB CONTENT: Overview ─── -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+      <!-- Left 2/3: Revenue chart + Recent Transactions -->
+      <div class="lg:col-span-2 space-y-8">
+        <!-- Revenue Trend -->
+        <div class="bg-surface-container-lowest p-8 rounded-2xl shadow-[0_12px_32px_rgba(20,27,43,0.04)] border border-outline-variant/10">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-lg font-bold font-headline">Revenue Trend</h3>
+            <div class="flex gap-2">
+              <span class="px-3 py-1 bg-surface-container-low rounded-full text-[10px] font-bold text-on-surface-variant">6M</span>
+              <span class="px-3 py-1 bg-primary text-white rounded-full text-[10px] font-bold">12M</span>
+            </div>
+          </div>
+          <div class="h-[200px] flex items-end justify-between gap-3 pb-4">
+            <div class="flex-1 bg-primary/10 h-[55%] rounded-t-lg hover:bg-primary/20 transition-colors"></div>
+            <div class="flex-1 bg-primary/10 h-[60%] rounded-t-lg hover:bg-primary/20 transition-colors"></div>
+            <div class="flex-1 bg-primary/10 h-[50%] rounded-t-lg hover:bg-primary/20 transition-colors"></div>
+            <div class="flex-1 bg-primary/10 h-[72%] rounded-t-lg hover:bg-primary/20 transition-colors"></div>
+            <div class="flex-1 bg-primary/10 h-[68%] rounded-t-lg hover:bg-primary/20 transition-colors"></div>
+            <div class="flex-1 bg-primary/10 h-[75%] rounded-t-lg hover:bg-primary/20 transition-colors"></div>
+            <div class="flex-1 bg-primary/10 h-[80%] rounded-t-lg hover:bg-primary/20 transition-colors"></div>
+            <div class="flex-1 bg-primary/10 h-[78%] rounded-t-lg hover:bg-primary/20 transition-colors"></div>
+            <div class="flex-1 bg-primary/10 h-[82%] rounded-t-lg hover:bg-primary/20 transition-colors"></div>
+            <div class="flex-1 bg-primary/10 h-[85%] rounded-t-lg hover:bg-primary/20 transition-colors"></div>
+            <div class="flex-1 bg-primary/10 h-[90%] rounded-t-lg hover:bg-primary/20 transition-colors"></div>
+            <div class="flex-1 bg-primary h-[95%] rounded-t-lg"></div>
+          </div>
+          <div class="flex justify-between px-1 text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">
+            <span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span>
+            <span>Oct</span><span>Nov</span><span>Dec</span><span>Jan</span><span>Feb</span><span class="text-primary">Mar</span>
+          </div>
+        </div>
+
+        <!-- Recent Transactions (for this property) -->
+        <div class="bg-surface-container-lowest p-8 rounded-2xl shadow-[0_12px_32px_rgba(20,27,43,0.04)] border border-outline-variant/10">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-lg font-bold font-headline">Recent Transactions</h3>
+            <a class="text-xs font-bold text-primary flex items-center gap-1 hover:underline" href="#">
+              View all <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+            </a>
+          </div>
+          <div class="space-y-0">
+            <!-- Transaction row -->
+            <div class="flex items-center justify-between py-4 border-b border-outline-variant/5 last:border-0">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-600">
+                  <span class="material-symbols-outlined text-[18px]">arrow_downward</span>
+                </div>
+                <div>
+                  <p class="text-sm font-semibold text-on-surface">Zillow - Rent Payment</p>
+                  <p class="text-[11px] text-on-surface-variant">Mar 14 · Tenant: Unit 4B</p>
+                </div>
+              </div>
+              <div class="text-right">
+                <p class="text-sm font-bold text-emerald-600">+$4,200.00</p>
+                <span class="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">Rental Income</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between py-4 border-b border-outline-variant/5 last:border-0">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-red-50 flex items-center justify-center text-red-500">
+                  <span class="material-symbols-outlined text-[18px]">arrow_upward</span>
+                </div>
+                <div>
+                  <p class="text-sm font-semibold text-on-surface">Liberty Mutual - Premium</p>
+                  <p class="text-[11px] text-on-surface-variant">Mar 14 · Policy: LP-998231</p>
+                </div>
+              </div>
+              <div class="text-right">
+                <p class="text-sm font-bold text-on-surface">-$845.20</p>
+                <span class="text-[10px] font-semibold text-blue-700 bg-blue-50 px-2 py-0.5 rounded-full">Insurance</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between py-4 border-b border-outline-variant/5 last:border-0">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-red-50 flex items-center justify-center text-red-500">
+                  <span class="material-symbols-outlined text-[18px]">arrow_upward</span>
+                </div>
+                <div>
+                  <p class="text-sm font-semibold text-on-surface">Precision Pool Service</p>
+                  <p class="text-[11px] text-on-surface-variant">Mar 10 · Monthly maintenance</p>
+                </div>
+              </div>
+              <div class="text-right">
+                <p class="text-sm font-bold text-on-surface">-$175.00</p>
+                <span class="text-[10px] font-semibold text-orange-700 bg-orange-50 px-2 py-0.5 rounded-full">Maintenance</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between py-4">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-red-50 flex items-center justify-center text-red-500">
+                  <span class="material-symbols-outlined text-[18px]">arrow_upward</span>
+                </div>
+                <div>
+                  <p class="text-sm font-semibold text-on-surface">HVAC Maintenance</p>
+                  <p class="text-[11px] text-on-surface-variant">Mar 5 · Quarterly service</p>
+                </div>
+              </div>
+              <div class="text-right">
+                <p class="text-sm font-bold text-on-surface">-$1,850.00</p>
+                <span class="text-[10px] font-semibold text-orange-700 bg-orange-50 px-2 py-0.5 rounded-full">Maintenance</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right 1/3: Property Details + Contacts -->
+      <div class="space-y-8">
+        <!-- Property Details card -->
+        <div class="bg-surface-container-lowest p-6 rounded-2xl shadow-[0_12px_32px_rgba(20,27,43,0.04)] border border-outline-variant/10">
+          <h3 class="text-sm font-bold font-headline text-on-surface mb-5">Property Details</h3>
+          <div class="space-y-4">
+            <div class="flex justify-between text-sm">
+              <span class="text-on-surface-variant">Type</span>
+              <span class="font-semibold">Luxury Residential</span>
+            </div>
+            <div class="flex justify-between text-sm">
+              <span class="text-on-surface-variant">Units</span>
+              <span class="font-semibold">1 (Single Family)</span>
+            </div>
+            <div class="flex justify-between text-sm">
+              <span class="text-on-surface-variant">Sq. Footage</span>
+              <span class="font-semibold">4,200 sqft</span>
+            </div>
+            <div class="flex justify-between text-sm">
+              <span class="text-on-surface-variant">Year Built</span>
+              <span class="font-semibold">2019</span>
+            </div>
+            <div class="flex justify-between text-sm">
+              <span class="text-on-surface-variant">Purchase Price</span>
+              <span class="font-semibold">$1,250,000</span>
+            </div>
+            <div class="flex justify-between text-sm">
+              <span class="text-on-surface-variant">Current Value</span>
+              <span class="font-bold text-primary">$1,420,000</span>
+            </div>
+            <div class="flex justify-between text-sm pt-3 border-t border-outline-variant/10">
+              <span class="font-bold">Net Yield</span>
+              <span class="font-extrabold text-primary">12.4%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contacts / Team -->
+        <div class="bg-surface-container-lowest p-6 rounded-2xl shadow-[0_12px_32px_rgba(20,27,43,0.04)] border border-outline-variant/10">
+          <h3 class="text-sm font-bold font-headline text-on-surface mb-5">Property Team</h3>
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-slate-200 flex items-center justify-center text-[11px] font-bold text-slate-600">RB</div>
+              <div>
+                <p class="text-sm font-semibold">Rebecca Bowen</p>
+                <p class="text-[11px] text-on-surface-variant">Property Manager</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-slate-300 flex items-center justify-center text-[11px] font-bold text-slate-600">TK</div>
+              <div>
+                <p class="text-sm font-semibold">Tom Kirkland</p>
+                <p class="text-[11px] text-on-surface-variant">Maintenance Lead</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI Insight -->
+        <div class="bg-primary/5 p-6 rounded-2xl border border-primary/10">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">psychology</span>
+            <h3 class="text-sm font-bold text-primary">AI Insight</h3>
+          </div>
+          <p class="text-sm text-on-surface leading-relaxed">This property matches a previous pattern for "Capital Expenditures" at Sunset Boulevard Estate. Based on vendor alignment, consider assigning HVAC costs to <strong>Capital Improvements</strong> for tax depreciation.</p>
+          <button class="mt-4 text-xs font-bold text-primary flex items-center gap-1 hover:underline">
+            Review in AI Triage <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Unified Footer -->
+  <footer class="max-w-[1400px] mx-auto px-8 lg:px-12 py-8 border-t border-outline-variant/10 flex justify-between items-center text-xs text-on-surface-variant">
+    <p>© 2024 The Wealth Architect · v4.2</p>
+    <div class="flex gap-6 font-semibold">
+      <a class="hover:text-primary" href="#">Documentation</a>
+      <a class="hover:text-primary" href="#">Privacy Policy</a>
+      <a class="hover:text-primary" href="#">Data Integrity</a>
+    </div>
+  </footer>
+</main>
+
+</body>
+</html>

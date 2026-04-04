@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Review - The Wealth Architect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "outline-variant": "#ccc3d8",
+        "surface-dim": "#d3daef",
+        "surface-variant": "#dce2f7",
+        "primary": "#630ed4",
+        "background": "#f9f9ff",
+        "on-background": "#141b2b",
+        "surface-container": "#e9edff",
+        "surface-container-lowest": "#ffffff",
+        "primary-fixed-dim": "#d2bbff",
+        "surface": "#f9f9ff",
+        "primary-container": "#7c3aed",
+        "error": "#ba1a1a",
+        "outline": "#7b7487",
+        "surface-tint": "#732ee4",
+        "primary-fixed": "#eaddff",
+        "on-surface": "#141b2b",
+        "surface-container-high": "#e1e8fd",
+        "on-primary": "#ffffff",
+        "surface-container-low": "#f1f3ff",
+        "on-surface-variant": "#4a4455",
+        "secondary": "#6a4fa0",
+        "secondary-container": "#c4a7ff",
+        "secondary-fixed-dim": "#d2bbff",
+        "inverse-surface": "#293040",
+        "error-container": "#ffdad6",
+        "on-error-container": "#93000a",
+        "on-primary-fixed-variant": "#5a00c6",
+      },
+      fontFamily: {
+        "headline": ["Manrope"],
+        "body": ["Inter"],
+        "label": ["Inter"]
+      },
+      borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+    },
+  },
+}
+</script>
+<style>
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+}
+body { font-family: 'Inter', sans-serif; }
+h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+.sidebar-scroll::-webkit-scrollbar { width: 4px; }
+.sidebar-scroll::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+</style>
+</head>
+<body class="bg-background text-on-background flex min-h-screen">
+
+<!-- UNIFIED SIDEBAR -->
+<aside class="w-[220px] h-screen fixed left-0 top-0 overflow-y-auto bg-slate-50 flex flex-col py-8 px-4 sidebar-scroll z-50">
+  <div class="mb-10 px-2">
+    <h1 class="text-lg font-extrabold tracking-tight text-on-surface leading-none">The Wealth<br/>Architect</h1>
+    <div class="flex items-center gap-1.5 mt-2">
+      <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+      <p class="text-[10px] text-on-surface-variant font-medium">Portfolio Active</p>
+    </div>
+  </div>
+  <nav class="flex-1 space-y-0.5">
+    <div class="pb-2 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Portfolio</div>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">dashboard</span>
+      <span class="text-sm font-medium">Dashboard</span>
+    </a>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">domain</span>
+      <span class="text-sm font-medium">Properties</span>
+    </a>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">payments</span>
+      <span class="text-sm font-medium">Transactions</span>
+    </a>
+    <div class="pt-5 pb-2 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Intelligence</div>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">rule_folder</span>
+      <span class="text-sm font-medium">Smart Triage</span>
+      <span class="ml-auto text-[10px] font-bold bg-primary/10 text-primary px-2 py-0.5 rounded-full">3</span>
+    </a>
+    <!-- Active: AI Review -->
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-primary font-bold bg-primary/5 border-r-2 border-primary transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">psychology</span>
+      <span class="text-sm">AI Review</span>
+    </a>
+    <div class="pt-5 pb-2 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Reports</div>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">analytics</span>
+      <span class="text-sm font-medium">Performance</span>
+    </a>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">assessment</span>
+      <span class="text-sm font-medium">Statements</span>
+    </a>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">file_export</span>
+      <span class="text-sm font-medium">Exports</span>
+    </a>
+    <div class="pt-5 pb-2 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">System</div>
+    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors" href="#">
+      <span class="material-symbols-outlined text-[20px]">settings</span>
+      <span class="text-sm font-medium">Settings</span>
+    </a>
+  </nav>
+  <div class="mt-auto pt-6 border-t border-slate-200 space-y-3">
+    <div class="flex items-center gap-3 px-2">
+      <div class="w-9 h-9 rounded-full bg-primary-fixed-dim flex items-center justify-center overflow-hidden">
+        <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDidJpIUVcppIpLRSOFehpZuo2diAu4nba3o91wO8i9UQHevsYtWtxKHlFoU6Z44QkbVqtBoxMJc8yeK_8NGW79hTPFYi7uCwod1wOsHtWwAhEn2F0RREPBQ29O-iF4b1MSnD2R7PMh9-lZwdxqW_352rpoIazhsxUaZYG5_kYF_gfCINniuXBBfT8K-fjnxvqIVNLkqpHUGuV7Qw4yE0SPPLSBriQ-tFrKhO_qwqA96rLxMMoHmyV8JSY6QMF7PgG2C9qgmD1A-lGx"/>
+      </div>
+      <div class="flex-1 min-w-0">
+        <p class="text-xs font-bold text-on-surface truncate">Julian Vane</p>
+        <p class="text-[10px] text-slate-500 truncate">Portfolio Principal</p>
+      </div>
+    </div>
+    <div class="flex gap-1 px-2">
+      <a class="flex items-center gap-2 px-2 py-1.5 rounded text-slate-400 hover:text-slate-600 transition-colors text-[11px] font-medium" href="#">
+        <span class="material-symbols-outlined text-[16px]">help</span>Help
+      </a>
+      <a class="flex items-center gap-2 px-2 py-1.5 rounded text-slate-400 hover:text-slate-600 transition-colors text-[11px] font-medium" href="#">
+        <span class="material-symbols-outlined text-[16px]">logout</span>Sign out
+      </a>
+    </div>
+  </div>
+</aside>
+
+<!-- UNIFIED TOP BAR -->
+<header class="fixed top-0 right-0 w-[calc(100%-220px)] h-16 bg-white/80 backdrop-blur-xl z-40 flex items-center justify-between px-8 shadow-sm">
+  <div class="flex items-center flex-1 max-w-xl">
+    <div class="relative w-full">
+      <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+      <input class="w-full bg-surface-container-low border-none rounded-xl pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 transition-all outline-none" placeholder="Search properties, transactions, reports..." type="text"/>
+    </div>
+  </div>
+  <div class="flex items-center gap-4">
+    <button class="flex items-center gap-2 bg-primary text-white px-5 py-2 rounded-xl text-sm font-semibold hover:opacity-90 transition-opacity">
+      <span class="material-symbols-outlined text-[18px]">add</span>
+      Add Property
+    </button>
+    <div class="flex items-center gap-2 border-l border-slate-200 pl-4">
+      <button class="p-2 text-slate-400 hover:bg-slate-50 rounded-lg transition-colors relative">
+        <span class="material-symbols-outlined">notifications</span>
+        <span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full border-2 border-white"></span>
+      </button>
+      <button class="p-2 text-slate-400 hover:bg-slate-50 rounded-lg transition-colors">
+        <span class="material-symbols-outlined">help_outline</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="ml-[220px] pt-24 px-10 pb-20">
+  <!-- Page Header -->
+  <div class="mb-10">
+    <h2 class="text-[28px] font-extrabold font-headline tracking-tight text-on-surface">AI Review</h2>
+    <p class="text-[14px] text-on-surface-variant font-medium">Automated analysis of your transactions across 12 connected accounts.</p>
+  </div>
+
+  <!-- Two Column Layout -->
+  <div class="flex gap-10 items-start">
+
+    <!-- LEFT: Review Queue -->
+    <section class="w-[700px] space-y-6">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-lg font-bold font-headline text-on-surface">Review Queue</h3>
+        <span class="bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">4 Pending</span>
+      </div>
+
+      <!-- Card 1: Lowe's (Selected) -->
+      <div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_12px_32px_rgba(20,27,43,0.04)] border-l-4 border-primary ring-1 ring-primary/10">
+        <div class="flex justify-between items-start mb-3">
+          <div>
+            <h4 class="font-bold text-lg text-on-surface">Lowe's Home Improvement</h4>
+            <p class="text-[13px] text-on-surface-variant italic mt-1">"Matches historical patterns for 'Capital Expenditures' at Sunset Boulevard Estate."</p>
+          </div>
+          <div class="text-right">
+            <span class="text-xl font-extrabold text-on-surface">$2,450.00</span>
+            <div class="flex items-center justify-end gap-1 mt-1">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span class="text-[11px] font-bold text-emerald-600 uppercase tracking-tighter">98% Match</span>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between mt-6">
+          <span class="bg-violet-50 text-violet-700 border border-violet-100 px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-tight">Maintenance &amp; Repairs</span>
+          <div class="flex gap-2">
+            <button class="px-4 py-2 bg-emerald-50 text-emerald-700 rounded-lg text-xs font-bold hover:bg-emerald-100 transition-colors">Approve</button>
+            <button class="px-4 py-2 bg-rose-50 text-rose-700 rounded-lg text-xs font-bold hover:bg-rose-100 transition-colors">Reject</button>
+            <button class="px-4 py-2 bg-white border border-outline-variant text-on-surface-variant rounded-lg text-xs font-bold hover:bg-slate-50 transition-colors">Modify</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Standard Insurance -->
+      <div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_12px_32px_rgba(20,27,43,0.04)] opacity-80 hover:opacity-100 transition-opacity">
+        <div class="flex justify-between items-start mb-3">
+          <div>
+            <h4 class="font-bold text-lg text-on-surface">Standard Insurance Co.</h4>
+            <p class="text-[13px] text-on-surface-variant italic mt-1">"Detected recurring quarterly premium. Recommendation based on 'Portfolio Insurance' rule."</p>
+          </div>
+          <div class="text-right">
+            <span class="text-xl font-extrabold text-on-surface">$1,120.50</span>
+            <div class="flex items-center justify-end gap-1 mt-1">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span class="text-[11px] font-bold text-emerald-600 uppercase tracking-tighter">94% Match</span>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between mt-6">
+          <span class="bg-slate-100 text-slate-600 border border-slate-200 px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-tight">Insurance Expense</span>
+          <div class="flex gap-2">
+            <button class="px-4 py-2 bg-emerald-50 text-emerald-700 rounded-lg text-xs font-bold hover:bg-emerald-100 transition-colors">Approve</button>
+            <button class="px-4 py-2 bg-rose-50 text-rose-700 rounded-lg text-xs font-bold hover:bg-rose-100 transition-colors">Reject</button>
+            <button class="px-4 py-2 bg-white border border-outline-variant text-on-surface-variant rounded-lg text-xs font-bold hover:bg-slate-50 transition-colors">Modify</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Precision Pool -->
+      <div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_12px_32px_rgba(20,27,43,0.04)] opacity-80 hover:opacity-100 transition-opacity">
+        <div class="flex justify-between items-start mb-3">
+          <div>
+            <h4 class="font-bold text-lg text-on-surface">Precision Pool Service</h4>
+            <p class="text-[13px] text-on-surface-variant italic mt-1">"High confidence based on 'Pool' keyword and vendor name alignment."</p>
+          </div>
+          <div class="text-right">
+            <span class="text-xl font-extrabold text-on-surface">$175.00</span>
+            <div class="flex items-center justify-end gap-1 mt-1">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span class="text-[11px] font-bold text-emerald-600 uppercase tracking-tighter">100% Match</span>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between mt-6">
+          <span class="bg-slate-100 text-slate-600 border border-slate-200 px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-tight">Utilities &amp; Services</span>
+          <div class="flex gap-2">
+            <button class="px-4 py-2 bg-emerald-50 text-emerald-700 rounded-lg text-xs font-bold hover:bg-emerald-100 transition-colors">Approve</button>
+            <button class="px-4 py-2 bg-rose-50 text-rose-700 rounded-lg text-xs font-bold hover:bg-rose-100 transition-colors">Reject</button>
+            <button class="px-4 py-2 bg-white border border-outline-variant text-on-surface-variant rounded-lg text-xs font-bold hover:bg-slate-50 transition-colors">Modify</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: Amazon Marketplace -->
+      <div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_12px_32px_rgba(20,27,43,0.04)] opacity-80 hover:opacity-100 transition-opacity">
+        <div class="flex justify-between items-start mb-3">
+          <div>
+            <h4 class="font-bold text-lg text-on-surface">Amazon Marketplace</h4>
+            <p class="text-[13px] text-on-surface-variant italic mt-1">"Ambiguous vendor. Multiple potential properties found. Manual review suggested."</p>
+          </div>
+          <div class="text-right">
+            <span class="text-xl font-extrabold text-on-surface">$89.42</span>
+            <div class="flex items-center justify-end gap-1 mt-1">
+              <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+              <span class="text-[11px] font-bold text-amber-600 uppercase tracking-tighter">62% Match</span>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between mt-6">
+          <span class="bg-slate-100 text-slate-600 border border-slate-200 px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-tight">Uncategorized</span>
+          <div class="flex gap-2">
+            <button class="px-4 py-2 bg-emerald-50 text-emerald-700 rounded-lg text-xs font-bold hover:bg-emerald-100 transition-colors">Approve</button>
+            <button class="px-4 py-2 bg-rose-50 text-rose-700 rounded-lg text-xs font-bold hover:bg-rose-100 transition-colors">Reject</button>
+            <button class="px-4 py-2 bg-white border border-outline-variant text-on-surface-variant rounded-lg text-xs font-bold hover:bg-slate-50 transition-colors">Modify</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RIGHT: Detail Panel -->
+    <aside class="w-[432px] sticky top-24">
+      <div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_12px_32px_rgba(20,27,43,0.06)] ring-1 ring-slate-100">
+        <div class="text-center mb-8 pb-8 border-b border-slate-50">
+          <div class="w-16 h-16 bg-primary-fixed text-primary rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="material-symbols-outlined text-3xl">store</span>
+          </div>
+          <h3 class="text-2xl font-extrabold font-headline text-on-surface">Lowe's Home Improvement</h3>
+          <p class="text-[14px] font-medium text-on-surface-variant mt-1">Transaction Ref: #TX-90210-44</p>
+        </div>
+
+        <div class="space-y-6">
+          <div class="grid grid-cols-2 gap-y-6">
+            <div>
+              <p class="text-[11px] uppercase tracking-widest text-on-surface-variant font-bold mb-1">Date</p>
+              <p class="text-sm font-semibold text-on-surface">Oct 24, 2023</p>
+            </div>
+            <div class="text-right">
+              <p class="text-[11px] uppercase tracking-widest text-on-surface-variant font-bold mb-1">Amount</p>
+              <p class="text-lg font-extrabold text-on-surface">$2,450.00</p>
+            </div>
+            <div>
+              <p class="text-[11px] uppercase tracking-widest text-on-surface-variant font-bold mb-1">Source</p>
+              <p class="text-sm font-semibold text-on-surface">Chase Platinum (***8842)</p>
+            </div>
+            <div class="text-right">
+              <p class="text-[11px] uppercase tracking-widest text-on-surface-variant font-bold mb-1">Location</p>
+              <p class="text-sm font-semibold text-on-surface">Beverly Hills, CA</p>
+            </div>
+          </div>
+
+          <div class="pt-6 border-t border-slate-50">
+            <p class="text-[11px] uppercase tracking-widest text-on-surface-variant font-bold mb-3">AI Recommendation</p>
+            <div class="bg-surface-container-low p-4 rounded-xl border-l-2 border-violet-400">
+              <p class="text-[13px] leading-relaxed text-on-surface">
+                This transaction matches 4 previous entries for "HVAC Maintenance" at the Sunset Boulevard Estate. Based on the amount and vendor category, we recommend assigning this to <strong>Capital Improvements</strong> for tax depreciation purposes.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-[11px] uppercase tracking-widest text-on-surface-variant font-bold mb-3">Similar Past Transactions</p>
+            <div class="space-y-3">
+              <div class="flex justify-between items-center py-2 px-3 bg-slate-50 rounded-lg">
+                <div>
+                  <p class="text-[12px] font-bold text-on-surface">Home Depot</p>
+                  <p class="text-[10px] text-on-surface-variant">Sept 12, 2023</p>
+                </div>
+                <span class="text-[12px] font-bold text-on-surface">$1,890.00</span>
+              </div>
+              <div class="flex justify-between items-center py-2 px-3 bg-slate-50 rounded-lg">
+                <div>
+                  <p class="text-[12px] font-bold text-on-surface">Lowe's Home Improvement</p>
+                  <p class="text-[10px] text-on-surface-variant">Aug 05, 2023</p>
+                </div>
+                <span class="text-[12px] font-bold text-on-surface">$450.00</span>
+              </div>
+              <div class="flex justify-between items-center py-2 px-3 bg-slate-50 rounded-lg">
+                <div>
+                  <p class="text-[12px] font-bold text-on-surface">Ace Hardware</p>
+                  <p class="text-[10px] text-on-surface-variant">July 20, 2023</p>
+                </div>
+                <span class="text-[12px] font-bold text-on-surface">$124.50</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-6 space-y-3">
+            <button class="w-full bg-primary hover:bg-primary-container text-white py-3 rounded-xl font-bold transition-all shadow-lg shadow-violet-100 flex items-center justify-center gap-2">
+              <span class="material-symbols-outlined text-[20px]">check_circle</span>
+              Approve Transaction
+            </button>
+            <div class="grid grid-cols-2 gap-3">
+              <button class="bg-white border border-outline-variant text-on-surface hover:bg-slate-50 py-3 rounded-xl font-bold text-[13px] transition-all">Modify</button>
+              <button class="bg-white border border-error/20 text-error hover:bg-rose-50 py-3 rounded-xl font-bold text-[13px] transition-all">Reject</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-4 px-4 text-center">
+        <p class="text-[11px] text-on-surface-variant">Automated by The Wealth Architect AI. <a class="text-primary font-semibold underline" href="#">Learn how analysis works</a></p>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- UNIFIED FOOTER -->
+  <footer class="max-w-[1400px] mx-auto px-8 lg:px-12 py-8 mt-12 border-t border-outline-variant/10 flex justify-between items-center text-xs text-on-surface-variant">
+    <p>&copy; 2024 The Wealth Architect &middot; v4.2</p>
+    <div class="flex gap-6">
+      <a class="hover:text-primary transition-colors" href="#">Documentation</a>
+      <a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+      <a class="hover:text-primary transition-colors" href="#">Data Integrity</a>
+    </div>
+  </footer>
+</main>
+
+</body>
+</html>
