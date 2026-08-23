@@ -1,5 +1,6 @@
 {
   "name": "Wealth Architect",
+  "install": "npm ci",
   "repositoryDependencies": [
     "github.com/Dcodem/Daniel-s-Website",
     "github.com/Dcodem/dcm-invoice",
